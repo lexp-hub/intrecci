@@ -1,0 +1,399 @@
+/* ============================================================
+   BINOMI MINIGAME STYLES (Giochini di Parole aesthetic)
+   ============================================================ */
+
+.binomi-screen {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 680px;
+  min-height: 90vh;
+  margin: 0 auto;
+  padding: 12px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Header */
+.binomi-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
+  background: var(--bg-card);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 14px;
+}
+
+.binomi-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-primary);
+  font-family: var(--font-primary);
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.binomi-back-btn:hover {
+  background: var(--bg-hover);
+  transform: translateX(-2px);
+}
+
+.binomi-pack-trigger {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  padding: 4px 10px;
+  border-radius: var(--radius-md);
+  transition: background 0.2s;
+}
+
+.binomi-pack-trigger:hover {
+  background: var(--bg-tertiary);
+}
+
+.pack-num-tag {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.pack-name-title {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+.binomi-meta-pills {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.binomi-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-subtle);
+  padding: 5px 10px;
+  border-radius: var(--radius-pill);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+/* Instructions */
+.binomi-instruction-box {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.binomi-title {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.binomi-sub {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+/* Solved Pairs Shelf */
+.binomi-solved-shelf {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.binomi-pair-card {
+  background: linear-gradient(135deg, rgba(160, 195, 90, 0.2) 0%, rgba(160, 195, 90, 0.35) 100%);
+  border: 1.5px solid var(--color-green);
+  border-radius: var(--radius-lg);
+  padding: 8px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+}
+
+.pair-words {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: 0.02em;
+}
+
+.pair-words .amp {
+  color: var(--accent-purple);
+  font-style: italic;
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+}
+
+.pair-relation {
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+  margin-top: 2px;
+}
+
+/* Grid of Unmatched Tiles */
+.binomi-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 480px) {
+  .binomi-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.binomi-tile {
+  background: var(--bg-card);
+  border: 2px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  padding: 18px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  user-select: none;
+}
+
+.binomi-tile:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent-purple);
+  box-shadow: var(--shadow-md);
+}
+
+.binomi-tile .tile-text {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.binomi-tile.selected {
+  background: var(--bg-tertiary);
+  border-color: var(--accent-purple);
+  box-shadow: 0 0 0 3px rgba(212, 132, 227, 0.35);
+  transform: scale(1.05);
+}
+
+.binomi-tile.anim-match {
+  background: var(--color-green);
+  border-color: var(--color-green);
+  color: #FFF;
+  animation: match-magnetic 0.5s ease-out forwards;
+}
+
+@keyframes match-magnetic {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.15) rotate(3deg); }
+  100% { transform: scale(0.9); opacity: 0.3; }
+}
+
+/* Footer Actions */
+.binomi-footer-actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: auto;
+}
+
+.binomi-btn-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-default);
+  color: var(--text-primary);
+  font-family: var(--font-primary);
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 10px 18px;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.binomi-btn-action:hover {
+  background: var(--bg-hover);
+  border-color: var(--border-dark);
+  transform: translateY(-1px);
+}
+
+/* Pack Picker Modal */
+.binomi-picker-modal {
+  max-width: 520px;
+}
+
+.binomi-packs-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 60vh;
+  overflow-y: auto;
+}
+
+.binomi-pack-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.binomi-pack-item:hover {
+  background: var(--bg-hover);
+  border-color: var(--border-default);
+}
+
+.binomi-pack-item.active {
+  border-color: var(--accent-purple);
+  background: rgba(212, 132, 227, 0.1);
+}
+
+.pack-item-num {
+  font-weight: 800;
+  color: var(--accent-purple);
+  font-size: 1.1rem;
+}
+
+.pack-item-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.pack-item-title {
+  color: var(--text-primary);
+  font-size: 0.95rem;
+}
+
+.pack-item-sub {
+  color: var(--text-muted);
+  font-size: 0.78rem;
+}
+
+.pack-item-diff {
+  font-size: 0.75rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  padding: 2px 8px;
+  border-radius: var(--radius-pill);
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+/* Win Modal */
+.binomi-win-modal {
+  text-align: center;
+  max-width: 440px;
+}
+
+.win-icon-circle {
+  font-size: 3rem;
+  margin-bottom: 8px;
+}
+
+.win-subtitle {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+}
+
+.win-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  background: var(--bg-secondary);
+  padding: 14px;
+  border-radius: var(--radius-lg);
+  margin-bottom: 24px;
+}
+
+.win-stat-cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.win-stat-val {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.win-stat-lbl {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.win-actions-row {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.btn-next-pack {
+  background: var(--color-yellow);
+  color: #332B00;
+  border: none;
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  font-weight: 800;
+  padding: 12px;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(249, 223, 109, 0.4);
+  transition: all 0.2s ease;
+}
+
+.btn-next-pack:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.05);
+}
+
+.btn-back-menu {
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-subtle);
+  font-family: var(--font-primary);
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 10px;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+}

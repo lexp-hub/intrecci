@@ -1,0 +1,14 @@
+# Dependencies
+node_modules/
+
+# Production builds
+dist/
+dist-ssr/
+
+# Vite Cache
+.vite/
+
+# System and Logs
+*.log
+.DS_Store
+*.local
