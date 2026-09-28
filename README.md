@@ -19,52 +19,6 @@
 
 **Gioca Online:** [https://lexp-hub.github.io/intrecci/](https://lexp-hub.github.io/intrecci/)
 
-### Modalità di Gioco
-- **Classica**: 4 tentativi (cuori), valutazione fino a 3 stelle in base alla precisione e serie di vittorie consecutive.
-- **A Tempo (Sprint)**: Timer di 90 secondi. Ogni quartetto individuato correttamente conferisce **+20 secondi di tempo bonus**!
-- **Zen (Relax)**: Tentativi infiniti (`∞`), nessuna sconfitta: pensato per rilassarsi ed esplorare i collegamenti semantici in totale serenità.
-
-> [!TIP]
-> **Easter Egg Gravità**: Digita sulla tastiera la sequenza Konami `↑ ↑ ↓ ↓ → ← → ← B A` (o `↑ ↑ ↓ ↓ ← → ← → B A`) in qualunque momento per far collassare l'intera interfaccia a terra con fisica gravitazionale 2D interattiva.
-
----
-
-## Caratteristiche Principali
-
-- **Mappa dei Regni a Tappe**: 20 livelli progressivi distribuiti lungo 4 biomi a tema, con tracciato curvilineo, avatar segnaposto dinamico e valutazione a stelle.
-- **Minigioco "Binomi Iconici"**: 10 pacchetti con le coppie inscindibili della tradizione italiana (Pane & Burro, Gatto & Volpe, Acqua & Sapone, Cotto & Mangiato...) per collezionare gettoni indizio.
-- **Oracolo degli Indizi a Due Livelli**:
-  - *Livello 1 (1 gettone)*: Rivela il tema o la categoria segreta di un gruppo ancora nascosto.
-  - *Livello 2 (2 gettoni)*: Bagliore dorato radiante su due tessere che appartengono allo stesso gruppo.
-- **Database Parole API Generator**: Generatore infinito di enigmi linguistici dal vivo sfruttando il database lessicale italiano open-source.
-- **Atmosfera & Suoni Rilassanti**: Particelle animate a scelta (fiocchi di neve, lucciole dorate, foglie d'autunno) e feedback audio sintetico su scala pentatonica marimba.
-- **Vettoriali OpenMoji Black Personalizzati**: Tutte le icone usano SVG OpenMoji con spessore dei tratti potenziato (`strokeWidth 4.2px`), senza dipendere da emoji di sistema frammentate.
-- **Salvataggio Locale Persistente**: Progressione, stelle, gettoni indizio e impostazioni salvati automaticamente in `localStorage`.
-
----
-
-## Mappa dei Regni (I 4 Biomi)
-
-| Bioma | Livelli | Tema | Icona |
-| :--- | :---: | :--- | :---: |
-| **Pianura delle Parole** | `1 - 5` | Natura, stagioni, suoni campestri e mestieri tradizionali | 🌲 Albero |
-| **Borgo dei Sapori** | `6 - 10` | Cucina della nonna, primi piatti, cantina, forno e dolci | 🍝 Pasta |
-| **Foresta degli Intrecci** | `11 - 15` | Fauna notturna, legno, musica, minerali e fiori selvatici | 🧭 Bussola |
-| **Vetta dei Misteri** | `16 - 20` | Filosofia, enigmi complessi, miti, carte e maestri della letteratura | 🏆 Trofeo |
-
----
-
-## Controlli & Scorciatoie da Tastiera
-
-| Azione | Tasto / Controllo | Descrizione |
-| :--- | :--- | :--- |
-| **Selezione Tessera** | `Click / Tap` | Seleziona o deseleziona una tessera (massimo 4 contemporanee) |
-| **Verifica Gruppo** | `Invio` / `Enter` | Invia il tentativo per le 4 tessere selezionate |
-| **Deseleziona Tutto** | `Esc` / `Backspace` | Azzera istantaneamente la selezione corrente |
-| **Rimescola Griglia** | `Barra Spaziatrice` | Mescola la posizione delle tessere rimaste |
-| **Easter Egg Gravità** | `↑ ↑ ↓ ↓ → ← → ← B A` |
-
----
 ## Ringraziamenti & Open Source Credits
 
 Un ringraziamento speciale a tutti i progetti e le librerie open source che hanno reso possibile la realizzazione di **Intrecci**:
