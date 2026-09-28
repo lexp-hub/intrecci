@@ -1,5 +1,4 @@
 <div align="center">
-  <img src="preview.png" alt="Intrecci Preview" width="100%" />
   <p align="center">
     <strong>Il gioco dei collegamenti semantici di parole in lingua italiana, con mappa a tappe, minigiochi e fisica interattiva</strong>
   </p>
