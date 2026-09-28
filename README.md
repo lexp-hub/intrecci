@@ -1,3 +1,6 @@
+
+
+# Intrecci — Connessioni di Parole
 <div align="center">
   <p align="center">
     <strong>Il gioco dei collegamenti semantici di parole in lingua italiana, con mappa a tappe, minigiochi e fisica interattiva</strong>
@@ -15,8 +18,6 @@
 </div>
 
 <br>
-
-# Intrecci — Connessioni di Parole
 
 > **Il gioco quotidiano di collegamenti logici e semantici in italiano.**  
 > Unisci le 16 tessere in 4 gruppi da 4 elementi legati da un filo conduttore comune. Include una mappa avventura a tappe progressive stile Farm Heroes, il minigioco dei "Binomi Iconici Italiani", l'oracolo degli indizi a due livelli, un generatore infinito da API e un Easter Egg con fisica 2D in stile Google Gravity. Progettato e sviluppato da Lex.
