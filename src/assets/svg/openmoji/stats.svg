@@ -1,4 +1,13 @@
 <svg id="emoji" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
+  <g id="color">
+    <rect x="12.05" y="12.05" width="47.9" height="47.9" fill="#fff"/>
+    <rect x="18.32" y="37.6" width="8" height="21.41" fill="#b1cc33"/>
+    <rect x="46.25" y="44.38" width="8" height="14.62" fill="#92d3f5"/>
+    <rect x="32.28" y="21.69" width="8" height="37.32" fill="#d22f27"/>
+  </g>
+  <g id="hair"/>
+  <g id="skin"/>
+  <g id="skin-shadow"/>
   <g id="line">
     <path fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" d="m18.03 59.01v-21.41h8v21.41"/>
     <path fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" d="m45.97 59.01v-14.62h8v14.62"/>

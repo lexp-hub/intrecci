@@ -6,7 +6,7 @@
     <img src="https://img.shields.io/badge/React-v18.3-61DAFB?style=flat-square&logo=react&logoColor=black" alt="React 18" />
     <img src="https://img.shields.io/badge/Vite-v5.4-646CFF?style=flat-square&logo=vite&logoColor=white" alt="Vite" />
     <img src="https://img.shields.io/badge/Physics-Matter.js_2D-E8590C?style=flat-square" alt="Matter.js" />
-    <img src="https://img.shields.io/badge/Icons-OpenMoji_Black-1E1E22?style=flat-square" alt="OpenMoji Black" />
+    <img src="https://img.shields.io/badge/Icons-OpenMoji_Color-FFB800?style=flat-square" alt="OpenMoji Color" />
     <img src="https://img.shields.io/badge/FX-Canvas_Confetti-FFB800?style=flat-square" alt="Confetti" />
     <img src="https://img.shields.io/badge/License-MIT-30D158?style=flat-square" alt="License" />
   </p>

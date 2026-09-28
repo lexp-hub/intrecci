@@ -1719,7 +1719,7 @@ body {
 }
 
 /* ==========================================================================
-   OpenMoji & Custom SVG Visual Weight Optimization
+   OpenMoji Color & Custom SVG Styling
    ========================================================================== */
 
 .custom-svg-wrapper {
@@ -1732,21 +1732,4 @@ body {
 
 .custom-svg-wrapper svg {
   display: block;
-}
-
-/* Ensure OpenMoji 72x72 SVGs have strong, bold strokes with rounded joins and caps */
-.custom-svg-wrapper svg[viewBox="0 0 72 72"] *[stroke]:not([stroke="none"]) {
-  stroke-width: var(--openmoji-stroke, 4.2px) !important;
-  stroke-linecap: round !important;
-  stroke-linejoin: round !important;
-}
-
-/* For small icon sizes (<= 20px, e.g. stats pills, small badges), boost stroke to maintain clarity */
-.custom-svg-wrapper[style*="width: 18px"] svg[viewBox="0 0 72 72"] *[stroke]:not([stroke="none"]),
-.custom-svg-wrapper[style*="width: 17px"] svg[viewBox="0 0 72 72"] *[stroke]:not([stroke="none"]),
-.custom-svg-wrapper[style*="width: 16px"] svg[viewBox="0 0 72 72"] *[stroke]:not([stroke="none"]),
-.custom-svg-wrapper[style*="width: 15px"] svg[viewBox="0 0 72 72"] *[stroke]:not([stroke="none"]),
-.custom-svg-wrapper[style*="width: 14px"] svg[viewBox="0 0 72 72"] *[stroke]:not([stroke="none"]),
-.custom-svg-wrapper[style*="width: 12px"] svg[viewBox="0 0 72 72"] *[stroke]:not([stroke="none"]) {
-  stroke-width: var(--openmoji-stroke-sm, 4.8px) !important;
 }
