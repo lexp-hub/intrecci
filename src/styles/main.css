@@ -27,72 +27,24 @@ body {
   justify-content: center;
 }
 
-/* Floating Ambient Spheres (giochinidiparole.com signature background) */
-.giochini-ambient-bg {
-  position: fixed;
-  inset: 0;
-  overflow: hidden;
-  pointer-events: none;
-  z-index: 0;
-}
 
-.ambient-sphere {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(60px);
-  opacity: 0.16;
-  animation: floatSphere 22s ease-in-out infinite;
-}
+.giochini-ambient-bg { display: none; }
 
-[data-theme="dark"] .ambient-sphere {
-  opacity: 0.14;
-  filter: blur(75px);
-}
 
-.sphere-1 {
-  width: 320px;
-  height: 320px;
-  background: #FF9E3D; /* Orange */
-  top: -60px;
-  right: -60px;
-  animation-delay: 0s;
-}
 
-.sphere-2 {
-  width: 260px;
-  height: 260px;
-  background: #5AA7F7; /* Blue */
-  bottom: 8%;
-  left: -50px;
-  animation-delay: -6s;
-}
+[data-theme="dark"] 
 
-.sphere-3 {
-  width: 220px;
-  height: 220px;
-  background: #D484E3; /* Purple */
-  top: 40%;
-  right: 5%;
-  animation-delay: -12s;
-}
 
-.sphere-4 {
-  width: 180px;
-  height: 180px;
-  background: #4ACD68; /* Green */
-  bottom: 25%;
-  left: 20%;
-  animation-delay: -18s;
-}
 
-@keyframes floatSphere {
-  0%, 100% { transform: translate(0, 0) rotate(0deg); }
-  25% { transform: translate(25px, -35px) rotate(4deg); }
-  50% { transform: translate(-15px, 25px) rotate(-4deg); }
-  75% { transform: translate(20px, 15px) rotate(2deg); }
-}
 
-/* Main Container */
+
+
+
+
+
+
+
+
 .app-container {
   width: 100%;
   padding: 20px 24px 52px;
@@ -100,7 +52,7 @@ body {
   flex-direction: column;
   min-height: 100vh;
   position: relative;
-  z-index: 2; /* Content above background ambient shapes */
+  z-index: 2; 
   transition: max-width 0.25s ease;
 }
 
@@ -112,7 +64,7 @@ body {
   max-width: 680px;
 }
 
-/* Header / Navigation Bar */
+
 .app-header {
   display: flex;
   align-items: center;
@@ -216,7 +168,7 @@ body {
   border-color: #78350F;
 }
 
-/* Level Indicator Banner */
+
 .level-banner {
   display: flex;
   align-items: center;
@@ -226,7 +178,7 @@ body {
   border-radius: var(--radius-md);
   padding: 10px 16px;
   margin-bottom: 16px;
-  box-shadow: var(--shadow-subtle);
+  box-shadow: none;
 }
 
 .level-info-left {
@@ -279,7 +231,7 @@ body {
   background: var(--bg-card-hover);
 }
 
-/* Instruction Prompt */
+
 .instruction-text {
   text-align: center;
   font-size: 0.94rem;
@@ -288,7 +240,7 @@ body {
   font-weight: 500;
 }
 
-/* Board & Solved Groups */
+
 .board-container {
   display: flex;
   flex-direction: column;
@@ -308,7 +260,7 @@ body {
   display: flex;
   align-items: center;
   gap: 14px;
-  box-shadow: var(--shadow-subtle);
+  box-shadow: none;
   transition: transform 0.2s ease;
 }
 
@@ -357,7 +309,7 @@ body {
   font-style: italic;
 }
 
-/* Tiles Grid */
+
 .tiles-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -371,8 +323,7 @@ body {
   border-radius: var(--radius-md);
   color: var(--text-primary);
   font-family: var(--font-sans);
-  font-size: 0.86rem;
-  font-weight: 700;
+  font-size: 0.95rem; font-weight: 800;
   letter-spacing: 0.02em;
   text-transform: uppercase;
   cursor: pointer;
@@ -383,7 +334,7 @@ body {
   padding: 6px;
   user-select: none;
   transition: all 0.15s cubic-bezier(0.2, 0, 0, 1);
-  box-shadow: var(--shadow-subtle);
+  box-shadow: none;
   line-height: 1.15;
   word-break: break-word;
 }
@@ -412,7 +363,7 @@ body {
   cursor: not-allowed;
 }
 
-/* Attempts Counter */
+
 .attempts-wrapper {
   display: flex;
   align-items: center;
@@ -436,7 +387,7 @@ body {
   transition: all 0.3s ease;
 }
 
-/* Controls Bar */
+
 .controls-bar {
   display: flex;
   align-items: center;
@@ -463,7 +414,7 @@ body {
   background: var(--bg-surface);
   border: 1.5px solid var(--border-strong);
   color: var(--text-primary);
-  box-shadow: var(--shadow-subtle);
+  box-shadow: none;
 }
 
 .action-btn-outline:hover:not(:disabled) {
@@ -514,7 +465,7 @@ body {
   transform: none;
 }
 
-/* Keyboard Shortcut Badges on Desktop */
+
 .btn-kbd-hint {
   font-family: inherit;
   font-size: 0.65rem;
@@ -542,7 +493,7 @@ body {
   }
 }
 
-/* Keyboard Shortcuts Guide in Modals */
+
 .keyboard-shortcuts-grid {
   display: flex;
   flex-direction: column;
@@ -576,7 +527,7 @@ body {
   text-align: center;
 }
 
-/* Toast Notice */
+
 .toast-notice {
   position: fixed;
   top: 24px;
@@ -601,7 +552,7 @@ body {
   color: #0F172A;
 }
 
-/* Modals */
+
 .modal-backdrop {
   position: fixed;
   inset: 0;
@@ -665,7 +616,7 @@ body {
   line-height: 1.45;
 }
 
-/* Help Modal List */
+
 .help-rules-list {
   display: flex;
   flex-direction: column;
@@ -724,7 +675,7 @@ body {
   flex-shrink: 0;
 }
 
-/* Results & Share */
+
 .results-grid-preview {
   background: var(--bg-tile);
   border-radius: var(--radius-md);
@@ -755,7 +706,7 @@ body {
   align-items: center;
   justify-content: space-between;
   transition: all 0.15s ease;
-  box-shadow: var(--shadow-subtle);
+  box-shadow: none;
 }
 
 .level-card-item:hover {
@@ -781,9 +732,9 @@ body {
   color: var(--text-muted);
 }
 
-/* API Hero Card in Modal with Dark Mode */
+
 .api-hero-card {
-  background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%);
+  background: #FEF3C7;
   border: 1.5px solid #F59E0B;
   border-radius: var(--radius-md);
   padding: 14px 16px;
@@ -792,7 +743,7 @@ body {
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  box-shadow: var(--shadow-subtle);
+  box-shadow: none;
 }
 
 .api-hero-title {
@@ -808,7 +759,7 @@ body {
 }
 
 [data-theme="dark"] .api-hero-card {
-  background: linear-gradient(135deg, #2D2314 0%, #1F170D 100%);
+  background: #2D2314;
   border-color: #92400E;
 }
 
@@ -820,8 +771,8 @@ body {
   color: #D4A373;
 }
 
-/* MAIN MENU — GIOCHINIDIPAROLE.COM STYLE */
-/* MAIN MENU — DISTRIBUTED RESPONSIVE DASHBOARD */
+
+
 .main-menu-container {
   display: flex;
   flex-direction: column;
@@ -878,7 +829,7 @@ body {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: #D484E3; /* Giochini di Parole signature purple */
+  color: #D484E3; 
   margin-top: 4px;
 }
 
@@ -890,7 +841,7 @@ body {
   margin: 0;
 }
 
-/* Hero Stats Pill */
+
 .menu-hero-stats {
   display: flex;
   align-items: center;
@@ -899,7 +850,7 @@ body {
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-xl);
   padding: 12px 20px;
-  box-shadow: var(--shadow-subtle);
+  box-shadow: none;
   user-select: none;
 }
 
@@ -930,7 +881,7 @@ body {
   background: var(--border-subtle);
 }
 
-/* Responsive Dashboard Grid */
+
 .menu-dashboard-grid {
   display: grid;
   grid-template-columns: 1.15fr 1fr;
@@ -967,7 +918,7 @@ body {
   gap: 10px;
 }
 
-/* Featured Puzzle Card */
+
 .featured-puzzle-card {
   width: 100%;
   background: var(--bg-surface);
@@ -1064,7 +1015,7 @@ body {
 }
 
 .menu-primary-btn {
-  background: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%);
+  background: #000000;
   color: #FFFFFF;
   border: none;
   font-family: var(--font-sans);
@@ -1084,7 +1035,7 @@ body {
 }
 
 .menu-primary-btn:hover {
-  background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%);
+  background: #222222;
   transform: translateY(-1px);
   box-shadow: 0 6px 18px rgba(37, 99, 235, 0.45);
 }
@@ -1094,11 +1045,11 @@ body {
 }
 
 [data-theme="dark"] .menu-primary-btn {
-  background: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%);
+  background: #000000;
   color: #FFFFFF;
 }
 
-/* Card Button Styling */
+
 .menu-card-btn {
   background: var(--bg-surface);
   border: 1px solid var(--border-subtle);
@@ -1110,7 +1061,7 @@ body {
   cursor: pointer;
   text-align: left;
   transition: all 0.15s ease;
-  box-shadow: var(--shadow-subtle);
+  box-shadow: none;
 }
 
 .menu-card-btn:hover {
@@ -1125,7 +1076,7 @@ body {
 }
 
 .menu-card-magic {
-  background: linear-gradient(135deg, #FFFDF8 0%, #FEF9EE 100%);
+  background: #FFFFFF;
   border-color: #FDE68A;
 }
 
@@ -1135,7 +1086,7 @@ body {
 }
 
 [data-theme="dark"] .menu-card-magic {
-  background: linear-gradient(135deg, #2D2314 0%, #20180D 100%);
+  background: #1E293B;
   border-color: #92400E;
 }
 
@@ -1234,7 +1185,7 @@ body {
   padding: 12px 0;
 }
 
-/* Settings Panel & Toggle Switches */
+
 .settings-list {
   display: flex;
   flex-direction: column;
@@ -1273,7 +1224,7 @@ body {
   line-height: 1.35;
 }
 
-/* Custom Toggle Switch */
+
 .toggle-switch {
   width: 48px;
   height: 26px;
@@ -1308,7 +1259,7 @@ body {
   transform: translateX(22px);
 }
 
-/* Effect Chips */
+
 .setting-subgroup {
   background: var(--bg-tile);
   border-radius: var(--radius-md);
@@ -1346,7 +1297,7 @@ body {
   border-color: var(--color-accent);
   background: #EFF6FF;
   color: var(--color-accent);
-  box-shadow: var(--shadow-subtle);
+  box-shadow: none;
 }
 
 [data-theme="dark"] .effect-chip.active {
@@ -1357,7 +1308,7 @@ body {
   font-size: 1.25rem;
 }
 
-/* Responsive adjustments */
+
 @media (max-width: 480px) {
   .app-container {
     padding: 12px 12px 34px;
@@ -1386,11 +1337,9 @@ body {
   }
 }
 
-/* ============================================================
-   HINT SYSTEM & GLOWING TILES
-   ============================================================ */
 
-/* Golden glowing tile for Hint Tier 2 */
+
+
 .tile-btn.hint-glowing {
   box-shadow: 0 0 0 3px #F59E0B, 0 0 16px rgba(245, 158, 11, 0.7) !important;
   border-color: #F59E0B !important;
@@ -1404,7 +1353,7 @@ body {
   100% { box-shadow: 0 0 0 4px #F59E0B, 0 0 22px rgba(245, 158, 11, 0.85); }
 }
 
-/* Revealed Hints Banner on Board */
+
 .revealed-hints-banner {
   display: flex;
   flex-direction: column;
@@ -1417,7 +1366,7 @@ body {
   display: flex;
   align-items: center;
   gap: 8px;
-  background: linear-gradient(135deg, rgba(249, 223, 109, 0.25) 0%, rgba(249, 223, 109, 0.45) 100%);
+  background: #FEF3C7;
   border: 1px solid rgba(226, 191, 48, 0.6);
   border-radius: var(--radius-pill);
   padding: 6px 14px;
@@ -1432,12 +1381,12 @@ body {
   border-color: #F59E0B;
 }
 
-/* Hint Button in Controls */
+
 .action-btn-hint {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%);
+  background: #FEF3C7;
   border: 1.5px solid #F59E0B;
   color: #78350F;
   font-weight: 700;
@@ -1454,7 +1403,7 @@ body {
 }
 
 [data-theme="dark"] .action-btn-hint {
-  background: linear-gradient(135deg, #3D2905 0%, #5C3D05 100%);
+  background: #3D2905;
   border-color: #D97706;
   color: #FDE68A;
 }
@@ -1463,9 +1412,7 @@ body {
   font-size: 1rem;
 }
 
-/* ============================================================
-   GAME MODES: TIMED & ZEN ATTEMPTS COUNTER
-   ============================================================ */
+
 
 .attempts-row-container {
   display: flex;
@@ -1487,7 +1434,7 @@ body {
   font-size: 0.95rem;
   font-weight: 800;
   color: var(--text-primary);
-  box-shadow: var(--shadow-subtle);
+  box-shadow: none;
 }
 
 .timed-badge-pill .timer-urgent {
@@ -1517,9 +1464,7 @@ body {
   color: #81C784;
 }
 
-/* ============================================================
-   HINT MODAL
-   ============================================================ */
+
 
 .modal-hint-content {
   max-width: 480px;
@@ -1572,12 +1517,12 @@ body {
 
 .hint-card:hover {
   border-color: var(--border-strong);
-  box-shadow: var(--shadow-subtle);
+  box-shadow: none;
 }
 
 .hint-card-highlight {
   border-color: rgba(245, 158, 11, 0.4);
-  background: linear-gradient(135deg, rgba(254, 243, 199, 0.15) 0%, rgba(253, 230, 138, 0.15) 100%);
+  background: #FEF9C3;
 }
 
 .hint-card-header {
@@ -1636,7 +1581,7 @@ body {
 }
 
 .btn-use-hint.gold-btn {
-  background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+  background: #D97706;
   color: #FFF;
   box-shadow: 0 2px 8px rgba(217, 119, 6, 0.3);
 }
@@ -1653,9 +1598,7 @@ body {
   line-height: 1.4;
 }
 
-/* ============================================================
-   MAIN MENU ENHANCEMENTS: SAGA CARD & BINOMI CARD
-   ============================================================ */
+
 
 .menu-badge-row {
   display: flex;
@@ -1665,7 +1608,7 @@ body {
 }
 
 .badge-new-mode {
-  background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+  background: #D97706;
   color: #FFF;
   font-size: 0.68rem;
   font-weight: 800;
@@ -1676,7 +1619,7 @@ body {
 }
 
 .badge-minigame {
-  background: linear-gradient(135deg, #9333EA 0%, #7E22CE 100%);
+  background: #7E22CE;
   color: #FFF;
   font-size: 0.68rem;
   font-weight: 800;
@@ -1694,37 +1637,35 @@ body {
 
 .menu-card-saga {
   border-color: rgba(245, 158, 11, 0.4);
-  background: linear-gradient(135deg, rgba(254, 243, 199, 0.35) 0%, rgba(253, 230, 138, 0.2) 100%);
+  background: #FFFBEB;
 }
 
 .menu-card-saga:hover {
-  background: linear-gradient(135deg, rgba(254, 243, 199, 0.65) 0%, rgba(253, 230, 138, 0.4) 100%);
+  background: #FEF3C7;
   border-color: #F59E0B;
 }
 
 [data-theme="dark"] .menu-card-saga {
-  background: linear-gradient(135deg, rgba(69, 26, 3, 0.4) 0%, rgba(45, 23, 14, 0.3) 100%);
+  background: #291804;
   border-color: #92400E;
 }
 
 .menu-card-binomi {
   border-color: rgba(147, 51, 234, 0.3);
-  background: linear-gradient(135deg, rgba(243, 232, 255, 0.35) 0%, rgba(233, 213, 255, 0.2) 100%);
+  background: #FAF5FF;
 }
 
 .menu-card-binomi:hover {
-  background: linear-gradient(135deg, rgba(243, 232, 255, 0.65) 0%, rgba(233, 213, 255, 0.4) 100%);
+  background: #F3E8FF;
   border-color: #9333EA;
 }
 
 [data-theme="dark"] .menu-card-binomi {
-  background: linear-gradient(135deg, rgba(59, 22, 89, 0.4) 0%, rgba(46, 16, 101, 0.3) 100%);
+  background: #260E38;
   border-color: #6B21A8;
 }
 
-/* ============================================================
-   GOOGLE GRAVITY EASTER EGG HUD
-   ============================================================ */
+
 
 .gravity-hud-container {
   position: fixed;
@@ -1795,9 +1736,7 @@ body {
   filter: brightness(1.08);
 }
 
-/* ==========================================================================
-   OpenMoji Color & Custom SVG Styling
-   ========================================================================== */
+
 
 .custom-svg-wrapper {
   display: inline-flex;

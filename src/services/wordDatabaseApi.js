@@ -1,11 +1,5 @@
-/**
- * Word Database API Service for generating Connections (Intrecci) puzzles.
- * Utilizza l'API del database lessicale e delle categorie di Wikipedia / Wikimedia
- * in lingua italiana (it.wikipedia.org) con vocabolario semantico garantito.
- */
 
 export const ITALIAN_CATEGORY_REGISTRY = {
-  // Livello 1: Giallo (Intuitivo / Diretto)
   yellow: [
     {
       name: "TIPI DI AGRUMI",
@@ -39,7 +33,6 @@ export const ITALIAN_CATEGORY_REGISTRY = {
     }
   ],
 
-  // Livello 2: Verde (Medio)
   green: [
     {
       name: "STRUMENTI MUSICALI",
@@ -73,7 +66,6 @@ export const ITALIAN_CATEGORY_REGISTRY = {
     }
   ],
 
-  // Livello 3: Blu (Difficile / Associazione meno immediata)
   blue: [
     {
       name: "PIETRE PREZIOSE E GEMME",
@@ -107,7 +99,6 @@ export const ITALIAN_CATEGORY_REGISTRY = {
     }
   ],
 
-  // Livello 4: Viola (Insidioso / Giochi di parole, metafore e suffissi)
   purple: [
     {
       name: "PAROLE CHE TERMINANO CON 'TECA'",
@@ -148,7 +139,6 @@ export const ITALIAN_CATEGORY_REGISTRY = {
   ]
 };
 
-// Parole da escludere (termini tecnici, meta-articoli, discipline)
 const EXCLUDED_SUFFIXES = ['LOGIA', 'METRIA', 'GRAFIA', 'ISMO', 'LISTA', 'PORTALE', 'CATEGORIA'];
 
 function sanitizeWord(raw) {
@@ -171,9 +161,6 @@ function sanitizeWord(raw) {
   return w;
 }
 
-/**
- * Interroga l'API di Wikipedia italiana per arricchire i termini della categoria
- */
 async function fetchWikiWords(wikiCat) {
   if (!wikiCat) return [];
   try {
@@ -192,9 +179,6 @@ async function fetchWikiWords(wikiCat) {
   }
 }
 
-/**
- * Genera un nuovo enigma completo interrogando il database API
- */
 export async function generatePuzzleFromDatabase(existingPuzzleCount = 5) {
   const tiers = ['yellow', 'green', 'blue', 'purple'];
   const chosenCategories = [];
@@ -203,14 +187,12 @@ export async function generatePuzzleFromDatabase(existingPuzzleCount = 5) {
   for (let i = 0; i < tiers.length; i++) {
     const tier = tiers[i];
     const catList = ITALIAN_CATEGORY_REGISTRY[tier];
-    // Seleziona una categoria casuale per questo tier
     const cat = catList[Math.floor(Math.random() * catList.length)];
 
     let candidateWords = [];
     if (cat.wikiCat) {
       try {
         const apiWords = await fetchWikiWords(cat.wikiCat);
-        // Combina i risultati dell'API con i seed per massima affidabilità
         candidateWords = [...apiWords.slice(0, 8), ...cat.seeds];
       } catch {
         candidateWords = [...cat.seeds];
@@ -219,7 +201,6 @@ export async function generatePuzzleFromDatabase(existingPuzzleCount = 5) {
       candidateWords = [...cat.seeds];
     }
 
-    // Mescola
     const shuffled = [...new Set(candidateWords)].sort(() => 0.5 - Math.random());
     const validWords = [];
 
@@ -231,7 +212,6 @@ export async function generatePuzzleFromDatabase(existingPuzzleCount = 5) {
       if (validWords.length === 4) break;
     }
 
-    // Fallback garantito
     if (validWords.length < 4) {
       for (const sw of cat.seeds) {
         if (!usedWords.has(sw)) {

@@ -2,15 +2,12 @@ import React, { useEffect, useState, useCallback, useRef } from 'react';
 import { startGoogleGravity, stopGoogleGravity, isGravityActive } from '../../utils/googleGravity';
 import CustomSvg from '../../assets/svg/CustomSvg';
 
-// Target sequences:
-// 1. User specified: Su Su Giù Giù Destra Sinistra Destra Sinistra B A
 const USER_SEQUENCE = [
   'ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown',
   'ArrowRight', 'ArrowLeft', 'ArrowRight', 'ArrowLeft',
   'b', 'a'
 ];
 
-// 2. Classic Konami: Su Su Giù Giù Sinistra Destra Sinistra Destra B A
 const CLASSIC_SEQUENCE = [
   'ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown',
   'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight',
@@ -23,7 +20,6 @@ export const GoogleGravity = () => {
 
   const handleTriggerGravity = useCallback(() => {
     setIsActive(true);
-    // Slight timeout so DOM elements finish any current transition before getting captured
     setTimeout(() => {
       startGoogleGravity();
     }, 50);
@@ -36,13 +32,11 @@ export const GoogleGravity = () => {
 
   useEffect(() => {
     const handleKeyDown = (e) => {
-      // Allow pressing ESC to reset gravity
       if (e.key === 'Escape' && isGravityActive()) {
         handleResetGravity();
         return;
       }
 
-      // Ignore input when user is typing in form fields
       if (['INPUT', 'TEXTAREA'].includes(e.target.tagName)) return;
 
       const key = e.key.length === 1 ? e.key.toLowerCase() : e.key;
@@ -54,7 +48,6 @@ export const GoogleGravity = () => {
 
       const buffer = keyBufferRef.current;
 
-      // Check match against user sequence or classic sequence
       const checkMatch = (seq) => {
         if (buffer.length < seq.length) return false;
         const tail = buffer.slice(-seq.length);

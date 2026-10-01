@@ -6,7 +6,7 @@ export const PUZZLES = [
     difficulty: "Bilanciato",
     groups: [
       {
-        level: 1, // Giallo (Dritto)
+        level: 1, 
         color: "yellow",
         category: "FORMATI DI PASTA CORTA",
         emoji: "pasta",
@@ -14,7 +14,7 @@ export const PUZZLES = [
         words: ["PENNE", "RIGATONI", "FARFALLE", "FUSILLI"]
       },
       {
-        level: 2, // Verde (Medio)
+        level: 2, 
         color: "green",
         category: "COSE CHE HANNO LE ALI",
         emoji: "tree",
@@ -22,7 +22,7 @@ export const PUZZLES = [
         words: ["AEREO", "UCCELLO", "ANGELO", "MULINO"]
       },
       {
-        level: 3, // Blu (Difficile)
+        level: 3, 
         color: "blue",
         category: "LEGATI ALLA CORRISPONDENZA O SCRITTURA",
         emoji: "book",
@@ -30,7 +30,7 @@ export const PUZZLES = [
         words: ["LETTERA", "DIARIO", "MATITA", "MESSAGGIO"]
       },
       {
-        level: 4, // Viola (Trabocchetto linguistico)
+        level: 4, 
         color: "purple",
         category: "POSSONO ESSERE PRECEDUTE DA 'COLPO DI...'",
         emoji: "sparkle",

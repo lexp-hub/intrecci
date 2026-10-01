@@ -29,7 +29,6 @@ export const PuzzlesModal = ({
           Scegli un puzzle o generane uno nuovo all'istante tramite il database delle parole.
         </div>
 
-        {/* Dynamic Generator Hero Card */}
         <div className="api-hero-card">
           <div>
             <div className="api-hero-title">

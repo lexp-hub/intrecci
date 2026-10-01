@@ -34,7 +34,6 @@ export const BIOMES = [
 ];
 
 export const SAGA_LEVELS = [
-  // --- BIOME 1: Pianura delle Parole (Livelli 1-5) ---
   {
     id: 1,
     biomeId: 1,
@@ -221,7 +220,6 @@ export const SAGA_LEVELS = [
     ]
   },
 
-  // --- BIOME 2: Borgo dei Sapori (Livelli 6-10) ---
   {
     id: 6,
     biomeId: 2,
@@ -408,7 +406,6 @@ export const SAGA_LEVELS = [
     ]
   },
 
-  // --- BIOME 3: Foresta degli Intrecci (Livelli 11-15) ---
   {
     id: 11,
     biomeId: 3,
@@ -595,7 +592,6 @@ export const SAGA_LEVELS = [
     ]
   },
 
-  // --- BIOME 4: Vetta dei Misteri (Livelli 16-20) ---
   {
     id: 16,
     biomeId: 4,

@@ -42,7 +42,6 @@ export const ResultsModal = ({
             : `Non scoraggiarti! Ogni errore è una nuova parola da ricordare.`}
         </div>
 
-        {/* Results grid preview */}
         <div className="results-grid-preview">
           {guessHistory.map((guess, idx) => (
             <div key={idx} style={{ display: 'flex', gap: 6 }}>

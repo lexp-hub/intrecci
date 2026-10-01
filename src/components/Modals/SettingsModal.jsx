@@ -44,7 +44,6 @@ export const SettingsModal = ({
         </div>
 
         <div className="settings-list">
-          {/* Dark Mode Toggle */}
           <div className="setting-item">
             <div className="setting-info">
               <div className="setting-label">Tema Notturno</div>
@@ -60,7 +59,6 @@ export const SettingsModal = ({
             </button>
           </div>
 
-          {/* Special Effects Toggle */}
           <div className="setting-item">
             <div className="setting-info">
               <div className="setting-label">Effetti Speciali</div>
@@ -76,7 +74,6 @@ export const SettingsModal = ({
             </button>
           </div>
 
-          {/* Effect Selector (Visible when effects are enabled) */}
           {effectsEnabled && (
             <div className="setting-subgroup">
               <div style={{ fontSize: '0.8rem', fontWeight: 700, marginBottom: 8, color: 'var(--text-secondary)' }}>
@@ -113,7 +110,6 @@ export const SettingsModal = ({
             </div>
           )}
 
-          {/* Relaxing Sounds Toggle */}
           <div className="setting-item">
             <div className="setting-info">
               <div className="setting-label">Suoni Rilassanti</div>

@@ -31,7 +31,6 @@ export const HintModal = ({
           </div>
 
           <div className="hint-options-list">
-            {/* Tier 1: Category Hint */}
             <div className="hint-card">
               <div className="hint-card-header">
                 <span className="hint-tier-tag">Livello 1 • 1 Gettone</span>
@@ -52,7 +51,6 @@ export const HintModal = ({
               </button>
             </div>
 
-            {/* Tier 2: Word Pair Glow */}
             <div className="hint-card hint-card-highlight">
               <div className="hint-card-header">
                 <span className="hint-tier-tag gold-tag">Livello 2 • 2 Gettoni</span>

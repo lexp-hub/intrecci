@@ -24,7 +24,6 @@ export const MainMenu = ({
 
   return (
     <div className="main-menu-container">
-      {/* Top Hero Banner — Distributed Horizontally on Desktop */}
       <header className="menu-hero-section">
         <div className="menu-hero-left">
           <div className="menu-brand-row">
@@ -42,7 +41,6 @@ export const MainMenu = ({
           </p>
         </div>
 
-        {/* Quick Stats Pill on Desktop */}
         <div className="menu-hero-stats">
           <div className="hero-stat-box">
             <span className="hero-stat-val" style={{ display: 'inline-flex', alignItems: 'center', gap: 4 }}>
@@ -67,11 +65,8 @@ export const MainMenu = ({
         </div>
       </header>
 
-      {/* Main 2-Column Responsive Dashboard */}
       <div className="menu-dashboard-grid">
-        {/* Left Column: Primary Game Modes (Saga Map + Daily Featured) */}
         <section className="menu-col-featured">
-          {/* SAGA MAP CARD - Farm Heroes style */}
           <div
             className="menu-card-btn menu-card-saga"
             onClick={onOpenSagaMap}
@@ -98,7 +93,6 @@ export const MainMenu = ({
             </div>
           </div>
 
-          {/* MINIGAME BINOMI CARD */}
           <div
             className="menu-card-btn menu-card-binomi"
             onClick={onOpenBinomi}
@@ -123,7 +117,6 @@ export const MainMenu = ({
             </div>
           </div>
 
-          {/* Featured Classic Puzzle Card */}
           <div className="featured-puzzle-card">
             <div className="featured-puzzle-header">
               <span className="featured-badge">Enigma In Evidenza</span>
@@ -134,7 +127,6 @@ export const MainMenu = ({
               <h2 className="featured-title">{activePuzzle.title}</h2>
               <p className="featured-desc">{activePuzzle.subtitle}</p>
 
-              {/* 4 Colored Category Preview Dots */}
               <div className="featured-categories-preview">
                 <span className="preview-dot dot-yellow" title="Categoria Gialla: Semplice" />
                 <span className="preview-dot dot-green" title="Categoria Verde: Media" />
@@ -151,9 +143,7 @@ export const MainMenu = ({
           </div>
         </section>
 
-        {/* Right Column: Other Game Options & Settings */}
         <section className="menu-col-actions">
-          {/* Quick API Generator Card */}
           <div
             className="menu-card-btn menu-card-magic"
             onClick={async () => {
@@ -179,7 +169,6 @@ export const MainMenu = ({
             </div>
           </div>
 
-          {/* Archivio Enigmi */}
           <div
             className="menu-card-btn"
             onClick={onOpenPuzzles}
@@ -200,7 +189,6 @@ export const MainMenu = ({
             </div>
           </div>
 
-          {/* Statistiche */}
           <div
             className="menu-card-btn"
             onClick={onOpenStats}
@@ -221,7 +209,6 @@ export const MainMenu = ({
             </div>
           </div>
 
-          {/* Impostazioni & Atmosfera */}
           <div
             className="menu-card-btn"
             onClick={onOpenSettings}
@@ -242,7 +229,6 @@ export const MainMenu = ({
             </div>
           </div>
 
-          {/* Come si Gioca */}
           <div
             className="menu-card-btn"
             onClick={onOpenHelp}
@@ -265,7 +251,6 @@ export const MainMenu = ({
         </section>
       </div>
 
-      {/* Footer */}
       <footer className="menu-footer">
         Ispirato a <em>Connections</em> • Edizione in Lingua Italiana • Stile <em>Giochini di Parole</em>
       </footer>

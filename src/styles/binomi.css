@@ -1,6 +1,4 @@
-/* ============================================================
-   BINOMI MINIGAME STYLES (Giochini di Parole aesthetic)
-   ============================================================ */
+
 
 .binomi-screen {
   display: flex;
@@ -14,7 +12,7 @@
   z-index: 2;
 }
 
-/* Header */
+
 .binomi-header {
   display: flex;
   align-items: center;
@@ -98,7 +96,7 @@
   color: var(--text-primary);
 }
 
-/* Instructions */
+
 .binomi-instruction-box {
   text-align: center;
   margin-bottom: 16px;
@@ -116,7 +114,7 @@
   color: var(--text-secondary);
 }
 
-/* Solved Pairs Shelf */
+
 .binomi-solved-shelf {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -125,7 +123,7 @@
 }
 
 .binomi-pair-card {
-  background: linear-gradient(135deg, rgba(160, 195, 90, 0.2) 0%, rgba(160, 195, 90, 0.35) 100%);
+  background: #E2EFC7;
   border: 1.5px solid var(--color-green);
   border-radius: var(--radius-lg);
   padding: 8px 12px;
@@ -157,7 +155,7 @@
   margin-top: 2px;
 }
 
-/* Grid of Unmatched Tiles */
+
 .binomi-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -219,7 +217,7 @@
   100% { transform: scale(0.9); opacity: 0.3; }
 }
 
-/* Footer Actions */
+
 .binomi-footer-actions {
   display: flex;
   justify-content: center;
@@ -249,7 +247,7 @@
   transform: translateY(-1px);
 }
 
-/* Pack Picker Modal */
+
 .binomi-picker-modal {
   max-width: 520px;
 }
@@ -316,7 +314,7 @@
   color: var(--text-secondary);
 }
 
-/* Win Modal */
+
 .binomi-win-modal {
   text-align: center;
   max-width: 440px;

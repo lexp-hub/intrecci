@@ -24,27 +24,23 @@ export const BinomiGame = ({ onGoToMenu, onEarnHint }) => {
 
   const [isPackPickerOpen, setIsPackPickerOpen] = useState(false);
 
-  // Format timer seconds into mm:ss
   const formatTime = (secs) => {
     const m = Math.floor(secs / 60);
     const s = secs % 60;
     return `${m}:${s < 10 ? '0' : ''}${s}`;
   };
 
-  // Automatically award hint token when pack is completed
   React.useEffect(() => {
     if (isCompleted && onEarnHint) {
       onEarnHint(1);
     }
   }, [isCompleted]);
 
-  // Find completed pair definitions
   const solvedPairs = pack.pairs.filter(p => matchedPairIds.includes(p.id));
   const remainingTiles = tiles.filter(t => !matchedPairIds.includes(t.pairId));
 
   return (
     <div className="binomi-screen">
-      {/* Top Header */}
       <header className="binomi-header">
         <button className="binomi-back-btn" onClick={onGoToMenu}>
           <CustomSvg name="chevronLeft" type="icon" size={18} />
@@ -67,13 +63,11 @@ export const BinomiGame = ({ onGoToMenu, onEarnHint }) => {
         </div>
       </header>
 
-      {/* Instructions */}
       <div className="binomi-instruction-box">
         <h2 className="binomi-title">Binomi Iconici Italiani</h2>
         <p className="binomi-sub">Tocca due parole per formare una celebre coppia o detto popolare.</p>
       </div>
 
-      {/* Solved Pairs Shelf */}
       {solvedPairs.length > 0 && (
         <div className="binomi-solved-shelf">
           {solvedPairs.map(p => (
@@ -85,7 +79,6 @@ export const BinomiGame = ({ onGoToMenu, onEarnHint }) => {
         </div>
       )}
 
-      {/* Grid of Unmatched Tiles */}
       <div className="binomi-grid">
         {remainingTiles.map(tile => {
           const isSelected = selectedTile?.id === tile.id;
@@ -105,7 +98,6 @@ export const BinomiGame = ({ onGoToMenu, onEarnHint }) => {
         })}
       </div>
 
-      {/* Bottom Controls */}
       <div className="binomi-footer-actions">
         <button className="binomi-btn-action" onClick={restartPack}>
           <CustomSvg name="refresh" type="icon" size={18} />
@@ -117,7 +109,6 @@ export const BinomiGame = ({ onGoToMenu, onEarnHint }) => {
         </button>
       </div>
 
-      {/* Completion Modal */}
       {isCompleted && (
         <div className="modal-backdrop">
           <div className="modal-content binomi-win-modal anim-scale-up">
@@ -161,7 +152,6 @@ export const BinomiGame = ({ onGoToMenu, onEarnHint }) => {
         </div>
       )}
 
-      {/* Pack Picker Modal */}
       {isPackPickerOpen && (
         <div className="modal-backdrop" onClick={() => setIsPackPickerOpen(false)}>
           <div className="modal-content binomi-picker-modal" onClick={e => e.stopPropagation()}>

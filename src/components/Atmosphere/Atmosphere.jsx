@@ -20,7 +20,6 @@ export const Atmosphere = ({ enabled = true, effectType = 'snow', isDark = false
     };
     window.addEventListener('resize', handleResize);
 
-    // Particle generator with gentle, cozy density
     const particleCount = effectType === 'fireflies' ? 28 : 42;
     const particles = [];
 
@@ -33,7 +32,7 @@ export const Atmosphere = ({ enabled = true, effectType = 'snow', isDark = false
             ? Math.random() * 2.8 + 1.2
             : effectType === 'fireflies'
             ? Math.random() * 2.5 + 1.5
-            : Math.random() * 4 + 2.5, // leaves
+            : Math.random() * 4 + 2.5, 
         speedY:
           effectType === 'snow'
             ? Math.random() * 0.8 + 0.35
@@ -88,14 +87,7 @@ export const Atmosphere = ({ enabled = true, effectType = 'snow', isDark = false
           const currentOpacity =
             (Math.sin(time * p.pulseSpeed + p.swayOffset) * 0.35 + 0.65) * p.opacity;
 
-          const gradient = ctx.createRadialGradient(0, 0, 0, 0, 0, p.size * 2.5);
-          gradient.addColorStop(0, `rgba(251, 191, 36, ${currentOpacity})`);
-          gradient.addColorStop(0.5, `rgba(245, 158, 11, ${currentOpacity * 0.35})`);
-          gradient.addColorStop(1, 'rgba(245, 158, 11, 0)');
-
-          ctx.beginPath();
-          ctx.arc(0, 0, p.size * 2.5, 0, Math.PI * 2);
-          ctx.fillStyle = gradient;
+          ctx.fillStyle = isDark ? "#FBBF24" : "#D97706";
           ctx.fill();
 
           ctx.beginPath();
@@ -129,15 +121,8 @@ export const Atmosphere = ({ enabled = true, effectType = 'snow', isDark = false
 
   return (
     <>
-      {/* Signature Giochini di Parole floating blurred ambient background spheres */}
-      <div className="giochini-ambient-bg" aria-hidden="true">
-        <div className="ambient-sphere sphere-1" />
-        <div className="ambient-sphere sphere-2" />
-        <div className="ambient-sphere sphere-3" />
-        <div className="ambient-sphere sphere-4" />
-      </div>
+      
 
-      {/* Particle Canvas (Snow / Fireflies / Leaves) */}
       {enabled && effectType !== 'none' && (
         <canvas
           ref={canvasRef}

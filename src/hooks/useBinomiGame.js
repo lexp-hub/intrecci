@@ -19,9 +19,7 @@ export const useBinomiGame = (initialPackId = 1) => {
 
   const timerRef = useRef(null);
 
-  // Initialize pack tiles
   const initPack = useCallback((targetPack) => {
-    // Generate 12 individual tiles from 6 pairs
     const tileList = [];
     targetPack.pairs.forEach((pair, idx) => {
       tileList.push({
@@ -40,7 +38,6 @@ export const useBinomiGame = (initialPackId = 1) => {
       });
     });
 
-    // Shuffle tiles
     const shuffled = [...tileList].sort(() => Math.random() - 0.5);
     setTiles(shuffled);
     setSelectedTile(null);
@@ -57,7 +54,6 @@ export const useBinomiGame = (initialPackId = 1) => {
     initPack(pack);
   }, [pack, initPack]);
 
-  // Timer tick
   useEffect(() => {
     if (isRunning && !isCompleted) {
       timerRef.current = setInterval(() => {
@@ -69,28 +65,23 @@ export const useBinomiGame = (initialPackId = 1) => {
     return () => clearInterval(timerRef.current);
   }, [isRunning, isCompleted]);
 
-  // Handle tile click
   const handleTileClick = (tile) => {
     if (isCompleted) return;
     if (matchedPairIds.includes(tile.pairId)) return;
-    if (shakingTileIds.length > 0) return; // Prevent clicking during shake animation
+    if (shakingTileIds.length > 0) return; 
 
-    // Clicking already selected tile deselects it
     if (selectedTile && selectedTile.id === tile.id) {
       setSelectedTile(null);
       return;
     }
 
     if (!selectedTile) {
-      // First selection
       soundManager.playSelect(1);
       setSelectedTile(tile);
     } else {
-      // Second selection - compare
       setAttempts(prev => prev + 1);
 
       if (selectedTile.pairId === tile.pairId && selectedTile.id !== tile.id) {
-        // MATCH!
         soundManager.playSuccess();
         setMatchingAnimationTileIds([selectedTile.id, tile.id]);
         
@@ -99,7 +90,6 @@ export const useBinomiGame = (initialPackId = 1) => {
           setMatchedPairIds(prev => {
             const next = [...prev, tile.pairId];
             if (next.length === pack.pairs.length) {
-              // Level complete!
               setIsCompleted(true);
               setIsRunning(false);
               triggerVictoryConfetti();
@@ -111,7 +101,6 @@ export const useBinomiGame = (initialPackId = 1) => {
         }, 500);
 
       } else {
-        // MISMATCH!
         soundManager.playError();
         setShakingTileIds([selectedTile.id, tile.id]);
         setTimeout(() => {

@@ -1,9 +1,7 @@
 import React from 'react';
 
-// Official OpenMoji & full-color SVGs for all game emojis
 export const SVG_EMOJIS = {
 
-  // Transparent Connections 4-tile logo
   logo: (
     <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
       <rect x="7" y="7" width="22" height="22" rx="7" fill="#FACC15" stroke="#EAB308" strokeWidth="2"/>
@@ -528,7 +526,6 @@ export const SVG_EMOJIS = {
     </svg>
   ),
 
-  // Additional rich color SVGs
   sun: (
     <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
       <circle cx="24" cy="24" r="10" fill="#FEF08A" stroke="#EAB308" strokeWidth="2.5"/>
@@ -576,10 +573,8 @@ export const SVG_EMOJIS = {
 
 };
 
-// Aliases
 SVG_EMOJIS.heart = SVG_EMOJIS.heartFill;
 
-// Functional, crisp UI icons with currentColor support
 export const SVG_ICONS = {
 
   heartFill: (
@@ -717,19 +712,13 @@ export const SVG_ICONS = {
 
 };
 
-// Aliases
 SVG_ICONS.heart = SVG_ICONS.heartFill;
 
-// Unified map for backward compatibility
 export const ICONS = {
   ...SVG_EMOJIS,
   ...SVG_ICONS
 };
 
-/**
- * CustomSvg - Renders either a rich full-color OpenMoji emoji
- * or a clean functional UI icon.
- */
 export const CustomSvg = ({ name, type = 'emoji', size = 24, className = '' }) => {
   const collection = type === 'emoji' ? SVG_EMOJIS : SVG_ICONS;
   let svg = collection[name];

@@ -55,7 +55,7 @@ export const StatsModal = ({ isOpen, onClose, stats, totalPuzzles }) => {
               style={{
                 width: `${totalPuzzles > 0 ? (completedCount / totalPuzzles) * 100 : 0}%`,
                 height: '100%',
-                background: 'linear-gradient(90deg, #FACC15, #4ADE80, #60A5FA, #C084FC)',
+                background: 'var(--color-cat-green-bg, #A0C35A)',
                 transition: 'width 0.4s ease'
               }}
             />

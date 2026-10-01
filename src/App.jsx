@@ -68,10 +68,8 @@ export function App() {
     generateNewApiPuzzle
   } = useGameLogic(1, handleLevelCompleted);
 
-  // Navigation state: 'menu' | 'game' | 'map' | 'binomi'
   const [currentScreen, setCurrentScreen] = useState('menu');
 
-  // Settings state (Night mode, falling snow / atmosphere effects, audio)
   const [settings, setSettings] = useState(() => {
     try {
       const saved = localStorage.getItem('intrecci_settings');
@@ -82,12 +80,11 @@ export function App() {
     return {
       isDark: false,
       effectsEnabled: true,
-      effectType: 'snow', // 'snow' | 'fireflies' | 'leaves'
+      effectType: 'snow', 
       soundEnabled: true
     };
   });
 
-  // Apply dark theme attribute to HTML and update sound manager
   useEffect(() => {
     if (settings.isDark) {
       document.documentElement.setAttribute('data-theme', 'dark');
@@ -102,7 +99,6 @@ export function App() {
     }
   }, [settings]);
 
-  // Modals state
   const [isHelpOpen, setIsHelpOpen] = useState(false);
   const [isStatsOpen, setIsStatsOpen] = useState(false);
   const [isPuzzlesOpen, setIsPuzzlesOpen] = useState(false);
@@ -110,10 +106,8 @@ export function App() {
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const [isHintOpen, setIsHintOpen] = useState(false);
 
-  // Keyboard accessibility and shortcuts
   useEffect(() => {
     const handleKeyDown = (e) => {
-      // Don't intercept if user is typing in an input
       if (['INPUT', 'TEXTAREA'].includes(document.activeElement?.tagName)) return;
 
       const anyModalOpen = isHelpOpen || isStatsOpen || isPuzzlesOpen || isResultsOpen || isSettingsOpen || isHintOpen;
@@ -160,7 +154,6 @@ export function App() {
     submitGuess, shuffleWords, deselectAll, deselectLast
   ]);
 
-  // Automatically show Results Modal on game end
   useEffect(() => {
     if (isGameOver || isWon) {
       const timer = setTimeout(() => {
@@ -172,20 +165,16 @@ export function App() {
 
   return (
     <div className={`app-container ${currentScreen === 'menu' ? 'container-menu' : 'container-game'}`}>
-      {/* Easter Egg: Google Gravity (activated via Konami code: ↑ ↑ ↓ ↓ → ← → ← B A) */}
       <GoogleGravity />
 
-      {/* Background Atmospheric Special Effects (Snow, Fireflies, Leaves) */}
       <Atmosphere
         enabled={settings.effectsEnabled}
         effectType={settings.effectType}
         isDark={settings.isDark}
       />
 
-      {/* Toast Feedback */}
       <Toast message={toastMessage} />
 
-      {/* Screen Router */}
       {currentScreen === 'menu' && (
         <MainMenu
           onStartGame={() => setCurrentScreen('game')}
@@ -227,7 +216,6 @@ export function App() {
 
       {currentScreen === 'game' && (
         <>
-          {/* Header */}
           <Header
             onOpenHelp={() => setIsHelpOpen(true)}
             onOpenStats={() => setIsStatsOpen(true)}
@@ -239,7 +227,6 @@ export function App() {
             isGenerating={isGenerating}
           />
 
-          {/* Level Banner */}
           <LevelSelector
             puzzle={puzzle}
             onOpenPuzzles={() => setIsPuzzlesOpen(true)}
@@ -247,12 +234,10 @@ export function App() {
             isGenerating={isGenerating}
           />
 
-          {/* Instruction */}
           <div className="instruction-text">
             Crea 4 gruppi da 4 parole che condividono un filo conduttore.
           </div>
 
-          {/* Game Board with Glowing Hint Pair and Revealed Hints */}
           <Board
             remainingWords={remainingWords}
             solvedGroups={solvedGroups}
@@ -264,7 +249,6 @@ export function App() {
             isGameOver={isGameOver}
           />
 
-          {/* Attempts Counter & Timer */}
           <AttemptsCounter
             mistakesRemaining={mistakesRemaining}
             maxMistakes={maxMistakes}
@@ -273,7 +257,6 @@ export function App() {
             timeLeft={timeLeft}
           />
 
-          {/* Action Controls with Hint Trigger */}
           <Controls
             onShuffle={shuffleWords}
             onDeselectAll={deselectAll}
@@ -288,7 +271,6 @@ export function App() {
         </>
       )}
 
-      {/* Global Modals */}
       <HintModal
         isOpen={isHintOpen}
         onClose={() => setIsHintOpen(false)}

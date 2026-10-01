@@ -1,6 +1,4 @@
-/* ============================================================
-   SAGA MAP STYLES (Farm Heroes / Giochini di Parole aesthetic)
-   ============================================================ */
+
 
 .saga-map-screen {
   display: flex;
@@ -15,7 +13,7 @@
   overflow: hidden;
 }
 
-/* Saga Top Bar */
+
 .saga-top-bar {
   display: flex;
   align-items: center;
@@ -94,14 +92,14 @@
   font-weight: 500;
 }
 
-/* Map Scroll Area */
+
 .saga-scroll-area {
   flex: 1;
   overflow-y: auto;
   overflow-x: hidden;
   padding: 20px 12px 60px 12px;
   scroll-behavior: smooth;
-  /* Scrollbar styling */
+  
   scrollbar-width: thin;
   scrollbar-color: var(--border-default) transparent;
 }
@@ -114,7 +112,7 @@
   border-radius: 4px;
 }
 
-/* The vertical canvas track (height 1700px for generous winding space) */
+
 .saga-canvas-track {
   position: relative;
   width: 100%;
@@ -122,7 +120,7 @@
   margin: 0 auto;
 }
 
-/* SVG Line */
+
 .saga-svg-path {
   position: absolute;
   top: 0;
@@ -151,7 +149,7 @@
   opacity: 0.45;
 }
 
-/* Biome marker banners */
+
 .biome-marker-banner {
   position: absolute;
   width: 100%;
@@ -191,7 +189,7 @@
   color: var(--text-muted);
 }
 
-/* Node Wrapper */
+
 .saga-node-wrapper {
   position: absolute;
   transform: translate(-50%, -50%);
@@ -226,14 +224,14 @@
 }
 
 .node-completed .saga-node-circle {
-  background: linear-gradient(135deg, #FFF9D2 0%, #F9DF6D 100%);
+  background: #F9DF6D;
   color: #554400;
   border-color: #E2BF30;
   box-shadow: 0 6px 18px rgba(249, 223, 109, 0.4);
 }
 
 [data-theme="dark"] .node-completed .saga-node-circle {
-  background: linear-gradient(135deg, #7A6200 0%, #D4A800 100%);
+  background: #B48C00;
   color: #FFF;
   border-color: #F9DF6D;
 }
@@ -263,7 +261,7 @@
   font-size: 1rem;
 }
 
-/* Stars underneath node */
+
 .node-stars-row {
   display: flex;
   gap: 2px;
@@ -278,7 +276,7 @@
   text-shadow: 0 0 6px rgba(245, 166, 35, 0.6);
 }
 
-/* Avatar indicator pointer on current level */
+
 .saga-avatar-indicator {
   position: absolute;
   top: -28px;
@@ -303,7 +301,7 @@
   100% { box-shadow: 0 0 0 0 rgba(212, 132, 227, 0); }
 }
 
-/* Floating label on hover */
+
 .node-floating-label {
   display: none;
   position: absolute;
@@ -324,9 +322,7 @@
   display: flex;
 }
 
-/* ============================================================
-   LEVEL START MODAL & MODE SELECTOR
-   ============================================================ */
+
 .saga-level-modal {
   max-width: 480px;
 }

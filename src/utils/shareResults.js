@@ -1,11 +1,5 @@
 import { CATEGORY_COLORS } from '../data/puzzles';
 
-/**
- * Format the user's guesses history into an emoji grid like NYT Connections
- * @param {Array} guessHistory - Array of guesses [{ words: [...], colors: ['yellow', 'yellow', ...] }]
- * @param {Object} puzzle - The active puzzle object
- * @param {boolean} won - Whether the user won
- */
 export const generateShareText = (guessHistory, puzzle, won) => {
   let text = `Intrecci ${puzzle.title}\n`;
   text += won ? `✨ Risolto con successo!\n\n` : `Riepilogo partita:\n\n`;
@@ -29,7 +23,6 @@ export const copyToClipboard = async (text) => {
     }
   }
 
-  // Fallback for older browsers
   const textArea = document.createElement('textarea');
   textArea.value = text;
   textArea.style.position = 'fixed';

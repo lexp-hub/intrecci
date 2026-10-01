@@ -15,10 +15,8 @@ export const isGravityActive = () => {
 export const startGoogleGravity = (onRestoreCallback) => {
   if (activeEngine) return;
 
-  // Sound effect
   soundManager.playGravityDrop();
 
-  // 1. Target candidate elements to fall
   const selectors = [
     '.tile-btn',
     '.binomi-tile',
@@ -45,7 +43,6 @@ export const startGoogleGravity = (onRestoreCallback) => {
 
   const rawElements = Array.from(document.querySelectorAll(selectors.join(', ')));
   
-  // Filter only visible elements not already enclosed in a falling parent
   const filtered = [];
   for (const el of rawElements) {
     if (el.classList.contains('gravity-immune') || el.closest('.gravity-immune') || el.closest('.modal-backdrop')) {
@@ -53,7 +50,6 @@ export const startGoogleGravity = (onRestoreCallback) => {
     }
     const rect = el.getBoundingClientRect();
     if (rect.width > 20 && rect.height > 15 && el.offsetParent !== null) {
-      // Check if a parent is already in the list
       const parentAlreadyIn = filtered.some(p => p.contains(el));
       if (!parentAlreadyIn) {
         filtered.push(el);
@@ -63,7 +59,6 @@ export const startGoogleGravity = (onRestoreCallback) => {
 
   if (filtered.length === 0) return;
 
-  // 2. Initialize Matter.js Physics Engine
   const engine = Engine.create({
     enableSleeping: false
   });
@@ -77,11 +72,9 @@ export const startGoogleGravity = (onRestoreCallback) => {
   const screenWidth = window.innerWidth;
   const screenHeight = window.innerHeight;
 
-  // 3. Convert DOM Elements into Rigid Bodies
   filtered.forEach(el => {
     const rect = el.getBoundingClientRect();
 
-    // Store original styles to restore later
     const origStyle = {
       position: el.style.position || '',
       left: el.style.left || '',
@@ -97,7 +90,6 @@ export const startGoogleGravity = (onRestoreCallback) => {
       userSelect: el.style.userSelect || ''
     };
 
-    // Apply fixed coordinates before taking off
     el.style.position = 'fixed';
     el.style.left = `${rect.left}px`;
     el.style.top = `${rect.top}px`;
@@ -110,21 +102,19 @@ export const startGoogleGravity = (onRestoreCallback) => {
     el.style.cursor = 'grab';
     el.style.userSelect = 'none';
 
-    // Create rigid body with bouncy restitution
     const body = Bodies.rectangle(
       rect.left + rect.width / 2,
       rect.top + rect.height / 2,
       rect.width,
       rect.height,
       {
-        restitution: 0.68, // Nice bouncy trampoline feel
+        restitution: 0.68, 
         friction: 0.25,
         frictionAir: 0.012,
         density: 0.002
       }
     );
 
-    // Initial gentle random kick so elements tumble naturally
     Matter.Body.setAngularVelocity(body, (Math.random() - 0.5) * 0.12);
     Matter.Body.setVelocity(body, {
       x: (Math.random() - 0.5) * 4,
@@ -139,7 +129,6 @@ export const startGoogleGravity = (onRestoreCallback) => {
     managedElements.push({ element: el, origStyle });
   });
 
-  // 4. Create Boundaries (Floor, Left, Right Walls)
   const floor = Bodies.rectangle(
     screenWidth / 2,
     screenHeight + 30,
@@ -166,9 +155,7 @@ export const startGoogleGravity = (onRestoreCallback) => {
 
   Composite.add(engine.world, [...bodies, floor, leftWall, rightWall]);
 
-  // 5. Mouse & Touch Dragging Constraint
   const mouse = Mouse.create(document.body);
-  // Remove default mousewheel listeners that interfere with page
   mouse.element.removeEventListener('mousewheel', mouse.mousewheel);
   mouse.element.removeEventListener('DOMMouseScroll', mouse.mousewheel);
 
@@ -182,10 +169,8 @@ export const startGoogleGravity = (onRestoreCallback) => {
 
   Composite.add(engine.world, mouseConstraintInstance);
 
-  // Prevent scroll during gravity chaos
   document.body.style.overflow = 'hidden';
 
-  // 6. Physics Step Loop
   const loop = () => {
     Engine.update(engine, 1000 / 60);
 
@@ -209,13 +194,11 @@ export const startGoogleGravity = (onRestoreCallback) => {
 export const stopGoogleGravity = () => {
   if (!activeEngine) return;
 
-  // Cancel loop
   if (animFrameId) {
     cancelAnimationFrame(animFrameId);
     animFrameId = null;
   }
 
-  // Restore elements original styles
   managedElements.forEach(({ element, origStyle }) => {
     element.style.position = origStyle.position;
     element.style.left = origStyle.left;
@@ -233,7 +216,6 @@ export const stopGoogleGravity = () => {
 
   managedElements = [];
 
-  // Clear Matter.js world & engine
   Composite.clear(activeEngine.world);
   Engine.clear(activeEngine);
   activeEngine = null;

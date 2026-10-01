@@ -15,7 +15,6 @@ export const Board = ({
 }) => {
   return (
     <div className="board-container">
-      {/* Revealed hints list if any */}
       {revealedHints.length > 0 && (
         <div className="revealed-hints-banner">
           {revealedHints.map((rh, idx) => (
@@ -27,7 +26,6 @@ export const Board = ({
         </div>
       )}
 
-      {/* Stack of Solved Categories */}
       {solvedGroups.length > 0 && (
         <div className="solved-cards-stack">
           {solvedGroups.map(group => (
@@ -36,7 +34,6 @@ export const Board = ({
         </div>
       )}
 
-      {/* Grid of Remaining Words */}
       {remainingWords.length > 0 && (
         <div className="tiles-grid">
           {remainingWords.map(word => (

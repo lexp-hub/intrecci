@@ -4,8 +4,8 @@ const STORAGE_KEY = 'intrecci_saga_progress';
 
 const DEFAULT_PROGRESS = {
   unlockedLevel: 1,
-  levelStars: {},       // { [levelId]: 1 | 2 | 3 }
-  hintTokens: 3,        // Hint budget
+  levelStars: {},       
+  hintTokens: 3,        
   totalStars: 0,
   highScores: {}
 };
@@ -30,7 +30,6 @@ export const useSagaProgress = () => {
   }, [progress]);
 
   const recordLevelCompletion = (levelId, mistakesMade, gameMode = 'classic') => {
-    // Determine stars
     let stars = 3;
     if (gameMode === 'classic') {
       if (mistakesMade === 0) stars = 3;
@@ -39,7 +38,6 @@ export const useSagaProgress = () => {
     } else if (gameMode === 'timed') {
       stars = mistakesMade === 0 ? 3 : 2;
     } else {
-      // Zen mode
       stars = 2;
     }
 
@@ -55,7 +53,6 @@ export const useSagaProgress = () => {
 
       const totalStars = Object.values(updatedLevelStars).reduce((sum, s) => sum + s, 0);
 
-      // Reward 1 hint token for every level completed for the first time
       const earnedToken = !prev.levelStars[levelId] ? 1 : 0;
 
       return {

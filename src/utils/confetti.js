@@ -18,7 +18,6 @@ export const triggerVictoryConfetti = () => {
 
     const particleCount = 40 * (timeLeft / duration);
 
-    // Warm cozy confetti colors: gold, pastel green, sky blue, lavender, coral
     confetti({
       ...defaults,
       particleCount,

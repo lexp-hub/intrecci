@@ -22,10 +22,8 @@ export const useGameLogic = (initialPuzzleId = 1, onLevelCompletedCallback = nul
   const [currentPuzzleId, setCurrentPuzzleId] = useState(initialPuzzleId);
   const [activePuzzleOverride, setActivePuzzleOverride] = useState(null);
 
-  // Active puzzle is either override (e.g. from Saga) or found from allPuzzles
   const puzzle = activePuzzleOverride || allPuzzles.find(p => p.id === currentPuzzleId) || allPuzzles[0];
 
-  // Game Mode: 'classic' (4 mistakes) | 'timed' (90s + 20s bonus) | 'zen' (infinite mistakes)
   const [gameMode, setGameMode] = useState('classic');
   const [timeLeft, setTimeLeft] = useState(90);
   const timerRef = useRef(null);
@@ -43,11 +41,9 @@ export const useGameLogic = (initialPuzzleId = 1, onLevelCompletedCallback = nul
   const [isGenerating, setIsGenerating] = useState(false);
   const [stats, setStats] = useState(loadGameStats);
 
-  // Hint states
-  const [revealedHints, setRevealedHints] = useState([]); // array of group hint objects
-  const [highlightedPair, setHighlightedPair] = useState([]); // array of 2 words glowing
+  const [revealedHints, setRevealedHints] = useState([]); 
+  const [highlightedPair, setHighlightedPair] = useState([]); 
 
-  // Helper to shuffle an array
   const shuffleArray = (arr) => {
     const copy = [...arr];
     for (let i = copy.length - 1; i > 0; i--) {
@@ -57,7 +53,6 @@ export const useGameLogic = (initialPuzzleId = 1, onLevelCompletedCallback = nul
     return copy;
   };
 
-  // Toast notification helper
   const showToast = useCallback((msg, duration = 2400) => {
     setToastMessage(msg);
     setTimeout(() => {
@@ -65,7 +60,6 @@ export const useGameLogic = (initialPuzzleId = 1, onLevelCompletedCallback = nul
     }, duration);
   }, []);
 
-  // Initialize or load puzzle state
   const initPuzzle = useCallback((targetPuzzle, mode = 'classic') => {
     setGameMode(mode);
     setTimeLeft(mode === 'timed' ? 90 : 0);
@@ -73,7 +67,6 @@ export const useGameLogic = (initialPuzzleId = 1, onLevelCompletedCallback = nul
     setHighlightedPair([]);
     setMistakesMade(0);
 
-    // Only load saved state for standard classic puzzles not saga overrides
     const isOverride = targetPuzzle._isSaga;
     const saved = !isOverride ? loadPuzzleState(targetPuzzle.id) : null;
 
@@ -102,7 +95,6 @@ export const useGameLogic = (initialPuzzleId = 1, onLevelCompletedCallback = nul
     initPuzzle(puzzle, gameMode);
   }, [puzzle.id, initPuzzle]);
 
-  // Timed Mode Interval
   useEffect(() => {
     if (gameMode === 'timed' && !isGameOver && !isWon) {
       timerRef.current = setInterval(() => {
@@ -127,7 +119,6 @@ export const useGameLogic = (initialPuzzleId = 1, onLevelCompletedCallback = nul
     return () => clearInterval(timerRef.current);
   }, [gameMode, isGameOver, isWon, puzzle.groups, showToast]);
 
-  // Persist standard puzzle state on changes
   useEffect(() => {
     if (!puzzle._isSaga && (remainingWords.length > 0 || solvedGroups.length > 0)) {
       savePuzzleState(puzzle.id, {
@@ -141,7 +132,6 @@ export const useGameLogic = (initialPuzzleId = 1, onLevelCompletedCallback = nul
     }
   }, [puzzle.id, puzzle._isSaga, remainingWords, solvedGroups, mistakesRemaining, guessHistory, isGameOver, isWon]);
 
-  // Word selection toggle
   const toggleWordSelect = (word) => {
     if (isGameOver || isWon) return;
 
@@ -158,12 +148,10 @@ export const useGameLogic = (initialPuzzleId = 1, onLevelCompletedCallback = nul
     }
   };
 
-  // Deselect all
   const deselectAll = () => {
     setSelectedWords([]);
   };
 
-  // Deselect last selected word
   const deselectLast = () => {
     if (selectedWords.length > 0) {
       soundManager.playSelect(selectedWords.length - 1);
@@ -171,13 +159,11 @@ export const useGameLogic = (initialPuzzleId = 1, onLevelCompletedCallback = nul
     }
   };
 
-  // Shuffle remaining words on board
   const shuffleWords = () => {
     soundManager.playShuffle?.();
     setRemainingWords(prev => shuffleArray(prev));
   };
 
-  // Find which group a word belongs to
   const getWordColor = (word) => {
     for (const group of puzzle.groups) {
       if (group.words.includes(word)) {
@@ -187,11 +173,9 @@ export const useGameLogic = (initialPuzzleId = 1, onLevelCompletedCallback = nul
     return 'yellow';
   };
 
-  // Check guess
   const submitGuess = () => {
     if (selectedWords.length !== 4 || isGameOver || isWon) return;
 
-    // Check if duplicate guess
     const sortedCurrent = [...selectedWords].sort().join(',');
     const alreadyGuessed = guessHistory.some(g => [...g.words].sort().join(',') === sortedCurrent);
     if (alreadyGuessed) {
@@ -199,7 +183,6 @@ export const useGameLogic = (initialPuzzleId = 1, onLevelCompletedCallback = nul
       return;
     }
 
-    // Determine colors of each word in the guess
     const guessColors = selectedWords.map(w => getWordColor(w));
     const newGuessRecord = {
       words: [...selectedWords],
@@ -208,27 +191,23 @@ export const useGameLogic = (initialPuzzleId = 1, onLevelCompletedCallback = nul
     const updatedHistory = [...guessHistory, newGuessRecord];
     setGuessHistory(updatedHistory);
 
-    // Check if all 4 words belong to the exact same group
     const matchedGroup = puzzle.groups.find(group => {
       const matchCount = selectedWords.filter(w => group.words.includes(w)).length;
       return matchCount === 4;
     });
 
     if (matchedGroup) {
-      // SUCCESS: Group found
       soundManager.playSuccess();
       const newSolved = [...solvedGroups, matchedGroup];
       setSolvedGroups(newSolved);
       setRemainingWords(prev => prev.filter(w => !selectedWords.includes(w)));
       setSelectedWords([]);
 
-      // In Timed mode: add +20 seconds bonus!
       if (gameMode === 'timed') {
         setTimeLeft(t => Math.min(180, t + 20));
         showToast("+20s Bonus Tempo!", 2000);
       }
 
-      // Check if all groups are solved
       if (newSolved.length === 4) {
         setIsWon(true);
         setIsGameOver(true);
@@ -236,12 +215,10 @@ export const useGameLogic = (initialPuzzleId = 1, onLevelCompletedCallback = nul
         soundManager.playWin?.();
         showToast("Splendido! Hai trovato tutti i collegamenti!", 3500);
 
-        // Notify callback (e.g. for saga level progression)
         if (onLevelCompletedCallback) {
           onLevelCompletedCallback(puzzle.id, mistakesMade, gameMode);
         }
 
-        // Update stats
         const newStats = {
           ...stats,
           played: stats.played + 1,
@@ -254,11 +231,9 @@ export const useGameLogic = (initialPuzzleId = 1, onLevelCompletedCallback = nul
         saveGameStats(newStats);
       }
     } else {
-      // MISTAKE
       soundManager.playError();
       setMistakesMade(prev => prev + 1);
 
-      // Check if "One away" (3 of 4 match an unsolved group)
       const unsolvedGroups = puzzle.groups.filter(
         g => !solvedGroups.some(sg => sg.level === g.level)
       );
@@ -272,21 +247,17 @@ export const useGameLogic = (initialPuzzleId = 1, onLevelCompletedCallback = nul
         showToast("Manca solo 1! 💡", 2500);
       }
 
-      // Shake selected tiles
       setShakingWords([...selectedWords]);
       setTimeout(() => setShakingWords([]), 500);
 
-      // In Zen mode: mistakes are unlimited
       if (gameMode === 'zen') {
         return;
       }
 
-      // In Classic / Timed mode: decrement mistakes remaining
       const newMistakes = mistakesRemaining - 1;
       setMistakesRemaining(newMistakes);
 
       if (newMistakes <= 0) {
-        // Game Over - reveal remaining groups
         setIsGameOver(true);
         showToast("Tentativi esauriti! Ecco le soluzioni.", 3500);
 
@@ -296,7 +267,6 @@ export const useGameLogic = (initialPuzzleId = 1, onLevelCompletedCallback = nul
           setSelectedWords([]);
         }, 1200);
 
-        // Update stats
         const newStats = {
           ...stats,
           played: stats.played + 1,
@@ -309,7 +279,6 @@ export const useGameLogic = (initialPuzzleId = 1, onLevelCompletedCallback = nul
     }
   };
 
-  // Restart current puzzle
   const restartCurrentPuzzle = () => {
     if (!puzzle._isSaga) {
       localStorage.removeItem(`intrecci_game_puzzle_${puzzle.id}`);
@@ -318,21 +287,18 @@ export const useGameLogic = (initialPuzzleId = 1, onLevelCompletedCallback = nul
     showToast("Partita riavviata!");
   };
 
-  // Switch puzzle
   const selectPuzzle = (id, mode = 'classic') => {
     setActivePuzzleOverride(null);
     setCurrentPuzzleId(id);
     setGameMode(mode);
   };
 
-  // Load custom puzzle object (e.g. from Saga Level)
   const startCustomLevel = (customPuzzleObj, mode = 'classic') => {
     const wrapped = { ...customPuzzleObj, _isSaga: true };
     setActivePuzzleOverride(wrapped);
     initPuzzle(wrapped, mode);
   };
 
-  // Hint: Tier 1 - Reveal category clue for an unsolved group
   const useCategoryHint = () => {
     const unsolved = puzzle.groups.filter(
       g => !solvedGroups.some(sg => sg.level === g.level) &&
@@ -344,7 +310,6 @@ export const useGameLogic = (initialPuzzleId = 1, onLevelCompletedCallback = nul
       return false;
     }
 
-    // Pick first unsolved group
     const target = unsolved[0];
     const hintText = target.hint || `Categoria: ${target.category}`;
     setRevealedHints(prev => [...prev, {
@@ -358,7 +323,6 @@ export const useGameLogic = (initialPuzzleId = 1, onLevelCompletedCallback = nul
     return true;
   };
 
-  // Hint: Tier 2 - Highlight 2 connected words in gold
   const usePairHighlightHint = () => {
     const unsolved = puzzle.groups.filter(
       g => !solvedGroups.some(sg => sg.level === g.level)
@@ -366,7 +330,6 @@ export const useGameLogic = (initialPuzzleId = 1, onLevelCompletedCallback = nul
 
     if (unsolved.length === 0) return false;
 
-    // Pick unsolved group and find 2 words currently on board
     for (const grp of unsolved) {
       const available = grp.words.filter(w => remainingWords.includes(w));
       if (available.length >= 2) {
@@ -384,7 +347,6 @@ export const useGameLogic = (initialPuzzleId = 1, onLevelCompletedCallback = nul
     return false;
   };
 
-  // Generate new puzzle dynamically using Italian Word Database API
   const generateNewApiPuzzle = async () => {
     setIsGenerating(true);
     showToast("Interrogazione database parole in corso...", 3000);
@@ -393,11 +355,9 @@ export const useGameLogic = (initialPuzzleId = 1, onLevelCompletedCallback = nul
       const updatedPuzzles = [...allPuzzles, newPuzzle];
       setAllPuzzles(updatedPuzzles);
 
-      // Save custom puzzles to localStorage
       const customOnes = updatedPuzzles.filter(p => p.id > PUZZLES.length);
       localStorage.setItem('intrecci_custom_puzzles', JSON.stringify(customOnes));
 
-      // Switch to new puzzle
       setActivePuzzleOverride(null);
       setCurrentPuzzleId(newPuzzle.id);
       showToast("Nuovo enigma generato con successo!", 3000);
