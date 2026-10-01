@@ -61,12 +61,22 @@ export const SVG_EMOJIS = {
     </svg>
   ),
   pasta: (
-    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-      <path d="M8 24h32c0 9-7 16-16 16S8 33 8 24z" fill="#FED7AA" stroke="#D97706" strokeWidth="2.5"/>
-      <path d="M12 24c2-6 8-8 12-4s10 2 12-4" stroke="#FBBF24" strokeWidth="3" strokeLinecap="round"/>
-      <path d="M14 20c3-4 8-4 12 0s8 0 10-4" stroke="#F59E0B" strokeWidth="2.5" strokeLinecap="round"/>
-      <circle cx="24" cy="17" r="3" fill="#DC2626"/>
-      <path d="M26 14l3-4" stroke="#16A34A" strokeWidth="2.5" strokeLinecap="round"/>
+    <svg viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+      <path fill="#fcea2b" d="M45.8041,27.7451A13.8885,13.8885,0,0,0,36,31.7816c-.0415-.0411-.0876-.0773-.13-.1178V13.46a1.001,1.001,0,0,0-1-1.0031h-4.333a1.001,1.001,0,0,0-1,1.0031V28.1653A13.9287,13.9287,0,1,0,36,51.5791a13.934,13.934,0,1,0,9.8042-23.834Z"/>
+      <path fill="#d0cfce" d="M47.2667,41.7489c0,13.88-3.4667,25.1334-11.2667,25.1334A25.1335,25.1335,0,0,0,61.1333,41.7489Z"/>
+      <path fill="#fff" d="M10.8667,41.7489A25.1335,25.1335,0,0,0,36,66.8823c7.8,0,11.2667-11.2532,11.2667-25.1334Z"/>
+      <path fill="none" stroke="#000" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10.8667,41.7489a25.1333,25.1333,0,1,0,50.2666,0Z"/>
+      <path fill="none" stroke="#000" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13.4667,39.1489a13.0019,13.0019,0,0,1,25.4778,0"/>
+      <path fill="none" stroke="#000" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.9362,39.1489a8.6687,8.6687,0,0,1,16.5379,0"/>
+      <path fill="none" stroke="#000" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M22.7588,39.1489a4.2946,4.2946,0,0,1,6.8944,0"/>
+      <path fill="none" stroke="#000" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M38.6059,30.9156a13.0036,13.0036,0,0,1,19.9274,8.2333"/>
+      <path fill="none" stroke="#000" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M41.0206,34.5151a8.6692,8.6692,0,0,1,13.0432,4.6338"/>
+      <path fill="none" stroke="#000" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M42.9282,38.5176a4.2871,4.2871,0,0,1,6.313.6313"/>
+      <path fill="none" stroke="#000" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M61,15.5946l-19.4123-.554h0c-.7408,1.287-2.6022,2.191-5.5708,2.191-3.9478,0-8.1058-.1115-8.1058-.1115"/>
+      <path fill="none" stroke="#000" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M27.9113,9.8105s4.158-.1115,8.1058-.1115c2.9609,0,4.82.8993,5.565,2.1809h0L61,11.8605"/>
+      <line x1="27.9113" x2="37.4962" y1="13.4654" y2="13.4654" fill="none" stroke="#000" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"/>
+      <line x1="34.8705" x2="34.8705" y1="13.5222" y2="32.0589" fill="none" stroke="#000" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"/>
+      <line x1="30.5371" x2="30.5371" y1="13.5222" y2="25.6827" fill="none" stroke="#000" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"/>
     </svg>
   ),
   coffee: (
@@ -81,11 +91,12 @@ export const SVG_EMOJIS = {
     </svg>
   ),
   tree: (
-    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-      <path d="M21 34h6v8h-6z" fill="#B45309" stroke="#78350F" strokeWidth="2"/>
-      <path d="M24 6c-8 0-14 6-13 14 0 4 3 8 7 10h12c4-2 7-6 7-10 1-8-5-14-13-14z" fill="#BBF7D0" stroke="#15803D" strokeWidth="2.5" strokeLinejoin="round"/>
-      <circle cx="19" cy="16" r="2.5" fill="#4ADE80" opacity="0.6"/>
-      <circle cx="28" cy="22" r="3" fill="#4ADE80" opacity="0.6"/>
+    <svg viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+      <path fill="#b1cc33" d="m51.5605,17.7304c-.5093.0029-1.018.0333-1.524.091l-.673.072-.317-.6c-2.673-5.047-8.5-8.308-14.854-8.308-9.026,0-16.369,6.4-16.369,14.268.0014.5162.0348,1.0319.1,1.544l.1.824-.792.251c-4.015,1.272-6.608,4.186-6.608,7.421,0,4.445,4.851,8.061,10.813,8.061,2.3045.0227,4.5747-.5593,6.584-1.688l.591-.341.189.151.344.275c2.714,2.167,7.082,3.462,11.683,3.462,7.762,0,14.32-3.691,14.32-8.061-.0013-.2702-.0274-.5396-.078-.805l-.138-.751-.022-.117.842-.266c4.022-1.271,6.622-4.185,6.622-7.425.001-4.439-4.851-8.058-10.813-8.058Z"/>
+      <path fill="#5c9e31" d="m39.4685,27.9974s4.917,7.331,15.443,5.488l.6272,1.7053-.8266,2.6189c-2.5901,3.1871-5.0927,4.6512-9.1032,5.5357l-7.9389.0438-7.2116-1.9327-1.846-2.126c5.1993-1.8606,9.2206-6.0585,10.856-11.333Z"/>
+      <polyline fill="none" stroke="#000" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" points="35.7895 63.9434 35.7895 52.7764 28.1585 45.2604"/>
+      <line x1="35.7895" x2="40.1575" y1="52.7764" y2="48.2304" fill="none" stroke="#000" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"/>
+      <path fill="none" stroke="#000" strokeLinecap="round" strokeMiterlimit="10" strokeWidth="2" d="m63.3745,25.7734c0-5-5.289-9.061-11.813-9.061-.5451.0044-1.0895.0378-1.631.1-2.763-5.216-8.762-8.839-15.738-8.839-9.593,0-17.369,6.836-17.369,15.268.0017.5574.0378,1.1141.108,1.667-4.288,1.359-7.306,4.595-7.306,8.374,0,5,5.289,9.061,11.813,9.061,2.4798.021,4.922-.6072,7.084-1.822,2.791,2.229,7.257,3.681,12.307,3.681,8.461,0,15.32-4.057,15.32-9.061-.0014-.3308-.0329-.6609-.094-.986,4.293-1.36,7.319-4.598,7.319-8.382Z"/>
     </svg>
   ),
   book: (
