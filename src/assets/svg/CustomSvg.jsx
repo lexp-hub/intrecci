@@ -19,19 +19,12 @@ export const SVG_EMOJIS = {
   ),
   compass: (
     <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-      <circle cx="24" cy="24" r="20" fill="#F0F9FF" stroke="#0284C7" strokeWidth="2.5"/>
-      <circle cx="24" cy="24" r="16.5" stroke="#BAE6FD" strokeWidth="1.2"/>
-      <line x1="24" y1="5.5" x2="24" y2="9.5" stroke="#0284C7" strokeWidth="2.5" strokeLinecap="round"/>
-      <line x1="24" y1="38.5" x2="24" y2="42.5" stroke="#0284C7" strokeWidth="2" strokeLinecap="round"/>
-      <line x1="5.5" y1="24" x2="9.5" y2="24" stroke="#0284C7" strokeWidth="2" strokeLinecap="round"/>
-      <line x1="38.5" y1="24" x2="42.5" y2="24" stroke="#0284C7" strokeWidth="2" strokeLinecap="round"/>
-      <polygon points="24,8 29,24 24,24" fill="#EF4444"/>
-      <polygon points="24,8 19,24 24,24" fill="#DC2626"/>
-      <polygon points="24,40 29,24 24,24" fill="#FFFFFF"/>
-      <polygon points="24,40 19,24 24,24" fill="#CBD5E1"/>
-      <polygon points="24,8 29,24 24,40 19,24" stroke="#475569" strokeWidth="1" strokeLinejoin="round"/>
-      <circle cx="24" cy="24" r="3.5" fill="#F59E0B" stroke="#B45309" strokeWidth="1.2"/>
-      <circle cx="23" cy="23" r="1" fill="#FFFFFF" opacity="0.8"/>
+      <circle cx="24" cy="24" r="18" fill="#F0F9FF" stroke="#0284C7" strokeWidth="2.5"/>
+      <path d="M24 8v3M24 37v3M8 24h3M37 24h3" stroke="#0284C7" strokeWidth="2" strokeLinecap="round"/>
+      <polygon points="24 10 28 24 20 24" fill="#EF4444"/>
+      <polygon points="24 38 28 24 20 24" fill="#E2E8F0"/>
+      <polygon points="24 10 28 24 24 38 20 24" stroke="#0284C7" strokeWidth="1.8" strokeLinejoin="round"/>
+      <circle cx="24" cy="24" r="2.5" fill="#F59E0B"/>
     </svg>
   ),
   sparkle: (
@@ -81,14 +74,12 @@ export const SVG_EMOJIS = {
       <path d="M16 11c0-2 1-3 1-5s-1-3-1-5" stroke="#D4A373" strokeWidth="2.5" strokeLinecap="round"/>
       <path d="M22 11c0-2 1-3 1-5s-1-3-1-5" stroke="#D4A373" strokeWidth="2.5" strokeLinecap="round"/>
       <path d="M28 11c0-2 1-3 1-5s-1-3-1-5" stroke="#D4A373" strokeWidth="2.5" strokeLinecap="round"/>
-      <ellipse cx="22" cy="18" rx="8" ry="2" fill="#B08968" opacity="0.4"/>
     </svg>
   ),
   tree: (
     <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
       <path d="M21 33v9h6v-9" fill="#B45309" stroke="#78350F" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-      <path d="M24 7c-4.5 0-8.5 2.5-10 6-3 .5-5.5 2.5-6.5 5.5-1 3.5.5 7 3.5 9 .5 3 2.5 5.5 5.5 6.5 2.5.5 5.5-.5 7.5-2.5 2 2 5 3 7.5 2.5 3-1 5-3.5 5.5-6.5 3-2 4.5-5.5 3.5-9-1-3-3.5-5-6.5-5.5-1.5-3.5-5.5-6-10-6z" fill="#BBF7D0" stroke="#15803D" strokeWidth="2.5" strokeLinejoin="round"/>
-      <path d="M26 15c4 0 8.5 3 9.5 7.5 1 4-1 7.5-3.5 9.5-3 1-5.5.5-7.5-1.5-1.5 1.5-3.5 2-5 1.5 3-3.5 4-9.5 6.5-17z" fill="#4ADE80" opacity="0.6"/>
+      <path d="M24 7c-4.5 0-8.5 2.5-10 6-3 .5-5.5 2.5-6.5 5.5-1 3.5.5 7 3.5 9 .5 3 2.5 5.5 5.5 6.5 2.5.5 5.5-.5 7.5-2.5 2 2 5 3 7.5 2.5 3-1 5-3.5 5.5-6.5 3-2 4.5-5.5 3.5-9-1-3-3.5-5-6.5-5.5-1.5-3.5-5.5-6-10-6z" fill="#BBf7D0" stroke="#15803D" strokeWidth="2.5" strokeLinejoin="round"/>
       <path d="M24 33v-5l-4-4M24 30l4-3" stroke="#78350F" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
     </svg>
   ),
