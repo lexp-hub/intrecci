@@ -85,7 +85,7 @@ export const MainMenu = ({
               <div className="menu-badge-row">
                 <span className="badge-new-mode">Modalità Avventura</span>
                 <span className="badge-stars-count" style={{ display: 'inline-flex', alignItems: 'center', gap: 3 }}>
-                  {sagaTotalStars}/60 <CustomSvg name="star" type="emoji" size={12} />
+                  {sagaTotalStars}/60 <CustomSvg name="star" type="emoji" size={14} />
                 </span>
               </div>
               <div className="menu-card-title">Mappa dei Regni a Tappe</div>
@@ -164,7 +164,7 @@ export const MainMenu = ({
             tabIndex={0}
           >
             <div className="menu-card-icon-box magic-box">
-              <CustomSvg name="magic" type="icon" size={24} />
+              <CustomSvg name="magic" type="emoji" size={26} />
             </div>
             <div className="menu-card-info">
               <div className="menu-card-title">
@@ -213,7 +213,7 @@ export const MainMenu = ({
             <div className="menu-card-info">
               <div className="menu-card-title">Statistiche e Record</div>
               <div className="menu-card-subtitle" style={{ display: 'inline-flex', alignItems: 'center', gap: 4 }}>
-                {stats.played} partite • {stats.won} vittorie • serie {stats.currentStreak} <CustomSvg name="fire" type="emoji" size={13} />
+                {stats.played} partite • {stats.won} vittorie • serie {stats.currentStreak} <CustomSvg name="fire" type="emoji" size={16} />
               </div>
             </div>
             <div className="menu-card-arrow">
