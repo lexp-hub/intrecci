@@ -9,7 +9,8 @@ export const ResultsModal = ({
   isWon,
   guessHistory,
   puzzle,
-  onOpenPuzzles
+  onOpenPuzzles,
+  onNewGame
 }) => {
   const [copied, setCopied] = useState(false);
 
@@ -63,8 +64,22 @@ export const ResultsModal = ({
         </div>
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: 10, marginTop: 18 }}>
+          {onNewGame && (
+            <button
+              className="action-btn action-btn-primary"
+              style={{ width: '100%', justifyContent: 'center' }}
+              onClick={async () => {
+                onClose();
+                await onNewGame();
+              }}
+            >
+              <CustomSvg name="magic" type="icon" size={17} />
+              <span>Nuova Partita Casuale</span>
+            </button>
+          )}
+
           <button
-            className="action-btn action-btn-primary"
+            className="action-btn action-btn-outline"
             style={{ width: '100%', justifyContent: 'center' }}
             onClick={handleShare}
           >
@@ -81,7 +96,7 @@ export const ResultsModal = ({
             }}
           >
             <CustomSvg name="archive" type="icon" size={17} />
-            <span>Scegli un altro enigma</span>
+            <span>Archivio Partite</span>
           </button>
         </div>
       </div>

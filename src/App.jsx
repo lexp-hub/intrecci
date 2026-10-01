@@ -39,6 +39,7 @@ export function App() {
   const {
     puzzle,
     allPuzzles,
+    playedArchive,
     gameMode,
     timeLeft,
     remainingWords,
@@ -61,6 +62,7 @@ export function App() {
     shuffleWords,
     submitGuess,
     restartCurrentPuzzle,
+    selectArchiveGame,
     selectPuzzle,
     startCustomLevel,
     useCategoryHint,
@@ -188,6 +190,7 @@ export function App() {
           isGenerating={isGenerating}
           activePuzzle={puzzle}
           stats={stats}
+          playedArchive={playedArchive}
           totalPuzzles={allPuzzles.length}
           sagaProgress={sagaProgress}
         />
@@ -313,10 +316,10 @@ export function App() {
       <PuzzlesModal
         isOpen={isPuzzlesOpen}
         onClose={() => setIsPuzzlesOpen(false)}
-        puzzles={allPuzzles}
+        playedGames={playedArchive}
         activePuzzleId={puzzle.id}
-        onSelectPuzzle={(id) => {
-          selectPuzzle(id, 'classic');
+        onSelectGame={(id) => {
+          selectArchiveGame(id);
           setCurrentScreen('game');
         }}
         onGenerateApi={async () => {
@@ -324,7 +327,6 @@ export function App() {
           setCurrentScreen('game');
         }}
         isGenerating={isGenerating}
-        completedPuzzles={stats.completedPuzzles || []}
       />
 
       <ResultsModal
@@ -334,6 +336,10 @@ export function App() {
         guessHistory={guessHistory}
         puzzle={puzzle}
         onOpenPuzzles={() => setIsPuzzlesOpen(true)}
+        onNewGame={async () => {
+          await generateNewApiPuzzle();
+          setCurrentScreen('game');
+        }}
       />
     </div>
   );

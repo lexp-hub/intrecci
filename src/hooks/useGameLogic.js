@@ -1,28 +1,49 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
-import { PUZZLES } from '../data/puzzles';
 import { triggerVictoryConfetti } from '../utils/confetti';
-import { loadGameStats, saveGameStats, loadPuzzleState, savePuzzleState } from '../utils/storage';
-import { generatePuzzleFromDatabase } from '../services/wordDatabaseApi';
+import {
+  loadGameStats,
+  saveGameStats,
+  loadPlayedArchive,
+  savePlayedGame,
+  loadActiveGame,
+  saveActiveGame
+} from '../utils/storage';
+import { generatePuzzleSync, generatePuzzleFromDatabase } from '../services/wordDatabaseApi';
 import soundManager from '../utils/audio';
 
-export const useGameLogic = (initialPuzzleId = 1, onLevelCompletedCallback = null) => {
-  const [allPuzzles, setAllPuzzles] = useState(() => {
-    try {
-      const savedCustom = localStorage.getItem('intrecci_custom_puzzles');
-      if (savedCustom) {
-        const parsed = JSON.parse(savedCustom);
-        return [...PUZZLES, ...parsed];
-      }
-    } catch (e) {
-      console.error('Error loading custom puzzles:', e);
-    }
-    return PUZZLES;
-  });
+export const useGameLogic = (initialPuzzleId = null, onLevelCompletedCallback = null) => {
+  const [playedArchive, setPlayedArchive] = useState(() => loadPlayedArchive());
 
-  const [currentPuzzleId, setCurrentPuzzleId] = useState(initialPuzzleId);
   const [activePuzzleOverride, setActivePuzzleOverride] = useState(null);
 
-  const puzzle = activePuzzleOverride || allPuzzles.find(p => p.id === currentPuzzleId) || allPuzzles[0];
+  const [currentPuzzle, setCurrentPuzzle] = useState(() => {
+    const savedActive = loadActiveGame();
+    if (savedActive && savedActive.puzzle) {
+      return savedActive.puzzle;
+    }
+    const archive = loadPlayedArchive();
+    if (archive.length > 0 && archive[0].puzzle && archive[0].status === 'in_progress') {
+      return archive[0].puzzle;
+    }
+    const newP = generatePuzzleSync(archive.length + 1);
+    const initialRecord = {
+      id: newP.id,
+      gameNumber: archive.length + 1,
+      title: newP.title,
+      createdAt: new Date().toISOString(),
+      puzzle: newP,
+      status: 'in_progress',
+      isWon: false,
+      isGameOver: false,
+      solvedGroups: [],
+      guessHistory: [],
+      mistakesRemaining: 4
+    };
+    savePlayedGame(initialRecord);
+    return newP;
+  });
+
+  const puzzle = activePuzzleOverride || currentPuzzle;
 
   const [gameMode, setGameMode] = useState('classic');
   const [timeLeft, setTimeLeft] = useState(90);
@@ -41,8 +62,8 @@ export const useGameLogic = (initialPuzzleId = 1, onLevelCompletedCallback = nul
   const [isGenerating, setIsGenerating] = useState(false);
   const [stats, setStats] = useState(loadGameStats);
 
-  const [revealedHints, setRevealedHints] = useState([]); 
-  const [highlightedPair, setHighlightedPair] = useState([]); 
+  const [revealedHints, setRevealedHints] = useState([]);
+  const [highlightedPair, setHighlightedPair] = useState([]);
 
   const shuffleArray = (arr) => {
     const copy = [...arr];
@@ -67,17 +88,17 @@ export const useGameLogic = (initialPuzzleId = 1, onLevelCompletedCallback = nul
     setHighlightedPair([]);
     setMistakesMade(0);
 
-    const isOverride = targetPuzzle._isSaga;
-    const saved = !isOverride ? loadPuzzleState(targetPuzzle.id) : null;
+    const isSaga = !!targetPuzzle._isSaga;
+    const savedActive = !isSaga ? loadActiveGame() : null;
 
-    if (saved && mode === 'classic') {
-      setRemainingWords(saved.remainingWords);
+    if (savedActive && savedActive.id === targetPuzzle.id && mode === 'classic') {
+      setRemainingWords(savedActive.remainingWords || []);
       setSelectedWords([]);
-      setSolvedGroups(saved.solvedGroups);
-      setMistakesRemaining(saved.mistakesRemaining);
-      setGuessHistory(saved.guessHistory);
-      setIsGameOver(saved.isGameOver);
-      setIsWon(saved.isWon);
+      setSolvedGroups(savedActive.solvedGroups || []);
+      setMistakesRemaining(savedActive.mistakesRemaining !== undefined ? savedActive.mistakesRemaining : 4);
+      setGuessHistory(savedActive.guessHistory || []);
+      setIsGameOver(!!savedActive.isGameOver);
+      setIsWon(!!savedActive.isWon);
     } else {
       const allWords = targetPuzzle.groups.flatMap(g => g.words);
       setRemainingWords(shuffleArray(allWords));
@@ -118,19 +139,6 @@ export const useGameLogic = (initialPuzzleId = 1, onLevelCompletedCallback = nul
     }
     return () => clearInterval(timerRef.current);
   }, [gameMode, isGameOver, isWon, puzzle.groups, showToast]);
-
-  useEffect(() => {
-    if (!puzzle._isSaga && (remainingWords.length > 0 || solvedGroups.length > 0)) {
-      savePuzzleState(puzzle.id, {
-        remainingWords,
-        solvedGroups,
-        mistakesRemaining,
-        guessHistory,
-        isGameOver,
-        isWon
-      });
-    }
-  }, [puzzle.id, puzzle._isSaga, remainingWords, solvedGroups, mistakesRemaining, guessHistory, isGameOver, isWon]);
 
   const toggleWordSelect = (word) => {
     if (isGameOver || isWon) return;
@@ -178,6 +186,7 @@ export const useGameLogic = (initialPuzzleId = 1, onLevelCompletedCallback = nul
 
     const sortedCurrent = [...selectedWords].sort().join(',');
     const alreadyGuessed = guessHistory.some(g => [...g.words].sort().join(',') === sortedCurrent);
+
     if (alreadyGuessed) {
       showToast("Combinazione già provata!");
       return;
@@ -199,8 +208,9 @@ export const useGameLogic = (initialPuzzleId = 1, onLevelCompletedCallback = nul
     if (matchedGroup) {
       soundManager.playSuccess();
       const newSolved = [...solvedGroups, matchedGroup];
+      const newRemaining = remainingWords.filter(w => !selectedWords.includes(w));
       setSolvedGroups(newSolved);
-      setRemainingWords(prev => prev.filter(w => !selectedWords.includes(w)));
+      setRemainingWords(newRemaining);
       setSelectedWords([]);
 
       if (gameMode === 'timed') {
@@ -229,10 +239,50 @@ export const useGameLogic = (initialPuzzleId = 1, onLevelCompletedCallback = nul
         };
         setStats(newStats);
         saveGameStats(newStats);
+
+        if (!puzzle._isSaga) {
+          savePlayedGame({
+            id: puzzle.id,
+            gameNumber: puzzle.gameNumber || (playedArchive.length || 1),
+            title: puzzle.title,
+            puzzle,
+            status: 'won',
+            isWon: true,
+            isGameOver: true,
+            solvedGroups: newSolved,
+            remainingWords: [],
+            guessHistory: updatedHistory,
+            mistakesRemaining,
+            mistakesMade
+          });
+          setPlayedArchive(loadPlayedArchive());
+          saveActiveGame(null);
+        }
+      } else {
+        if (!puzzle._isSaga) {
+          const gameRec = {
+            id: puzzle.id,
+            gameNumber: puzzle.gameNumber || (playedArchive.length || 1),
+            title: puzzle.title,
+            puzzle,
+            status: 'in_progress',
+            isWon: false,
+            isGameOver: false,
+            solvedGroups: newSolved,
+            remainingWords: newRemaining,
+            guessHistory: updatedHistory,
+            mistakesRemaining,
+            mistakesMade
+          };
+          savePlayedGame(gameRec);
+          setPlayedArchive(loadPlayedArchive());
+          saveActiveGame(gameRec);
+        }
       }
     } else {
       soundManager.playError();
-      setMistakesMade(prev => prev + 1);
+      const nextMistakesMade = mistakesMade + 1;
+      setMistakesMade(nextMistakesMade);
 
       const unsolvedGroups = puzzle.groups.filter(
         g => !solvedGroups.some(sg => sg.level === g.level)
@@ -275,22 +325,99 @@ export const useGameLogic = (initialPuzzleId = 1, onLevelCompletedCallback = nul
         };
         setStats(newStats);
         saveGameStats(newStats);
+
+        if (!puzzle._isSaga) {
+          savePlayedGame({
+            id: puzzle.id,
+            gameNumber: puzzle.gameNumber || (playedArchive.length || 1),
+            title: puzzle.title,
+            puzzle,
+            status: 'lost',
+            isWon: false,
+            isGameOver: true,
+            solvedGroups,
+            remainingWords,
+            guessHistory: updatedHistory,
+            mistakesRemaining: 0,
+            mistakesMade: nextMistakesMade
+          });
+          setPlayedArchive(loadPlayedArchive());
+          saveActiveGame(null);
+        }
+      } else {
+        if (!puzzle._isSaga) {
+          const gameRec = {
+            id: puzzle.id,
+            gameNumber: puzzle.gameNumber || (playedArchive.length || 1),
+            title: puzzle.title,
+            puzzle,
+            status: 'in_progress',
+            isWon: false,
+            isGameOver: false,
+            solvedGroups,
+            remainingWords,
+            guessHistory: updatedHistory,
+            mistakesRemaining: newMistakes,
+            mistakesMade: nextMistakesMade
+          };
+          savePlayedGame(gameRec);
+          setPlayedArchive(loadPlayedArchive());
+          saveActiveGame(gameRec);
+        }
       }
     }
   };
 
   const restartCurrentPuzzle = () => {
-    if (!puzzle._isSaga) {
-      localStorage.removeItem(`intrecci_game_puzzle_${puzzle.id}`);
-    }
     initPuzzle(puzzle, gameMode);
+    if (!puzzle._isSaga) {
+      const allWords = puzzle.groups.flatMap(g => g.words);
+      const gameRec = {
+        id: puzzle.id,
+        gameNumber: puzzle.gameNumber || (playedArchive.length || 1),
+        title: puzzle.title,
+        puzzle,
+        status: 'in_progress',
+        isWon: false,
+        isGameOver: false,
+        solvedGroups: [],
+        remainingWords: allWords,
+        guessHistory: [],
+        mistakesRemaining: gameMode === 'zen' ? 999 : 4,
+        mistakesMade: 0
+      };
+      savePlayedGame(gameRec);
+      setPlayedArchive(loadPlayedArchive());
+      saveActiveGame(gameRec);
+    }
     showToast("Partita riavviata!");
   };
 
-  const selectPuzzle = (id, mode = 'classic') => {
+  const selectArchiveGame = (gameId) => {
+    const archive = loadPlayedArchive();
+    const entry = archive.find(g => g.id === gameId);
+    if (!entry || !entry.puzzle) return;
+
     setActivePuzzleOverride(null);
-    setCurrentPuzzleId(id);
-    setGameMode(mode);
+    setCurrentPuzzle(entry.puzzle);
+    setRemainingWords(
+      entry.remainingWords && entry.remainingWords.length > 0
+        ? entry.remainingWords
+        : entry.puzzle.groups.flatMap(g => g.words).filter(w => !(entry.solvedGroups || []).some(sg => sg.words.includes(w)))
+    );
+    setSelectedWords([]);
+    setSolvedGroups(entry.solvedGroups || []);
+    setMistakesRemaining(entry.mistakesRemaining !== undefined ? entry.mistakesRemaining : 4);
+    setMistakesMade(entry.mistakesMade || 0);
+    setGuessHistory(entry.guessHistory || []);
+    setIsGameOver(!!entry.isGameOver);
+    setIsWon(!!entry.isWon);
+    setRevealedHints([]);
+    setHighlightedPair([]);
+
+    if (!entry.isGameOver) {
+      saveActiveGame(entry);
+    }
   };
 
   const startCustomLevel = (customPuzzleObj, mode = 'classic') => {
@@ -351,16 +478,45 @@ export const useGameLogic = (initialPuzzleId = 1, onLevelCompletedCallback = nul
     setIsGenerating(true);
     showToast("Interrogazione database parole in corso...", 3000);
     try {
-      const newPuzzle = await generatePuzzleFromDatabase(allPuzzles.length);
-      const updatedPuzzles = [...allPuzzles, newPuzzle];
-      setAllPuzzles(updatedPuzzles);
+      const currentArchive = loadPlayedArchive();
+      const nextGameNum = currentArchive.length + 1;
+      const newPuzzle = await generatePuzzleFromDatabase(nextGameNum);
 
-      const customOnes = updatedPuzzles.filter(p => p.id > PUZZLES.length);
-      localStorage.setItem('intrecci_custom_puzzles', JSON.stringify(customOnes));
+      const allWords = newPuzzle.groups.flatMap(g => g.words);
+      const initialRecord = {
+        id: newPuzzle.id,
+        gameNumber: nextGameNum,
+        title: newPuzzle.title,
+        createdAt: new Date().toISOString(),
+        puzzle: newPuzzle,
+        status: 'in_progress',
+        isWon: false,
+        isGameOver: false,
+        solvedGroups: [],
+        guessHistory: [],
+        mistakesRemaining: 4
+      };
+
+      savePlayedGame(initialRecord);
+      const updatedArchive = loadPlayedArchive();
+      setPlayedArchive(updatedArchive);
 
       setActivePuzzleOverride(null);
-      setCurrentPuzzleId(newPuzzle.id);
-      showToast("Nuovo enigma generato con successo!", 3000);
+      setCurrentPuzzle(newPuzzle);
+
+      setRemainingWords(shuffleArray(allWords));
+      setSelectedWords([]);
+      setSolvedGroups([]);
+      setMistakesRemaining(gameMode === 'zen' ? 999 : 4);
+      setMistakesMade(0);
+      setGuessHistory([]);
+      setIsGameOver(false);
+      setIsWon(false);
+      setRevealedHints([]);
+      setHighlightedPair([]);
+      saveActiveGame({ ...initialRecord, remainingWords: allWords, selectedWords: [] });
+
+      showToast("Nuova partita generata! Buon ragionamento.", 3000);
       return newPuzzle;
     } catch (err) {
       console.error('Errore generazione:', err);
@@ -372,7 +528,8 @@ export const useGameLogic = (initialPuzzleId = 1, onLevelCompletedCallback = nul
 
   return {
     puzzle,
-    allPuzzles,
+    allPuzzles: playedArchive.map(g => g.puzzle).filter(Boolean),
+    playedArchive,
     gameMode,
     timeLeft,
     remainingWords,
@@ -396,7 +553,8 @@ export const useGameLogic = (initialPuzzleId = 1, onLevelCompletedCallback = nul
     shuffleWords,
     submitGuess,
     restartCurrentPuzzle,
-    selectPuzzle,
+    selectArchiveGame,
+    selectPuzzle: selectArchiveGame,
     startCustomLevel,
     useCategoryHint,
     usePairHighlightHint,

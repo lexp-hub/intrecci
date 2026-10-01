@@ -13,12 +13,12 @@ export const MainMenu = ({
   isGenerating,
   activePuzzle,
   stats,
+  playedArchive = [],
   totalPuzzles,
   sagaProgress
 }) => {
-  const completedCount = (stats.completedPuzzles || []).length;
-  const isCurrentCompleted = (stats.completedPuzzles || []).includes(activePuzzle.id);
-  const winPercent = stats.played > 0 ? Math.round((stats.won / stats.played) * 100) : 0;
+  const playedGamesCount = playedArchive?.length || stats.played || 0;
+  const isCurrentCompleted = activePuzzle ? (stats.completedPuzzles || []).includes(activePuzzle.id) : false;
   const sagaTotalStars = sagaProgress?.totalStars || 0;
   const sagaUnlocked = sagaProgress?.unlockedLevel || 1;
 
@@ -37,7 +37,7 @@ export const MainMenu = ({
           </div>
           <p className="menu-description">
             Trova i 4 gruppi da 4 parole che condividono un filo conduttore semantico.
-            Affronta la mappa a tappe o rilassati con i binomi iconici italiani!
+            Ogni partita è generata in modo casuale dal database delle parole: ragiona e deduci!
           </p>
         </div>
 
@@ -119,13 +119,17 @@ export const MainMenu = ({
 
           <div className="featured-puzzle-card">
             <div className="featured-puzzle-header">
-              <span className="featured-badge">Enigma In Evidenza</span>
-              <span className="featured-difficulty">{activePuzzle.difficulty}</span>
+              <span className="featured-badge">
+                {isCurrentCompleted ? 'Partita Conclusa' : 'Sfida Dinamica'}
+              </span>
+              <span className="featured-difficulty">{activePuzzle?.difficulty || 'Dinamico'}</span>
             </div>
 
             <div className="featured-puzzle-body">
-              <h2 className="featured-title">{activePuzzle.title}</h2>
-              <p className="featured-desc">{activePuzzle.subtitle}</p>
+              <h2 className="featured-title">{activePuzzle?.title || 'Partita in Corso'}</h2>
+              <p className="featured-desc">
+                {activePuzzle?.subtitle || 'Generata casualmente dal database — nessuna soluzione fissa online!'}
+              </p>
 
               <div className="featured-categories-preview">
                 <span className="preview-dot dot-yellow" title="Categoria Gialla: Semplice" />
@@ -136,10 +140,32 @@ export const MainMenu = ({
               </div>
             </div>
 
-            <button className="menu-primary-btn" onClick={onStartGame}>
-              <CustomSvg name="play" type="icon" size={20} />
-              <span>{isCurrentCompleted ? 'Rigioca Enigma' : 'Gioca Classico'}</span>
-            </button>
+            <div style={{ display: 'flex', gap: 10, width: '100%' }}>
+              <button className="menu-primary-btn" style={{ flex: 1 }} onClick={onStartGame}>
+                <CustomSvg name="play" type="icon" size={20} />
+                <span>{isCurrentCompleted ? 'Rigioca Partita' : 'Gioca Partita'}</span>
+              </button>
+
+              <button
+                className="action-btn action-btn-primary"
+                style={{
+                  padding: '0 16px',
+                  background: 'var(--color-cat-yellow-bg)',
+                  color: 'var(--color-cat-yellow-text)',
+                  border: '1.5px solid var(--color-cat-yellow-border)',
+                  borderRadius: 'var(--radius-md)'
+                }}
+                onClick={async () => {
+                  const newP = await onGenerateApi();
+                  if (newP) onStartGame();
+                }}
+                disabled={isGenerating}
+                title="Genera nuova partita casuale"
+              >
+                <CustomSvg name="magic" type="icon" size={17} />
+                <span>{isGenerating ? '...' : 'Nuova'}</span>
+              </button>
+            </div>
           </div>
         </section>
 
@@ -158,10 +184,10 @@ export const MainMenu = ({
             </div>
             <div className="menu-card-info">
               <div className="menu-card-title">
-                {isGenerating ? 'Generazione in corso...' : 'Database Parole API'}
+                {isGenerating ? 'Generazione in corso...' : 'Nuova Partita Casuale'}
               </div>
               <div className="menu-card-subtitle">
-                Genera enigmi infiniti dal lessico italiano
+                Genera un enigma inedito dal database lessicale italiano
               </div>
             </div>
             <div className="menu-card-arrow">
@@ -176,12 +202,12 @@ export const MainMenu = ({
             tabIndex={0}
           >
             <div className="menu-card-icon-box box-blue">
-              <CustomSvg name="levels" type="icon" size={24} />
+              <CustomSvg name="book" type="emoji" size={24} />
             </div>
             <div className="menu-card-info">
-              <div className="menu-card-title">Archivio Enigmi</div>
+              <div className="menu-card-title">Archivio Partite</div>
               <div className="menu-card-subtitle">
-                Sfoglia l'intera collezione ({completedCount}/{totalPuzzles} completati)
+                Storico delle tue partite reali ({playedGamesCount} giocate)
               </div>
             </div>
             <div className="menu-card-arrow">
@@ -219,10 +245,8 @@ export const MainMenu = ({
               <CustomSvg name="settings" type="icon" size={24} />
             </div>
             <div className="menu-card-info">
-              <div className="menu-card-title">Impostazioni & Atmosfera</div>
-              <div className="menu-card-subtitle">
-                Tema notturno, neve che cade, effetti audio
-              </div>
+              <div className="menu-card-title">Impostazioni</div>
+              <div className="menu-card-subtitle">Tema scuro, effetti neve, suoni e feedback</div>
             </div>
             <div className="menu-card-arrow">
               <CustomSvg name="chevronRight" type="icon" size={20} />
@@ -235,14 +259,12 @@ export const MainMenu = ({
             role="button"
             tabIndex={0}
           >
-            <div className="menu-card-icon-box box-purple">
+            <div className="menu-card-icon-box box-blue">
               <CustomSvg name="help" type="icon" size={24} />
             </div>
             <div className="menu-card-info">
-              <div className="menu-card-title">Come si Gioca & Regole</div>
-              <div className="menu-card-subtitle">
-                Logica dei collegamenti, modalità e legenda colori
-              </div>
+              <div className="menu-card-title">Regole e Guida</div>
+              <div className="menu-card-subtitle">Come giocare, livelli di colore e scorciatoie</div>
             </div>
             <div className="menu-card-arrow">
               <CustomSvg name="chevronRight" type="icon" size={20} />
@@ -250,10 +272,6 @@ export const MainMenu = ({
           </div>
         </section>
       </div>
-
-      <footer className="menu-footer">
-        Ispirato a <em>Connections</em> • Edizione in Lingua Italiana • Stile <em>Giochini di Parole</em>
-      </footer>
     </div>
   );
 };
