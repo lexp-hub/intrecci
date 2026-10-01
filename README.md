@@ -3,6 +3,7 @@
   <p align="center">
     <a href="https://lexp-hub.github.io/intrecci/"><img src="https://img.shields.io/badge/Live_Game-lexp--hub.github.io%2Fintrecci-FF4400?style=flat-square&logo=githubpages&logoColor=white" alt="Live Game" /></a>
     <img src="https://img.shields.io/badge/Italiano-100%25_Lessico-009246?style=flat-square" alt="Italiano" />
+    <img src="https://img.shields.io/badge/API-Wikipedia_IT-000000?style=flat-square&logo=wikipedia&logoColor=white" alt="Wikipedia API" />
     <img src="https://img.shields.io/badge/React-v18.3-61DAFB?style=flat-square&logo=react&logoColor=black" alt="React 18" />
     <img src="https://img.shields.io/badge/Vite-v5.4-646CFF?style=flat-square&logo=vite&logoColor=white" alt="Vite" />
     <img src="https://img.shields.io/badge/Physics-Matter.js_2D-E8590C?style=flat-square" alt="Matter.js" />
@@ -21,17 +22,17 @@
 
 ## Ringraziamenti & Open Source Credits
 
-Un ringraziamento speciale a tutti i progetti e le librerie open source che hanno reso possibile la realizzazione di **Intrecci**:
+Un sentito ringraziamento ai progetti, alle librerie open source e alle persone che hanno reso possibile e ispirato la creazione di **Intrecci**:
 
-- **[OpenMoji](https://openmoji.org/)** (di Daniel Utz, Philipp Antoni e tutti i contributor OpenMoji) — per la straordinaria collezione di emoji vettoriali open-source rilasciata con licenza [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
-- **[React](https://react.dev/)** — per l'architettura a componenti dichiarativa e performante.
-- **[Vite](https://vitejs.dev/)** — per il tooling di sviluppo ultra-rapido e il bundling di produzione ottimizzato.
-- **[Matter.js](https://brm.io/matter-js/)** (di Liam Brummitt) — per il motore di simulazione fisica 2D di corpi rigidi nel browser utilizzato per l'Easter Egg Google Gravity.
-- **[Canvas-Confetti](https://github.com/catdad/canvas-confetti)** (di Kiril Vatev) — per gli effetti particellari di coriandoli nelle schermate di vittoria.
-- **[Lucide Icons](https://lucide.dev/)** — per le icone funzionali minimali dell'interfaccia utente.
-- **Ispirazione & Riconoscimenti**:
-  - A **[giochinidiparole.com](https://www.giochinidiparole.com/)** per la raffinata direzione artistica a tema scuro con sfere ambientali sfocate, palette calde e microinterazioni eleganti.
-  - Al gioco originale **Connections** del *New York Times* per l'idea originale del puzzle semantico a quattro categorie.
+- **[OpenMoji](https://openmoji.org/)** (Daniel Utz, Philipp Antoni e tutti i contributor OpenMoji presso la HfG Schwäbisch Gmünd) — per la straordinaria collezione di emoji vettoriali open-source ([CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)), personalizzate e adattate per il progetto.
+- **[Wikipedia / Wikimedia Foundation](https://it.wikipedia.org/)** — per le API pubbliche e il patrimonio enciclopedico aperto utilizzato per la generazione dinamica e l'arricchimento lessicale degli enigmi.
+- **[React](https://react.dev/)** — per l'architettura a componenti dell'interfaccia utente.
+- **[Vite](https://vitejs.dev/)** — per l'ambiente di sviluppo e il build di produzione ottimizzato.
+- **[Matter.js](https://brm.io/matter-js/)** (Liam Brummitt) — per il motore di simulazione fisica 2D utilizzato nell'Easter Egg.
+- **[Canvas-Confetti](https://github.com/catdad/canvas-confetti)** (Kiril Vatev) — per le animazioni celebrative di completamento partita.
+- **[Lucide Icons](https://lucide.dev/)** — per le icone funzionali minimali dell'interfaccia.
+- **Ispirazione**:
+  - A **[Wyna Liu](https://www.nytimes.com/by/wyna-liu)** e al team di giochi del **The New York Times** per aver ideato il celebre format di collegamenti lessicali **[Connections](https://www.nytimes.com/games/connections)**.
 
 ---
 
