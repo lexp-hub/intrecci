@@ -50,12 +50,12 @@ export const StatsModal = ({ isOpen, onClose, stats, totalPuzzles }) => {
             <span>Enigmi completati</span>
             <span>{completedCount} / {totalPuzzles}</span>
           </div>
-          <div style={{ width: '100%', height: 8, background: '#E2DCD5', borderRadius: 4, overflow: 'hidden' }}>
+          <div style={{ width: '100%', height: 8, background: 'var(--border-subtle)', borderRadius: 4, overflow: 'hidden' }}>
             <div
               style={{
                 width: `${totalPuzzles > 0 ? (completedCount / totalPuzzles) * 100 : 0}%`,
                 height: '100%',
-                background: 'var(--text-primary)',
+                background: 'linear-gradient(90deg, #FACC15, #4ADE80, #60A5FA, #C084FC)',
                 transition: 'width 0.4s ease'
               }}
             />

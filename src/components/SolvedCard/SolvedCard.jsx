@@ -21,6 +21,9 @@ export const SolvedCard = ({ group }) => {
       <div className="solved-card-content">
         <div className="solved-card-title">{group.category}</div>
         <div className="solved-card-words">{group.words.join(', ')}</div>
+        {(group.description || group.hint) && (
+          <div className="solved-card-desc">{group.description || group.hint}</div>
+        )}
       </div>
     </div>
   );

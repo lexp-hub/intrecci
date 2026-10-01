@@ -163,8 +163,17 @@ export const useGameLogic = (initialPuzzleId = 1, onLevelCompletedCallback = nul
     setSelectedWords([]);
   };
 
+  // Deselect last selected word
+  const deselectLast = () => {
+    if (selectedWords.length > 0) {
+      soundManager.playSelect(selectedWords.length - 1);
+      setSelectedWords(prev => prev.slice(0, -1));
+    }
+  };
+
   // Shuffle remaining words on board
   const shuffleWords = () => {
+    soundManager.playShuffle?.();
     setRemainingWords(prev => shuffleArray(prev));
   };
 
@@ -224,6 +233,7 @@ export const useGameLogic = (initialPuzzleId = 1, onLevelCompletedCallback = nul
         setIsWon(true);
         setIsGameOver(true);
         triggerVictoryConfetti();
+        soundManager.playWin?.();
         showToast("Splendido! Hai trovato tutti i collegamenti!", 3500);
 
         // Notify callback (e.g. for saga level progression)
@@ -259,7 +269,7 @@ export const useGameLogic = (initialPuzzleId = 1, onLevelCompletedCallback = nul
       });
 
       if (isOneAway) {
-        showToast("Manca solo 1!");
+        showToast("Manca solo 1! 💡", 2500);
       }
 
       // Shake selected tiles
@@ -422,6 +432,7 @@ export const useGameLogic = (initialPuzzleId = 1, onLevelCompletedCallback = nul
     stats,
     toggleWordSelect,
     deselectAll,
+    deselectLast,
     shuffleWords,
     submitGuess,
     restartCurrentPuzzle,

@@ -5,8 +5,15 @@ export const LevelSelector = ({ puzzle, onOpenPuzzles, onGenerateApi, isGenerati
   return (
     <div className="level-banner">
       <div className="level-info-left">
-        <span className="level-name">{puzzle.title}</span>
-        <span className="level-difficulty-tag">{puzzle.difficulty}</span>
+        <div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+            <span className="level-name">{puzzle.title}</span>
+            <span className="level-difficulty-tag">{puzzle.difficulty}</span>
+          </div>
+          {puzzle.subtitle && (
+            <div className="level-subtitle-flavor">{puzzle.subtitle}</div>
+          )}
+        </div>
       </div>
 
       <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>

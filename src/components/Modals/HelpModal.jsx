@@ -66,6 +66,33 @@ export const HelpModal = ({ isOpen, onClose }) => {
           </div>
         </div>
 
+        <div style={{ fontWeight: 700, fontSize: '0.86rem', margin: '14px 0 8px' }}>
+          Scorciatoie da tastiera:
+        </div>
+
+        <div className="keyboard-shortcuts-grid">
+          <div className="shortcut-row">
+            <kbd className="shortcut-kbd">Invio</kbd>
+            <span>Invia la combinazione selezionata</span>
+          </div>
+          <div className="shortcut-row">
+            <kbd className="shortcut-kbd">Spazio</kbd> / <kbd className="shortcut-kbd">S</kbd>
+            <span>Mescola le parole rimaste</span>
+          </div>
+          <div className="shortcut-row">
+            <kbd className="shortcut-kbd">Esc</kbd>
+            <span>Deseleziona tutto / Chiudi finestre</span>
+          </div>
+          <div className="shortcut-row">
+            <kbd className="shortcut-kbd">Backspace</kbd>
+            <span>Deseleziona l'ultima parola</span>
+          </div>
+          <div className="shortcut-row">
+            <kbd className="shortcut-kbd">H</kbd>
+            <span>Apri l'Oracolo degli Indizi</span>
+          </div>
+        </div>
+
         <button
           className="action-btn action-btn-primary"
           style={{ width: '100%', justifyContent: 'center' }}

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { BIOMES, SAGA_LEVELS } from '../../data/sagaLevels';
 import CustomSvg from '../../assets/svg/CustomSvg';
 import '../../styles/sagaMap.css';
@@ -13,6 +13,7 @@ export const SagaMap = ({
 }) => {
   const [selectedLevel, setSelectedLevel] = useState(null);
   const [chosenMode, setChosenMode] = useState('classic');
+  const scrollAreaRef = useRef(null);
 
   // Compute positions for 20 nodes along a serpentine S-curve
   // 4 nodes per row or serpentine zig-zag
@@ -25,6 +26,21 @@ export const SagaMap = ({
     const x = 50 + wave; // centered at 50%
     return { x, y };
   };
+
+  // Auto-scroll to center on the player's active level upon opening the map
+  useEffect(() => {
+    if (scrollAreaRef.current) {
+      const activeIdx = Math.max(0, Math.min(SAGA_LEVELS.length - 1, unlockedLevel - 1));
+      const { y } = getNodeCoordinates(activeIdx);
+      const scrollHeight = scrollAreaRef.current.scrollHeight;
+      const clientHeight = scrollAreaRef.current.clientHeight;
+      const targetScroll = (y / 100) * scrollHeight - (clientHeight / 2);
+      scrollAreaRef.current.scrollTo({
+        top: Math.max(0, targetScroll),
+        behavior: 'smooth'
+      });
+    }
+  }, [unlockedLevel]);
 
   const handleNodeClick = (level) => {
     if (level.id <= unlockedLevel) {
@@ -73,7 +89,7 @@ export const SagaMap = ({
       </header>
 
       {/* Map Scroll Container */}
-      <div className="saga-scroll-area">
+      <div className="saga-scroll-area" ref={scrollAreaRef}>
         <div className="saga-canvas-track">
           {/* Background winding SVG line */}
           <svg className="saga-svg-path" viewBox="0 0 100 100" preserveAspectRatio="none">

@@ -29,20 +29,22 @@ export const Controls = ({
         className="action-btn action-btn-outline"
         onClick={onShuffle}
         type="button"
-        title="Mescola le tessere rimaste"
+        title="Mescola le tessere rimaste (Tasto rapido: Spazio o S)"
       >
         <CustomSvg name="shuffle" type="icon" size={17} />
         <span>Mescola</span>
+        <kbd className="btn-kbd-hint">Spazio</kbd>
       </button>
 
       <button
         className="action-btn action-btn-hint"
         onClick={onOpenHint}
         type="button"
-        title="Apri l'Oracolo degli Indizi"
+        title="Apri l'Oracolo degli Indizi (Tasto rapido: H)"
       >
         <CustomSvg name="lightbulb" type="emoji" size={17} />
         <span>Indizio ({hintTokens})</span>
+        <kbd className="btn-kbd-hint">H</kbd>
       </button>
 
       <button
@@ -50,10 +52,11 @@ export const Controls = ({
         onClick={onDeselectAll}
         disabled={selectedCount === 0}
         type="button"
-        title="Cancella selezione corrente"
+        title="Cancella selezione corrente (Tasto rapido: Esc)"
       >
         <CustomSvg name="deselect" type="icon" size={17} />
         <span>Deseleziona ({selectedCount})</span>
+        <kbd className="btn-kbd-hint">Esc</kbd>
       </button>
 
       <button
@@ -61,10 +64,11 @@ export const Controls = ({
         onClick={onSubmit}
         disabled={selectedCount !== 4}
         type="button"
-        title="Verifica se le 4 parole appartengono allo stesso gruppo"
+        title="Verifica se le 4 parole appartengono allo stesso gruppo (Tasto rapido: Invio)"
       >
         <CustomSvg name="check" type="icon" size={17} />
         <span>Invia</span>
+        <kbd className="btn-kbd-hint">Invio</kbd>
       </button>
     </div>
   );

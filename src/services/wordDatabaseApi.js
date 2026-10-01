@@ -113,7 +113,7 @@ export const ITALIAN_CATEGORY_REGISTRY = {
       name: "PAROLE CHE TERMINANO CON 'TECA'",
       wikiCat: null,
       emoji: "puzzle",
-      seeds: ["BIBLIO", "DISCO", "PINACO", "ENO", "FUMETTO", "GIPSO", "VIDEO", "CINETECA"]
+      seeds: ["BIBLIO", "DISCO", "PINACO", "ENO", "FUMETTO", "GIPSO", "VIDEO", "FONO"]
     },
     {
       name: "TIPI DI 'CARTA'",
@@ -138,6 +138,12 @@ export const ITALIAN_CATEGORY_REGISTRY = {
       wikiCat: null,
       emoji: "puzzle",
       seeds: ["PIAZZA", "TAZZA", "COZZA", "RAZZO", "PEZZO", "POZZO", "MEZZO", "CORAZZA"]
+    },
+    {
+      name: "POSSONO ESSERE 'SALATI'",
+      wikiCat: null,
+      emoji: "pasta",
+      seeds: ["CONTO", "PREZZO", "POPOLETTI", "SNACK", "PIATTO", "MARE", "LAGO", "BURRO"]
     }
   ]
 };

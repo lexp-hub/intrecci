@@ -57,6 +57,7 @@ export function App() {
     stats,
     toggleWordSelect,
     deselectAll,
+    deselectLast,
     shuffleWords,
     submitGuess,
     restartCurrentPuzzle,
@@ -108,6 +109,56 @@ export function App() {
   const [isResultsOpen, setIsResultsOpen] = useState(false);
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const [isHintOpen, setIsHintOpen] = useState(false);
+
+  // Keyboard accessibility and shortcuts
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      // Don't intercept if user is typing in an input
+      if (['INPUT', 'TEXTAREA'].includes(document.activeElement?.tagName)) return;
+
+      const anyModalOpen = isHelpOpen || isStatsOpen || isPuzzlesOpen || isResultsOpen || isSettingsOpen || isHintOpen;
+
+      if (e.key === 'Escape') {
+        if (isHelpOpen) setIsHelpOpen(false);
+        else if (isStatsOpen) setIsStatsOpen(false);
+        else if (isPuzzlesOpen) setIsPuzzlesOpen(false);
+        else if (isResultsOpen) setIsResultsOpen(false);
+        else if (isSettingsOpen) setIsSettingsOpen(false);
+        else if (isHintOpen) setIsHintOpen(false);
+        else if (currentScreen === 'game') {
+          deselectAll();
+        }
+        return;
+      }
+
+      if (anyModalOpen) return;
+
+      if (currentScreen === 'game' && !isGameOver && !isWon) {
+        if (e.key === 'Enter') {
+          if (selectedWords.length === 4) {
+            e.preventDefault();
+            submitGuess();
+          }
+        } else if (e.code === 'Space' || e.key === 's' || e.key === 'S') {
+          e.preventDefault();
+          shuffleWords();
+        } else if (e.key === 'Backspace') {
+          e.preventDefault();
+          deselectLast();
+        } else if (e.key === 'h' || e.key === 'H') {
+          e.preventDefault();
+          setIsHintOpen(true);
+        }
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [
+    isHelpOpen, isStatsOpen, isPuzzlesOpen, isResultsOpen, isSettingsOpen, isHintOpen,
+    currentScreen, isGameOver, isWon, selectedWords.length,
+    submitGuess, shuffleWords, deselectAll, deselectLast
+  ]);
 
   // Automatically show Results Modal on game end
   useEffect(() => {

@@ -60,14 +60,14 @@ export const SAGA_LEVELS = [
         category: 'Piccoli insetti',
         color: 'blue',
         level: 3,
-        words: ['FORMICA', 'APE', 'GRILLO', 'LUCIDOLA'],
+        words: ['FORMICA', 'APE', 'GRILLO', 'LUCCIOLA'],
         hint: 'Popolano l\'erba e i prati estivi'
       },
       {
-        category: 'Parole simmetriche o doppie',
+        category: 'Parole simmetriche o palindrome',
         color: 'purple',
         level: 4,
-        words: ['OSSO', 'EGGE', 'OTTO', 'ANNA'],
+        words: ['OSSO', 'RADAR', 'OTTO', 'ANNA'],
         hint: 'Hanno particolarità ortografiche simmetriche'
       }
     ]
@@ -90,7 +90,7 @@ export const SAGA_LEVELS = [
         category: 'Strumenti agricoli',
         color: 'green',
         level: 2,
-        words: ['VANGHE', 'RASTRELLO', 'FALCE', 'ZAPPA'],
+        words: ['VANGA', 'RASTRELLO', 'FALCE', 'ZAPPA'],
         hint: 'Si usano per lavorare la terra a mano'
       },
       {
@@ -438,11 +438,11 @@ export const SAGA_LEVELS = [
         hint: 'Crescono nel muschio autunnale'
       },
       {
-        category: 'Parole che iniziano per "CASA"',
+        category: 'Formano parole composte con "CASA"',
         color: 'purple',
         level: 4,
-        words: ['FORTE', 'RINGO', 'CASCATA', 'MATTA'],
-        hint: 'Aggiungi "casa-" per formare parole composte'
+        words: ['FORTE', 'MATTA', 'BASE', 'MADRE'],
+        hint: 'Aggiungi "casa-" per formare casaforte, casamatta, casabase, casamadre'
       }
     ]
   },
@@ -508,7 +508,7 @@ export const SAGA_LEVELS = [
         category: 'Tipi di chiave musicale',
         color: 'blue',
         level: 3,
-        words: ['CHIAVI', 'BASSO', 'TENORE', 'SOPRANO'],
+        words: ['BASSO', 'TENORE', 'SOPRANO', 'CONTRALTO'],
         hint: 'Segni all\'inizio del pentagramma'
       },
       {
@@ -685,11 +685,11 @@ export const SAGA_LEVELS = [
         hint: 'I quattro mondi più vicini al Sole'
       },
       {
-        category: 'Segni zodiacali di fuoco',
+        category: 'Costellazioni dello Zodiaco',
         color: 'green',
         level: 2,
-        words: ['ARIETE', 'LEONE', 'SAGITTARIO', 'FUOCO'],
-        hint: 'Trinità astrologica ardente'
+        words: ['ARIETE', 'LEONE', 'GEMELLI', 'SCORPIONE'],
+        hint: 'Dodici costellazioni che formano lo zodiaco'
       },
       {
         category: 'Strumenti astronomici',
@@ -725,7 +725,7 @@ export const SAGA_LEVELS = [
         category: 'Elementi legati al filo di Arianna',
         color: 'green',
         level: 2,
-        words: ['GOMITOLO', 'USCITA', 'TRACCIA', 'GUIDA'],
+        words: ['GOMITOLO', 'LABIRINTO', 'TRACCIA', 'GUIDA'],
         hint: 'Come ritrovare la strada nel labirinto'
       },
       {

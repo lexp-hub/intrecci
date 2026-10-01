@@ -31,6 +31,13 @@ export const BinomiGame = ({ onGoToMenu, onEarnHint }) => {
     return `${m}:${s < 10 ? '0' : ''}${s}`;
   };
 
+  // Automatically award hint token when pack is completed
+  React.useEffect(() => {
+    if (isCompleted && onEarnHint) {
+      onEarnHint(1);
+    }
+  }, [isCompleted]);
+
   // Find completed pair definitions
   const solvedPairs = pack.pairs.filter(p => matchedPairIds.includes(p.id));
   const remainingTiles = tiles.filter(t => !matchedPairIds.includes(t.pairId));
@@ -141,7 +148,6 @@ export const BinomiGame = ({ onGoToMenu, onEarnHint }) => {
               <button
                 className="btn-next-pack"
                 onClick={() => {
-                  if (onEarnHint) onEarnHint(1);
                   nextPack();
                 }}
               >
