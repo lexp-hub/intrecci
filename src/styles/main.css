@@ -255,9 +255,8 @@ body {
   width: 48px;
   height: 48px;
   border-radius: var(--radius-md);
-  background: rgba(255, 255, 255, 0.65);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.8);
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.1);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -265,8 +264,8 @@ body {
 }
 
 [data-theme="dark"] .solved-card-emoji-box {
-  background: rgba(0, 0, 0, 0.18);
-  border-color: rgba(255, 255, 255, 0.15);
+  background: #2A2430;
+  border-color: #3E3746;
 }
 
 .solved-card-content {
@@ -329,20 +328,18 @@ body {
 .tile-btn:hover:not(:disabled) {
   background-color: var(--bg-tile-hover);
   border-color: var(--border-strong);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-hover);
+  transform: translateY(-1px);
 }
 
 .tile-btn:active:not(:disabled) {
-  transform: scale(0.96);
+  transform: scale(0.97);
 }
 
 .tile-btn.selected {
   background-color: var(--bg-tile-selected);
   color: var(--text-selected);
   border-color: var(--bg-tile-selected);
-  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.3);
-  transform: translateY(-2px);
+  transform: translateY(-1px);
 }
 
 .tile-btn:disabled {
@@ -417,8 +414,8 @@ body {
 .action-btn-primary {
   background: var(--text-primary);
   border: 1.5px solid var(--text-primary);
-  color: var(--bg-surface);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  color: var(--bg-app);
+  box-shadow: none;
 }
 
 .action-btn-primary:hover:not(:disabled) {
@@ -433,16 +430,16 @@ body {
 }
 
 [data-theme="dark"] .action-btn-primary {
-  background: #F8FAFC;
-  border-color: #F8FAFC;
-  color: #0F172A;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5);
+  background: var(--text-primary);
+  border-color: var(--text-primary);
+  color: var(--bg-app);
+  box-shadow: none;
 }
 
 [data-theme="dark"] .action-btn-primary:hover:not(:disabled) {
-  background: #FFFFFF;
-  border-color: #FFFFFF;
-  color: #0F172A;
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: #FFFFFF;
 }
 
 .action-btn:disabled {
@@ -508,7 +505,6 @@ body {
   background: var(--bg-tile);
   border: 1px solid var(--border-strong);
   border-radius: 4px;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
   color: var(--text-primary);
   min-width: 24px;
   text-align: center;
@@ -702,7 +698,7 @@ body {
 .level-card-item.active {
   border-color: var(--color-accent);
   background: var(--bg-surface);
-  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.18);
+  box-shadow: none;
 }
 
 .level-card-title {
@@ -883,9 +879,9 @@ body {
 
 .bento-card {
   background: var(--bg-surface);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-lg);
-  padding: 20px;
+  border: 1.5px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  padding: 22px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -950,8 +946,8 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 3px 8px;
-  border-radius: var(--radius-sm);
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
   font-size: 0.72rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -1053,8 +1049,8 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 4px 10px;
-  border-radius: var(--radius-sm);
+  padding: 5px 12px;
+  border-radius: var(--radius-full);
   font-size: 0.76rem;
   font-weight: 700;
 }
@@ -1062,7 +1058,7 @@ body {
 .cat-chip-dot {
   width: 8px;
   height: 8px;
-  border-radius: 2px;
+  border-radius: 50%;
 }
 
 .cat-chip-yellow {
@@ -1121,30 +1117,30 @@ body {
   font-family: var(--font-sans);
   font-size: 0.9rem;
   font-weight: 700;
-  padding: 10px 18px;
-  border-radius: var(--radius-md);
+  padding: 11px 22px;
+  border-radius: var(--radius-full);
   cursor: pointer;
   transition: all 0.15s ease;
   user-select: none;
 }
 
 .bento-btn-primary {
-  background: #2563EB;
+  background: var(--color-accent);
   color: #FFFFFF;
-  border: 1px solid #1D4ED8;
+  border: 1px solid var(--color-accent-hover);
 }
 
 .bento-btn-primary:hover {
-  background: #1D4ED8;
+  background: var(--color-accent-hover);
 }
 
 [data-theme="dark"] .bento-btn-primary {
-  background: #3B82F6;
-  border-color: #2563EB;
+  background: var(--color-accent);
+  border-color: var(--color-accent-hover);
 }
 
 [data-theme="dark"] .bento-btn-primary:hover {
-  background: #2563EB;
+  background: var(--color-accent-hover);
 }
 
 .bento-btn-secondary {
@@ -1388,7 +1384,8 @@ body {
   height: 20px;
   background: #FFFFFF;
   border-radius: var(--radius-full);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+  border: 1px solid var(--border-strong);
+  box-shadow: none;
   transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
@@ -1478,16 +1475,17 @@ body {
 
 
 .tile-btn.hint-glowing {
-  box-shadow: 0 0 0 3px #F59E0B, 0 0 16px rgba(245, 158, 11, 0.7) !important;
+  outline: 3px solid #F59E0B !important;
+  outline-offset: 2px;
   border-color: #F59E0B !important;
   animation: hint-golden-pulse 1.4s infinite alternate ease-in-out;
-  transform: scale(1.04);
+  transform: scale(1.03);
   z-index: 3;
 }
 
 @keyframes hint-golden-pulse {
-  0% { box-shadow: 0 0 0 2px #F59E0B, 0 0 8px rgba(245, 158, 11, 0.4); }
-  100% { box-shadow: 0 0 0 4px #F59E0B, 0 0 22px rgba(245, 158, 11, 0.85); }
+  0% { outline-color: #F59E0B; }
+  100% { outline-color: #D97706; }
 }
 
 
@@ -1504,18 +1502,19 @@ body {
   align-items: center;
   gap: 8px;
   background: #FEF3C7;
-  border: 1px solid rgba(226, 191, 48, 0.6);
-  border-radius: var(--radius-pill);
+  border: 1.5px solid #F59E0B;
+  border-radius: var(--radius-full);
   padding: 6px 14px;
   font-size: 0.84rem;
   color: var(--text-primary);
-  box-shadow: var(--shadow-sm);
+  box-shadow: none;
   animation: modalBackdropFade 0.3s ease;
 }
 
 [data-theme="dark"] .hint-pill {
-  background: rgba(245, 158, 11, 0.2);
+  background: #451A03;
   border-color: #F59E0B;
+  color: #FEF3C7;
 }
 
 
@@ -1527,16 +1526,17 @@ body {
   border: 1.5px solid #F59E0B;
   color: #78350F;
   font-weight: 700;
-  border-radius: var(--radius-pill);
+  border-radius: var(--radius-full);
   padding: 8px 14px;
   cursor: pointer;
   transition: all 0.2s ease;
+  box-shadow: none;
 }
 
 .action-btn-hint:hover {
   background: #FDE68A;
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+  box-shadow: none;
 }
 
 [data-theme="dark"] .action-btn-hint {
