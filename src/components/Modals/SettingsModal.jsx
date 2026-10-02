@@ -9,18 +9,10 @@ export const SettingsModal = ({
 }) => {
   if (!isOpen) return null;
 
-  const { isDark, effectsEnabled, effectType, soundEnabled } = settings;
+  const { isDark, soundEnabled } = settings;
 
   const handleToggleDark = () => {
     onUpdateSettings({ ...settings, isDark: !isDark });
-  };
-
-  const handleToggleEffects = () => {
-    onUpdateSettings({ ...settings, effectsEnabled: !effectsEnabled });
-  };
-
-  const handleChangeEffectType = (type) => {
-    onUpdateSettings({ ...settings, effectType: type, effectsEnabled: true });
   };
 
   const handleToggleSound = () => {
@@ -40,14 +32,14 @@ export const SettingsModal = ({
         </div>
 
         <div className="modal-subtitle">
-          Personalizza l'atmosfera visiva e sonora del gioco.
+          Personalizza l'aspetto e l'audio del gioco.
         </div>
 
         <div className="settings-list">
           <div className="setting-item">
             <div className="setting-info">
               <div className="setting-label">Tema Notturno</div>
-              <div className="setting-desc">Tonalità scure calde e riposanti per la vista</div>
+              <div className="setting-desc">Colori scuri a contrasto per affaticare meno la vista</div>
             </div>
             <button
               type="button"
@@ -61,59 +53,8 @@ export const SettingsModal = ({
 
           <div className="setting-item">
             <div className="setting-info">
-              <div className="setting-label">Effetti Speciali</div>
-              <div className="setting-desc">Particelle animate d'atmosfera sullo sfondo</div>
-            </div>
-            <button
-              type="button"
-              className={`toggle-switch ${effectsEnabled ? 'active' : ''}`}
-              onClick={handleToggleEffects}
-              aria-label="Attiva/disattiva effetti speciali"
-            >
-              <div className="toggle-thumb" />
-            </button>
-          </div>
-
-          {effectsEnabled && (
-            <div className="setting-subgroup">
-              <div style={{ fontSize: '0.8rem', fontWeight: 700, marginBottom: 8, color: 'var(--text-secondary)' }}>
-                Scegli l'effetto atmosferico:
-              </div>
-              <div className="effect-chips-grid">
-                <button
-                  type="button"
-                  className={`effect-chip ${effectType === 'snow' ? 'active' : ''}`}
-                  onClick={() => handleChangeEffectType('snow')}
-                >
-                  <CustomSvg name="snow" type="emoji" size={24} />
-                  <span>Neve che cade</span>
-                </button>
-
-                <button
-                  type="button"
-                  className={`effect-chip ${effectType === 'fireflies' ? 'active' : ''}`}
-                  onClick={() => handleChangeEffectType('fireflies')}
-                >
-                  <CustomSvg name="sparkle" type="emoji" size={24} />
-                  <span>Lucciole dorate</span>
-                </button>
-
-                <button
-                  type="button"
-                  className={`effect-chip ${effectType === 'leaves' ? 'active' : ''}`}
-                  onClick={() => handleChangeEffectType('leaves')}
-                >
-                  <CustomSvg name="leaf" type="emoji" size={24} />
-                  <span>Foglie d'autunno</span>
-                </button>
-              </div>
-            </div>
-          )}
-
-          <div className="setting-item">
-            <div className="setting-info">
-              <div className="setting-label">Suoni Rilassanti</div>
-              <div className="setting-desc">Feedback acustico marimba alla selezione e accordi di vittoria</div>
+              <div className="setting-label">Effetti Sonori</div>
+              <div className="setting-desc">Feedback audio alla selezione e alla risoluzione</div>
             </div>
             <button
               type="button"

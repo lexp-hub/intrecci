@@ -6,7 +6,6 @@
     <img src="https://img.shields.io/badge/API-Wikipedia_IT-000000?style=flat-square&logo=wikipedia&logoColor=white" alt="Wikipedia API" />
     <img src="https://img.shields.io/badge/React-v18.3-61DAFB?style=flat-square&logo=react&logoColor=black" alt="React 18" />
     <img src="https://img.shields.io/badge/Vite-v5.4-646CFF?style=flat-square&logo=vite&logoColor=white" alt="Vite" />
-    <img src="https://img.shields.io/badge/Physics-Matter.js_2D-E8590C?style=flat-square" alt="Matter.js" />
     <img src="https://img.shields.io/badge/Icons-OpenMoji_Color-FFB800?style=flat-square" alt="OpenMoji Color" />
     <img src="https://img.shields.io/badge/FX-Canvas_Confetti-FFB800?style=flat-square" alt="Confetti" />
     <img src="https://img.shields.io/badge/License-MIT-30D158?style=flat-square" alt="License" />
@@ -28,7 +27,6 @@ Un sentito ringraziamento ai progetti, alle librerie open source e alle persone 
 - **[Wikipedia / Wikimedia Foundation](https://it.wikipedia.org/)** — per le API pubbliche e il patrimonio enciclopedico aperto utilizzato per la generazione dinamica e l'arricchimento lessicale degli enigmi.
 - **[React](https://react.dev/)** — per l'architettura a componenti dell'interfaccia utente.
 - **[Vite](https://vitejs.dev/)** — per l'ambiente di sviluppo e il build di produzione ottimizzato.
-- **[Matter.js](https://brm.io/matter-js/)** (Liam Brummitt) — per il motore di simulazione fisica 2D utilizzato nell'Easter Egg.
 - **[Canvas-Confetti](https://github.com/catdad/canvas-confetti)** (Kiril Vatev) — per le animazioni celebrative di completamento partita.
 - **[Lucide Icons](https://lucide.dev/)** — per le icone funzionali minimali dell'interfaccia.
 - **Ispirazione**:

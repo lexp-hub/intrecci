@@ -8,10 +8,8 @@ import Board from './components/Board/Board';
 import AttemptsCounter from './components/AttemptsCounter/AttemptsCounter';
 import Controls from './components/Controls/Controls';
 import Toast from './components/Toast/Toast';
-import Atmosphere from './components/Atmosphere/Atmosphere';
 import SagaMap from './components/SagaMap/SagaMap';
 import BinomiGame from './components/Minigames/Binomi/BinomiGame';
-import GoogleGravity from './components/EasterEgg/GoogleGravity';
 import HintModal from './components/HintSystem/HintModal';
 import HelpModal from './components/Modals/HelpModal';
 import StatsModal from './components/Modals/StatsModal';
@@ -81,8 +79,6 @@ export function App() {
     }
     return {
       isDark: false,
-      effectsEnabled: true,
-      effectType: 'snow', 
       soundEnabled: true
     };
   });
@@ -167,14 +163,6 @@ export function App() {
 
   return (
     <div className={`app-container ${currentScreen === 'menu' ? 'container-menu' : 'container-game'}`}>
-      <GoogleGravity />
-
-      <Atmosphere
-        enabled={settings.effectsEnabled}
-        effectType={settings.effectType}
-        isDark={settings.isDark}
-      />
-
       <Toast message={toastMessage} />
 
       {currentScreen === 'menu' && (
