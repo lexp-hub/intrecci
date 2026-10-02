@@ -12,6 +12,12 @@
 body {
   font-family: var(--font-sans);
   background-color: var(--bg-app);
+  background-image: 
+    radial-gradient(var(--border-strong) 1.5px, transparent 1.5px),
+    linear-gradient(to right, var(--border-subtle) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--border-subtle) 1px, transparent 1px);
+  background-size: 32px 32px;
+  background-position: 0 0, 0 0, 0 0;
   color: var(--text-primary);
   min-height: 100vh;
   display: flex;
