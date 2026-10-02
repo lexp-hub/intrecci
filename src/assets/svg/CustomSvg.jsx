@@ -43,10 +43,10 @@ export const SVG_EMOJIS = {
   ),
   pasta: (
     <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-      <path d="M8 26c0 8.5 7 15 16 15s16-6.5 16-15H8z" fill="#FFFBEB" stroke="#D97706" strokeWidth="2.5" strokeLinejoin="round"/>
-      <path d="M14 26c0-5 4.5-9 10-9s10 4 10 9" fill="#FEF08A" stroke="#D97706" strokeWidth="2.5" strokeLinejoin="round"/>
-      <path d="M17 23c2-1 4-1 6 0M25 23c2-1 4-1 6 0" stroke="#F59E0B" strokeWidth="2" strokeLinecap="round"/>
-      <circle cx="24" cy="19" r="2.5" fill="#EF4444" stroke="#DC2626" strokeWidth="1.5"/>
+      <ellipse cx="24" cy="28" rx="18" ry="11" fill="#FEF3C7" stroke="#D97706" strokeWidth="2.5"/>
+      <ellipse cx="24" cy="28" rx="12" ry="7" fill="#FFFDF5" stroke="#D97706" strokeWidth="2"/>
+      <path d="M16 27c2.5-2 5-2 8 0s5.5 2 8 0M18 30c2-1 4-1 6 0s4 1 6 0" stroke="#F59E0B" strokeWidth="2" strokeLinecap="round"/>
+      <path d="M20 16c0-2 1.5-3.5 1.5-5.5M28 16c0-2 1.5-3.5 1.5-5.5" stroke="#F59E0B" strokeWidth="2" strokeLinecap="round"/>
     </svg>
   ),
   coffee: (
