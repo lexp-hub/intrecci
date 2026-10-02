@@ -419,12 +419,85 @@ export const SVG_ICONS = {
   )
 };
 
+export const GOOGLE_EMOJI_MAP = {
+  pasta: '🍝',
+  apple: '🍎',
+  tree: '🌳',
+  book: '📖',
+  coffee: '☕',
+  wine: '🍷',
+  sparkle: '✨',
+  magic: '🪄',
+  globe: '🌍',
+  compass: '🧭',
+  heart: '❤️',
+  moon: '🌙',
+  sun: '☀️',
+  key: '🔑',
+  lightbulb: '💡',
+  music: '🎵',
+  palette: '🎨',
+  puzzle: '🧩',
+  trophy: '🏆',
+  clock: '⏰',
+  party: '🎉',
+  fire: '🔥',
+  target: '🎯',
+  nature: '🌿',
+  history: '🏛️',
+  cinema: '🎬',
+  food: '🍕',
+  sports: '⚽',
+  science: '🔬',
+  art: '🎨',
+  flag: '🇮🇹'
+};
+
+const UI_ICON_KEYS = new Set([
+  'logo', 'star', 'starEmpty', 'close', 'settings', 'stats', 'help',
+  'refresh', 'shuffle', 'deselect', 'chevronLeft', 'chevronRight',
+  'chevronDown', 'check', 'hint', 'volume', 'search', 'levels',
+  'lock', 'pin', 'stopwatch', 'zen'
+]);
+
 export const ICONS = {
   ...SVG_EMOJIS,
   ...SVG_ICONS
 };
 
 export const CustomSvg = ({ name, type = 'emoji', size = 24, className = '' }) => {
+  const isStrictUi = type === 'icon' || UI_ICON_KEYS.has(name);
+
+  if (!isStrictUi) {
+    const googleChar = GOOGLE_EMOJI_MAP[name];
+    const isDirectEmoji = typeof name === 'string' && /\p{Extended_Pictographic}/u.test(name);
+    const emojiChar = googleChar || (isDirectEmoji ? name : null);
+
+    if (emojiChar) {
+      return (
+        <span
+          className={`google-emoji-wrapper ${className}`}
+          style={{
+            fontFamily: '"Noto Color Emoji", "Apple Color Emoji", "Segoe UI Emoji", sans-serif',
+            fontSize: typeof size === 'number' ? `${size}px` : size,
+            lineHeight: 1,
+            display: 'inline-flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            width: typeof size === 'number' ? `${size}px` : size,
+            height: typeof size === 'number' ? `${size}px` : size,
+            verticalAlign: 'middle',
+            userSelect: 'none',
+            flexShrink: 0
+          }}
+          aria-hidden="true"
+        >
+          {emojiChar}
+        </span>
+      );
+    }
+  }
+
   const collection = type === 'emoji' ? SVG_EMOJIS : SVG_ICONS;
   let svg = collection[name];
 
@@ -433,7 +506,7 @@ export const CustomSvg = ({ name, type = 'emoji', size = 24, className = '' }) =
   }
 
   if (!svg) {
-    svg = SVG_EMOJIS.sparkle;
+    svg = SVG_ICONS.help;
   }
 
   return (

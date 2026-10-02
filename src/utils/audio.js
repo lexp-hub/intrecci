@@ -168,6 +168,26 @@ class SoundManager {
     osc.start(now);
     osc.stop(now + 0.08);
   }
+
+  playSolve() {
+    this.playSuccess();
+  }
+
+  playMistake() {
+    this.playError();
+  }
+
+  playTileSelect() {
+    this.playSelect(0);
+  }
+
+  playTileDeselect() {
+    this.playSelect(-2);
+  }
+
+  playVictory() {
+    this.playWin();
+  }
 }
 
 export const soundManager = new SoundManager();
