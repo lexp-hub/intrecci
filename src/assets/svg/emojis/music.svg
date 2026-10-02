@@ -2,5 +2,5 @@
   <ellipse cx="15" cy="34" rx="6" ry="4" fill="#DDD6FE" stroke="#7C3AED" stroke-width="2.5"/>
   <ellipse cx="33" cy="28" rx="6" ry="4" fill="#DDD6FE" stroke="#7C3AED" stroke-width="2.5"/>
   <path d="M21 34V14l18-6v20" stroke="#7C3AED" stroke-width="2.5" stroke-linecap="round"/>
-  <path d="M21.5 19l17-6" stroke="#7C3AED" stroke-width="3" stroke-linecap="round"/>
+  <path d="M21 20l18-6" stroke="#A78BFA" stroke-width="2" stroke-linecap="round"/>
 </svg>

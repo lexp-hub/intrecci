@@ -3,84 +3,65 @@ import React from 'react';
 export const SVG_EMOJIS = {
   logo: (
     <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-      <rect x="7" y="7" width="22" height="22" rx="7" fill="#FACC15" stroke="#EAB308" strokeWidth="2"/>
-      <rect x="35" y="7" width="22" height="22" rx="7" fill="#4ADE80" stroke="#22C55E" strokeWidth="2"/>
-      <rect x="7" y="35" width="22" height="22" rx="7" fill="#60A5FA" stroke="#3B82F6" strokeWidth="2"/>
-      <rect x="35" y="35" width="22" height="22" rx="7" fill="#C084FC" stroke="#A855F7" strokeWidth="2"/>
+      <rect x="7" y="7" width="22" height="22" rx="7" fill="#FACC15" stroke="#EAB308" strokeWidth="2.5"/>
+      <rect x="35" y="7" width="22" height="22" rx="7" fill="#4ADE80" stroke="#22C55E" strokeWidth="2.5"/>
+      <rect x="7" y="35" width="22" height="22" rx="7" fill="#60A5FA" stroke="#3B82F6" strokeWidth="2.5"/>
+      <rect x="35" y="35" width="22" height="22" rx="7" fill="#C084FC" stroke="#A855F7" strokeWidth="2.5"/>
       <circle cx="32" cy="32" r="6.5" fill="currentColor"/>
       <circle cx="32" cy="32" r="2.8" fill="var(--bg-app, #FAF7F2)"/>
     </svg>
   ),
   globe: (
     <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-      <circle cx="24" cy="24" r="18" fill="#CFFAFE" stroke="#0891B2" strokeWidth="2.5"/>
-      <path d="M6 24h36M24 6c5 6 7 12 7 18s-2 12-7 18M24 6c-5 6-7 12-7 18s2 12 7 18" stroke="#0891B2" strokeWidth="2" strokeLinecap="round"/>
+      <circle cx="24" cy="24" r="18" fill="#CFFAFE" stroke="#0284C7" strokeWidth="2.5"/>
+      <path d="M6 24h36M24 6c5 6 7 12 7 18s-2 12-7 18M24 6c-5 6-7 12-7 18s2 12 7 18" stroke="#0284C7" strokeWidth="2" strokeLinecap="round"/>
+      <path d="M10 15h28M10 33h28" stroke="#38BDF8" strokeWidth="1.8" strokeLinecap="round"/>
     </svg>
   ),
   compass: (
     <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-      <circle cx="24" cy="24" r="18" fill="#F0F9FF" stroke="#0284C7" strokeWidth="2.5"/>
-      <path d="M24 8v3M24 37v3M8 24h3M37 24h3" stroke="#0284C7" strokeWidth="2" strokeLinecap="round"/>
-      <polygon points="24 10 28 24 20 24" fill="#EF4444"/>
-      <polygon points="24 38 28 24 20 24" fill="#E2E8F0"/>
-      <polygon points="24 10 28 24 24 38 20 24" stroke="#0284C7" strokeWidth="1.8" strokeLinejoin="round"/>
-      <circle cx="24" cy="24" r="2.5" fill="#F59E0B"/>
+      <circle cx="24" cy="24" r="18" fill="#E0F2FE" stroke="#0284C7" strokeWidth="2.5"/>
+      <path d="M24 10v3M24 35v3M10 24h3M35 24h3" stroke="#38BDF8" strokeWidth="2" strokeLinecap="round"/>
+      <polygon points="24 12 29 24 19 24" fill="#F43F5E" stroke="#BE123C" strokeWidth="2" strokeLinejoin="round"/>
+      <polygon points="24 36 29 24 19 24" fill="#FFFFFF" stroke="#0284C7" strokeWidth="2" strokeLinejoin="round"/>
+      <circle cx="24" cy="24" r="3" fill="#FACC15" stroke="#CA8A04" strokeWidth="1.5"/>
     </svg>
   ),
   sparkle: (
     <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-      <path d="M24 4c1 9 7 15 16 16-9 1-15 7-16 16-1-9-7-15-16-16 9-1 15-7 16-16z" fill="#FDE047" stroke="#EAB308" strokeWidth="2" strokeLinejoin="round"/>
-      <circle cx="38" cy="10" r="3" fill="#FBBF24"/>
-      <circle cx="10" cy="38" r="2.5" fill="#FBBF24"/>
+      <path d="M24 5c1 8.5 6.5 14 15 15-8.5 1-14 6.5-15 15-1-8.5-6.5-14-15-15 8.5-1 14-6.5 15-15z" fill="#FEF08A" stroke="#CA8A04" strokeWidth="2.5" strokeLinejoin="round"/>
+      <circle cx="38" cy="11" r="2.5" fill="#FACC15" stroke="#CA8A04" strokeWidth="1.5"/>
+      <circle cx="10" cy="37" r="2" fill="#FACC15" stroke="#CA8A04" strokeWidth="1.5"/>
     </svg>
   ),
   magic: (
-    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-      <path
-        d="M10 2.5C10 7.5 14 9.2 17.5 9.8C14 10.4 10 12.1 10 17.5C10 12.1 6 10.4 2.5 9.8C6 9.2 10 7.5 10 2.5Z"
-        fill="#FDE68A"
-        stroke="#D97706"
-        strokeWidth="1.6"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M18 13C18 15.5 20.2 16.4 22 16.8C20.2 17.2 18 18.1 18 20.5C18 18.1 15.8 17.2 14 16.8C15.8 16.4 18 15.5 18 13Z"
-        fill="#FEF08A"
-        stroke="#D97706"
-        strokeWidth="1.3"
-        strokeLinejoin="round"
-      />
-      <circle cx="4.5" cy="18" r="1.3" fill="#F59E0B"/>
+    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+      <path d="M24 6c1.5 7 5 10.5 12 12-7 1.5-10.5 5-12 12-1.5-7-5-10.5-12-12 7-1.5 10.5-5 12-12z" fill="#FEF08A" stroke="#D97706" strokeWidth="2.5" strokeLinejoin="round"/>
+      <path d="M38 30c1 4 3 6 7 7-4 1-6 3-7 7-1-4-3-6-7-7 4-1 6-3 7-7z" fill="#FEF08A" stroke="#D97706" strokeWidth="2" strokeLinejoin="round"/>
+      <circle cx="11" cy="37" r="2.5" fill="#FACC15" stroke="#D97706" strokeWidth="1.5"/>
     </svg>
   ),
   pasta: (
     <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-      <path d="M6 27c0 8.5 8 15 18 15s18-6.5 18-15" fill="#FAF7F2" stroke="#57534E" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-      <ellipse cx="24" cy="27" rx="18" ry="6" fill="#FFFFFF" stroke="#57534E" strokeWidth="2.5"/>
-      <ellipse cx="24" cy="27" rx="12" ry="3.5" fill="#F5F5F4" stroke="#E7E5E4" strokeWidth="1.5"/>
-      <path d="M12.5 26c0-5.5 5.2-10 11.5-10s11.5 4.5 11.5 10c0 2-5.2 3.5-11.5 3.5s-11.5-1.5-11.5-3.5z" fill="#FEF08A" stroke="#CA8A04" strokeWidth="2.5" strokeLinejoin="round"/>
-      <path d="M15 25c3-2 6-2 9 0s5 0 8-2" stroke="#EAB308" strokeWidth="2" strokeLinecap="round"/>
-      <path d="M17 22c3-2 5-2 8 0s4 0 6-2" stroke="#EAB308" strokeWidth="2" strokeLinecap="round"/>
-      <path d="M38 7l-8 10" stroke="#57534E" strokeWidth="2.5" strokeLinecap="round"/>
-      <path d="M27 16c2-2 5-2 7 0" stroke="#CA8A04" strokeWidth="2.5" strokeLinecap="round"/>
-      <circle cx="21" cy="22" r="2.5" fill="#EF4444"/>
-      <path d="M22 19.5l2-2" stroke="#16A34A" strokeWidth="2.5" strokeLinecap="round"/>
+      <path d="M8 26c0 8.5 7 15 16 15s16-6.5 16-15H8z" fill="#FFFBEB" stroke="#D97706" strokeWidth="2.5" strokeLinejoin="round"/>
+      <path d="M14 26c0-5 4.5-9 10-9s10 4 10 9" fill="#FEF08A" stroke="#D97706" strokeWidth="2.5" strokeLinejoin="round"/>
+      <path d="M17 23c2-1 4-1 6 0M25 23c2-1 4-1 6 0" stroke="#F59E0B" strokeWidth="2" strokeLinecap="round"/>
+      <circle cx="24" cy="19" r="2.5" fill="#EF4444" stroke="#DC2626" strokeWidth="1.5"/>
     </svg>
   ),
   coffee: (
     <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-      <path d="M10 16h24v14c0 6.627-5.373 12-12 12s-12-5.373-12-12V16z" fill="#E8D8C8" stroke="#7A5638" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-      <path d="M34 20h4a5 5 0 0 1 5 5v0a5 5 0 0 1-5 5h-4" stroke="#7A5638" strokeWidth="2.5" strokeLinecap="round"/>
-      <path d="M16 11c0-2 1-3 1-5s-1-3-1-5" stroke="#D4A373" strokeWidth="2.5" strokeLinecap="round"/>
-      <path d="M22 11c0-2 1-3 1-5s-1-3-1-5" stroke="#D4A373" strokeWidth="2.5" strokeLinecap="round"/>
-      <path d="M28 11c0-2 1-3 1-5s-1-3-1-5" stroke="#D4A373" strokeWidth="2.5" strokeLinecap="round"/>
+      <path d="M10 17h23v13c0 6.6-5.4 12-11.5 12S10 36.6 10 30V17z" fill="#FED7AA" stroke="#9A3412" strokeWidth="2.5" strokeLinejoin="round"/>
+      <path d="M33 21h4a4.5 4.5 0 0 1 0 9h-4" stroke="#9A3412" strokeWidth="2.5" strokeLinecap="round"/>
+      <path d="M16 11c0-2 1-3 1-5M22 11c0-2 1-3 1-5M28 11c0-2 1-3 1-5" stroke="#F97316" strokeWidth="2" strokeLinecap="round"/>
+      <path d="M8 42h28" stroke="#9A3412" strokeWidth="2.5" strokeLinecap="round"/>
     </svg>
   ),
   tree: (
     <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-      <path d="M21 33v9h6v-9" fill="#B45309" stroke="#78350F" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-      <path d="M24 7c-4.5 0-8.5 2.5-10 6-3 .5-5.5 2.5-6.5 5.5-1 3.5.5 7 3.5 9 .5 3 2.5 5.5 5.5 6.5 2.5.5 5.5-.5 7.5-2.5 2 2 5 3 7.5 2.5 3-1 5-3.5 5.5-6.5 3-2 4.5-5.5 3.5-9-1-3-3.5-5-6.5-5.5-1.5-3.5-5.5-6-10-6z" fill="#BBf7D0" stroke="#15803D" strokeWidth="2.5" strokeLinejoin="round"/>
-      <path d="M24 33v-5l-4-4M24 30l4-3" stroke="#78350F" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M21 34v8h6v-8" fill="#FED7AA" stroke="#78350F" strokeWidth="2.5" strokeLinejoin="round"/>
+      <path d="M24 7c-4.5 0-8.5 2.5-10 6-3 .5-5.5 2.5-6.5 5.5-1 3.5.5 7 3.5 9 .5 3 2.5 5.5 5.5 6.5 2.5.5 5.5-.5 7.5-2.5 2 2 5 3 7.5 2.5 3-1 5-3.5 5.5-6.5 3-2 4.5-5.5 3.5-9-1-3-3.5-5-6.5-5.5-1.5-3.5-5.5-6-10-6z" fill="#BBF7D0" stroke="#15803D" strokeWidth="2.5" strokeLinejoin="round"/>
+      <path d="M24 34v-6l-4-4M24 31l4-3" stroke="#16A34A" strokeWidth="2" strokeLinecap="round"/>
     </svg>
   ),
   book: (
@@ -93,35 +74,36 @@ export const SVG_EMOJIS = {
   lightbulb: (
     <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
       <path d="M24 8a13 13 0 0 0-8 23.2V35a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3.8A13 13 0 0 0 24 8z" fill="#FEF08A" stroke="#CA8A04" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-      <path d="M19 41h10M21 45h6" stroke="#A16207" strokeWidth="2.5" strokeLinecap="round"/>
-      <path d="M24 18v6M21 21h6" stroke="#EAB308" strokeWidth="2" strokeLinecap="round"/>
+      <path d="M19 40h10M21 44h6" stroke="#CA8A04" strokeWidth="2.5" strokeLinecap="round"/>
+      <path d="M24 17v7M21 20h6" stroke="#EAB308" strokeWidth="2" strokeLinecap="round"/>
     </svg>
   ),
   puzzle: (
     <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-      <path d="M18 10a4 4 0 0 1 8 0h8a4 4 0 0 1 4 4v8a4 4 0 0 1 0 8v8a4 4 0 0 1-4 4h-8a4 4 0 0 0-8 0h-8a4 4 0 0 1-4-4v-8a4 4 0 0 0 0-8v-8a4 4 0 0 1 4-4h8z" fill="#C7D2FE" stroke="#6366F1" strokeWidth="2.5" strokeLinejoin="round"/>
-      <circle cx="22" cy="22" r="3" fill="#818CF8" opacity="0.6"/>
+      <path d="M18 10a4 4 0 0 1 8 0h8a4 4 0 0 1 4 4v8a4 4 0 0 1 0 8v8a4 4 0 0 1-4 4h-8a4 4 0 0 0-8 0h-8a4 4 0 0 1-4-4v-8a4 4 0 0 0 0-8v-8a4 4 0 0 1 4-4h8z" fill="#DDD6FE" stroke="#6D28D9" strokeWidth="2.5" strokeLinejoin="round"/>
+      <path d="M20 22a3 3 0 1 0 6 0 3 3 0 0 0-6 0z" fill="#EDE9FE" stroke="#7C3AED" strokeWidth="1.5"/>
     </svg>
   ),
   trophy: (
     <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-      <path d="M14 8h20v14c0 6-4 10-10 10s-10-4-10-10V8z" fill="#FEF08A" stroke="#CA8A04" strokeWidth="2.5" strokeLinejoin="round"/>
-      <path d="M14 12H8a4 4 0 0 0-4 4v2a6 6 0 0 0 6 6h4M34 12h6a4 4 0 0 1 4 4v2a6 6 0 0 1-6 6h-4" stroke="#CA8A04" strokeWidth="2.5" strokeLinecap="round"/>
-      <path d="M24 32v6M16 42h16" stroke="#CA8A04" strokeWidth="2.5" strokeLinecap="round"/>
-      <polygon points="24,14 26,19 31,19 27,22 29,27 24,24 19,27 21,22 17,19 22,19" fill="#EAB308"/>
+      <path d="M14 9h20v13c0 6-4 10-10 10s-10-4-10-10V9z" fill="#FEF08A" stroke="#CA8A04" strokeWidth="2.5" strokeLinejoin="round"/>
+      <path d="M14 13H8a4 4 0 0 0-4 4v1a5 5 0 0 0 5 5h5M34 13h6a4 4 0 0 1 4 4v1a5 5 0 0 1-5 5h-5" stroke="#CA8A04" strokeWidth="2.5" strokeLinecap="round"/>
+      <path d="M24 32v6M16 41h16" stroke="#CA8A04" strokeWidth="2.5" strokeLinecap="round"/>
+      <path d="M24 16l2 4 4 .5-3 3 .8 4-3.8-2-3.8 2 .8-4-3-3 4-.5 2-4z" fill="#FDE047" stroke="#EAB308" strokeWidth="1.5" strokeLinejoin="round"/>
     </svg>
   ),
   clock: (
     <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-      <circle cx="24" cy="24" r="18" fill="#F0FDF4" stroke="#16A34A" strokeWidth="2.5"/>
+      <circle cx="24" cy="24" r="18" fill="#DCFCE7" stroke="#16A34A" strokeWidth="2.5"/>
       <circle cx="24" cy="24" r="2.5" fill="#15803D"/>
-      <path d="M24 12v12l8 4" stroke="#15803D" strokeWidth="2.5" strokeLinecap="round"/>
+      <path d="M24 13v11l7 4" stroke="#15803D" strokeWidth="2.5" strokeLinecap="round"/>
+      <path d="M24 8v2M24 38v2M8 24h2M38 24h2" stroke="#4ADE80" strokeWidth="2" strokeLinecap="round"/>
     </svg>
   ),
   heart: (
     <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-      <path d="M24 41s-16-9.5-16-21.5a10 10 0 0 1 16-7.8A10 10 0 0 1 40 19.5C40 31.5 24 41 24 41z" fill="#FCA5A5" stroke="#E11D48" strokeWidth="2.5" strokeLinejoin="round"/>
-      <ellipse cx="17" cy="18" rx="3" ry="1.5" transform="rotate(-30 17 18)" fill="#FFF" opacity="0.6"/>
+      <path d="M24 41s-16-9.5-16-21.5a10 10 0 0 1 16-7.8A10 10 0 0 1 40 19.5C40 31.5 24 41 24 41z" fill="#FECDD3" stroke="#E11D48" strokeWidth="2.5" strokeLinejoin="round"/>
+      <path d="M15 15c-2 2-3 5-2 8" stroke="#FB7185" strokeWidth="2" strokeLinecap="round"/>
     </svg>
   ),
   heartFill: (
@@ -136,24 +118,25 @@ export const SVG_EMOJIS = {
   ),
   sun: (
     <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-      <circle cx="24" cy="24" r="10" fill="#FEF08A" stroke="#EAB308" strokeWidth="2.5"/>
+      <circle cx="24" cy="24" r="10" fill="#FEF08A" stroke="#CA8A04" strokeWidth="2.5"/>
       <path d="M24 6v4M24 38v4M6 24h4M38 24h4M11.3 11.3l2.8 2.8M33.9 33.9l2.8 2.8M11.3 36.7l2.8-2.8M33.9 14.1l2.8-2.8" stroke="#F59E0B" strokeWidth="2.5" strokeLinecap="round"/>
+      <circle cx="24" cy="24" r="5" fill="#FDE047"/>
     </svg>
   ),
   moon: (
     <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-      <path d="M34 32A16 16 0 1 1 20 6a14 14 0 0 0 14 26z" fill="#EDE9FE" stroke="#8B5CF6" strokeWidth="2.5" strokeLinejoin="round"/>
-      <circle cx="34" cy="14" r="2" fill="#FBBF24"/>
-      <circle cx="38" cy="22" r="1.5" fill="#FBBF24"/>
+      <path d="M34 33A16 16 0 1 1 20 6a14 14 0 0 0 14 27z" fill="#EDE9FE" stroke="#7C3AED" strokeWidth="2.5" strokeLinejoin="round"/>
+      <circle cx="34" cy="14" r="2.5" fill="#FACC15" stroke="#EAB308" strokeWidth="1"/>
+      <circle cx="39" cy="22" r="1.8" fill="#FACC15"/>
     </svg>
   ),
   palette: (
     <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-      <path d="M24 6C13 6 5 14 5 24c0 8 6 16 15 16 3 0 5-2 5-5 0-1.5-.7-3-1-4-1-1.5-1-2 0-3 1.5-1.5 5 0 8 2 3.5 2.5 7 .5 7-4 0-11.5-7.5-20-15-20z" fill="#FED7AA" stroke="#EA580C" strokeWidth="2.5" strokeLinejoin="round"/>
-      <circle cx="15" cy="16" r="3" fill="#EF4444"/>
-      <circle cx="24" cy="13" r="3" fill="#EAB308"/>
-      <circle cx="33" cy="18" r="3" fill="#3B82F6"/>
-      <circle cx="14" cy="26" r="3" fill="#10B981"/>
+      <path d="M24 6C13 6 5 14 5 24c0 8 6 16 15 16 3 0 5-2 5-5 0-1.5-.7-3-1-4-1-1.5-1-2 0-3 1.5-1.5 5 0 8 2 3.5 2.5 7 .5 7-4 0-11.5-7.5-20-15-20z" fill="#FED7AA" stroke="#C2410C" strokeWidth="2.5" strokeLinejoin="round"/>
+      <circle cx="15" cy="16" r="3" fill="#EF4444" stroke="#DC2626" strokeWidth="1.5"/>
+      <circle cx="24" cy="13" r="3" fill="#FACC15" stroke="#CA8A04" strokeWidth="1.5"/>
+      <circle cx="33" cy="18" r="3" fill="#3B82F6" stroke="#2563EB" strokeWidth="1.5"/>
+      <circle cx="14" cy="26" r="3" fill="#22C55E" stroke="#16A34A" strokeWidth="1.5"/>
     </svg>
   ),
   music: (
@@ -161,21 +144,22 @@ export const SVG_EMOJIS = {
       <ellipse cx="15" cy="34" rx="6" ry="4" fill="#DDD6FE" stroke="#7C3AED" strokeWidth="2.5"/>
       <ellipse cx="33" cy="28" rx="6" ry="4" fill="#DDD6FE" stroke="#7C3AED" strokeWidth="2.5"/>
       <path d="M21 34V14l18-6v20" stroke="#7C3AED" strokeWidth="2.5" strokeLinecap="round"/>
-      <path d="M21.5 19l17-6" stroke="#7C3AED" strokeWidth="3" strokeLinecap="round"/>
+      <path d="M21 20l18-6" stroke="#A78BFA" strokeWidth="2" strokeLinecap="round"/>
     </svg>
   ),
   wine: (
     <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-      <path d="M14 8h20v10c0 5.5-4.5 10-10 10s-10-4.5-10-10V8z" fill="#FBCFE8" stroke="#BE185D" strokeWidth="2.5" strokeLinejoin="round"/>
-      <path d="M24 28v12M17 40h14" stroke="#BE185D" strokeWidth="2.5" strokeLinecap="round"/>
-      <path d="M14.5 19c3 2 17 2 19 0" stroke="#BE185D" strokeWidth="2" fill="none"/>
+      <path d="M14 9h20v10c0 5.5-4.5 10-10 10s-10-4.5-10-10V9z" fill="#FCE7F3" stroke="#BE123C" strokeWidth="2.5" strokeLinejoin="round"/>
+      <path d="M24 29v11M17 40h14" stroke="#BE123C" strokeWidth="2.5" strokeLinecap="round"/>
+      <path d="M15 18c3 2 15 2 18 0" stroke="#FB7185" strokeWidth="2" strokeLinecap="round"/>
     </svg>
   ),
   key: (
     <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
       <circle cx="17" cy="20" r="9" fill="#FEF08A" stroke="#CA8A04" strokeWidth="2.5"/>
-      <circle cx="17" cy="20" r="4" fill="#FAF7F2" stroke="#CA8A04" strokeWidth="2"/>
-      <path d="M23.5 27.5l16 16M33.5 36l3-3M37.5 39.5l3-3" stroke="#CA8A04" strokeWidth="2.5" strokeLinecap="round"/>
+      <circle cx="17" cy="20" r="3.5" fill="#FAF7F2" stroke="#CA8A04" strokeWidth="2"/>
+      <path d="M23.5 26.5l16 16M33.5 35l3-3M37.5 39l3-3" stroke="#CA8A04" strokeWidth="2.5" strokeLinecap="round"/>
+      <path d="M13 16c2-2 5-2 7 0" stroke="#EAB308" strokeWidth="1.8" strokeLinecap="round"/>
     </svg>
   ),
   star: (
@@ -183,7 +167,7 @@ export const SVG_EMOJIS = {
       <polygon
         points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
         fill="#FBBF24"
-        stroke="#F59E0B"
+        stroke="#D97706"
         strokeWidth="1.8"
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -217,45 +201,44 @@ export const SVG_EMOJIS = {
   ),
   target: (
     <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-      <circle cx="24" cy="24" r="18" fill="#FEE2E2" stroke="#EF4444" strokeWidth="2.5"/>
-      <circle cx="24" cy="24" r="11" fill="#FFFFFF" stroke="#EF4444" strokeWidth="2"/>
-      <circle cx="24" cy="24" r="4.5" fill="#EF4444"/>
+      <circle cx="24" cy="24" r="18" fill="#FEE2E2" stroke="#DC2626" strokeWidth="2.5"/>
+      <circle cx="24" cy="24" r="11" fill="#FFFFFF" stroke="#DC2626" strokeWidth="2"/>
+      <circle cx="24" cy="24" r="4.5" fill="#EF4444" stroke="#B91C1C" strokeWidth="1.5"/>
     </svg>
   ),
   party: (
     <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-      <path d="M8 40l7-28 21 21L8 40z" fill="#FEF08A" stroke="#EAB308" strokeWidth="2.5" strokeLinejoin="round"/>
+      <path d="M8 40l7-28 21 21L8 40z" fill="#FEF08A" stroke="#CA8A04" strokeWidth="2.5" strokeLinejoin="round"/>
       <path d="M15 12l21 21M11 26l11 11" stroke="#EAB308" strokeWidth="2"/>
       <circle cx="34" cy="12" r="2.5" fill="#EF4444"/>
       <circle cx="40" cy="20" r="2" fill="#3B82F6"/>
       <circle cx="26" cy="6" r="2" fill="#10B981"/>
-      <path d="M30 18l3-3M38 12l4-1" stroke="#F59E0B" strokeWidth="2" strokeLinecap="round"/>
     </svg>
   ),
   snow: (
     <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-      <path d="M24 4v40M4 24h40M10 10l28 28M10 38L38 10" stroke="#38BDF8" strokeWidth="2.5" strokeLinecap="round"/>
-      <circle cx="24" cy="24" r="3" fill="#38BDF8"/>
+      <circle cx="24" cy="24" r="18" fill="#E0F2FE" stroke="#0284C7" strokeWidth="2.5"/>
+      <path d="M24 10v28M10 24h28M14 14l20 20M14 34l20-20" stroke="#0284C7" strokeWidth="2" strokeLinecap="round"/>
     </svg>
   ),
   leaf: (
     <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-      <path d="M8 40C8 40 12 28 26 14c14 14 2 32-18 26z" fill="#DCFCE7" stroke="#16A34A" strokeWidth="2.5" strokeLinejoin="round"/>
-      <path d="M8 40c8-8 16-16 26-22" stroke="#16A34A" strokeWidth="2.5" strokeLinecap="round"/>
+      <path d="M8 40C8 40 12 28 26 14c14 14 2 32-18 26z" fill="#DCFCE7" stroke="#15803D" strokeWidth="2.5" strokeLinejoin="round"/>
+      <path d="M8 40c8-8 16-16 26-22" stroke="#16A34A" strokeWidth="2" strokeLinecap="round"/>
     </svg>
   ),
   galaxy: (
     <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-      <ellipse cx="24" cy="24" rx="18" ry="9" transform="rotate(-30 24 24)" fill="#EDE9FE" stroke="#8B5CF6" strokeWidth="2.5"/>
-      <circle cx="24" cy="24" r="5" fill="#A855F7"/>
+      <ellipse cx="24" cy="24" rx="18" ry="9" transform="rotate(-30 24 24)" fill="#EDE9FE" stroke="#7C3AED" strokeWidth="2.5"/>
+      <circle cx="24" cy="24" r="5" fill="#A855F7" stroke="#7C3AED" strokeWidth="1.5"/>
       <circle cx="15" cy="18" r="2" fill="#FBBF24"/>
       <circle cx="33" cy="30" r="1.5" fill="#38BDF8"/>
     </svg>
   ),
   pin: (
     <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-      <path d="M24 4C16 4 10 10 10 18c0 11 14 26 14 26s14-15 14-26c0-8-6-14-14-14z" fill="#FEE2E2" stroke="#EF4444" strokeWidth="2.5" strokeLinejoin="round"/>
-      <circle cx="24" cy="18" r="5" fill="#EF4444"/>
+      <path d="M24 4C16 4 10 10 10 18c0 11 14 26 14 26s14-15 14-26c0-8-6-14-14-14z" fill="#FEE2E2" stroke="#E11D48" strokeWidth="2.5" strokeLinejoin="round"/>
+      <circle cx="24" cy="18" r="5" fill="#E11D48"/>
     </svg>
   ),
   lock: (
