@@ -24,237 +24,257 @@ export const MainMenu = ({
 
   return (
     <div className="main-menu-container">
-      <header className="menu-hero-section">
-        <div className="menu-hero-left">
-          <div className="menu-brand-row">
-            <div className="menu-logo-badge">
-              <CustomSvg name="logo" type="emoji" size={56} />
+      <header className="bento-header">
+        <div className="bento-header-left">
+          <div className="bento-brand-row">
+            <div className="bento-logo">
+              <CustomSvg name="logo" type="emoji" size={44} />
             </div>
             <div>
-              <h1 className="menu-title">Intrecci</h1>
-              <div className="menu-subtitle">Il gioco dei collegamenti di parole</div>
+              <div className="bento-brand-title">Intrecci</div>
+              <div className="bento-brand-badge">
+                <span className="bento-dot dot-emerald" />
+                <span>Generatore Lessicale Dinamico</span>
+              </div>
             </div>
           </div>
-          <p className="menu-description">
-            Trova i 4 gruppi da 4 parole che condividono un filo conduttore semantico.
-            Ogni partita è generata in modo casuale dal database delle parole: ragiona e deduci!
+          <p className="bento-header-desc">
+            Trova i 4 collegamenti semantici tra 16 parole. Nessun walkthrough statico: ogni schema richiede pura deduzione.
           </p>
         </div>
 
-        <div className="menu-hero-stats">
-          <div className="hero-stat-box">
-            <span className="hero-stat-val" style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}>
-              {sagaUnlocked}/20 <CustomSvg name="globe" type="emoji" size={20} />
+        <div className="bento-stats-panel">
+          <div className="bento-stat-item">
+            <span className="bento-stat-val">
+              {sagaUnlocked}<span className="bento-stat-denom">/20</span>
             </span>
-            <span className="hero-stat-lbl">Mappa a Tappe</span>
+            <span className="bento-stat-lbl">Mappa Livelli</span>
           </div>
-          <div className="hero-stat-divider" />
-          <div className="hero-stat-box">
-            <span className="hero-stat-val" style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}>
-              {sagaTotalStars} <CustomSvg name="star" type="emoji" size={20} />
+          <div className="bento-stat-sep" />
+          <div className="bento-stat-item">
+            <span className="bento-stat-val" style={{ display: 'inline-flex', alignItems: 'center', gap: 4 }}>
+              {sagaTotalStars} <CustomSvg name="star" type="emoji" size={16} />
             </span>
-            <span className="hero-stat-lbl">Stelle Mappa</span>
+            <span className="bento-stat-lbl">Stelle Totali</span>
           </div>
-          <div className="hero-stat-divider" />
-          <div className="hero-stat-box">
-            <span className="hero-stat-val" style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}>
-              {stats.currentStreak} <CustomSvg name="fire" type="emoji" size={20} />
+          <div className="bento-stat-sep" />
+          <div className="bento-stat-item">
+            <span className="bento-stat-val" style={{ display: 'inline-flex', alignItems: 'center', gap: 4 }}>
+              {stats.currentStreak} <CustomSvg name="fire" type="emoji" size={16} />
             </span>
-            <span className="hero-stat-lbl">Serie Vittorie</span>
+            <span className="bento-stat-lbl">Serie Vittorie</span>
           </div>
         </div>
       </header>
 
-      <section className="featured-puzzle-hero">
-        <div className="featured-puzzle-header">
-          <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-            <span className="featured-badge">
-              {isCurrentCompleted ? 'Partita Conclusa' : 'Partita Principale'}
+      <div className="bento-grid-layout">
+        <section className="bento-card bento-card-hero">
+          <div className="bento-card-topbar">
+            <div className="bento-pill-group">
+              <span className="bento-pill bento-pill-live">
+                <span className="bento-dot dot-emerald" />
+                {isCurrentCompleted ? 'Completata' : 'In Corso'}
+              </span>
+              <span className="bento-pill bento-pill-subtle">
+                {activePuzzle?.difficulty || 'Dinamico'}
+              </span>
+            </div>
+            <span className="bento-meta-id">
+              {activePuzzle?.id ? `#${activePuzzle.id}` : 'LIVE'}
             </span>
-            <span className="featured-difficulty">{activePuzzle?.difficulty || 'Dinamica'}</span>
           </div>
-          <span className="featured-mode-tag">Generazione Casuale</span>
-        </div>
 
-        <div className="featured-puzzle-body">
-          <h2 className="featured-title">{activePuzzle?.title || 'Partita in Corso'}</h2>
-          <p className="featured-desc">
-            {activePuzzle?.subtitle || 'Generata casualmente dal database lessicale — ragionamento puro, nessun walkthrough online!'}
-          </p>
+          <div className="bento-hero-body">
+            <h2 className="bento-hero-title">
+              {activePuzzle?.title || 'Partita In Corso'}
+            </h2>
+            <p className="bento-hero-subtitle">
+              {activePuzzle?.subtitle || 'Generata casualmente dal database delle parole — nessuna soluzione fissa.'}
+            </p>
 
-          <div className="featured-categories-preview">
-            <span className="preview-dot dot-yellow" title="Categoria Gialla: Semplice" />
-            <span className="preview-dot dot-green" title="Categoria Verde: Media" />
-            <span className="preview-dot dot-blue" title="Categoria Blu: Difficile" />
-            <span className="preview-dot dot-purple" title="Categoria Viola: Insidiosa" />
-            <span className="preview-label">4 categorie da scoprire e collegare</span>
-          </div>
-        </div>
-
-        <div className="featured-actions-row">
-          <button className="menu-primary-btn" onClick={onStartGame}>
-            <CustomSvg name="play" type="icon" size={22} />
-            <span>{isCurrentCompleted ? 'Rigioca Partita' : 'Gioca Partita'}</span>
-          </button>
-
-          <button
-            className="menu-secondary-btn"
-            onClick={async () => {
-              const newP = await onGenerateApi();
-              if (newP) onStartGame();
-            }}
-            disabled={isGenerating}
-          >
-            <CustomSvg name="magic" type="icon" size={18} />
-            <span>{isGenerating ? 'Generando enigma...' : 'Nuova Partita Casuale'}</span>
-          </button>
-
-          <button className="menu-secondary-btn" onClick={onOpenPuzzles}>
-            <CustomSvg name="book" type="icon" size={18} />
-            <span>Archivio Partite ({playedGamesCount})</span>
-          </button>
-        </div>
-      </section>
-
-      <section className="menu-section-block">
-        <div className="section-heading">
-          <span>Altre Modalità di Gioco</span>
-        </div>
-        <div className="menu-modes-grid">
-          <div
-            className="menu-card-btn menu-card-large menu-card-saga"
-            onClick={onOpenSagaMap}
-            role="button"
-            tabIndex={0}
-          >
-            <div className="menu-card-icon-box box-amber">
-              <CustomSvg name="compass" type="emoji" size={32} />
-            </div>
-            <div className="menu-card-info">
-              <div className="menu-badge-row">
-                <span className="badge-new-mode">Modalità Avventura</span>
-                <span className="badge-stars-count" style={{ display: 'inline-flex', alignItems: 'center', gap: 4 }}>
-                  {sagaTotalStars}/60 <CustomSvg name="star" type="emoji" size={14} />
-                </span>
+            <div className="bento-cat-legend">
+              <div className="bento-cat-chip cat-chip-yellow">
+                <span className="cat-chip-dot" />
+                <span>Diretto</span>
               </div>
-              <div className="menu-card-title">Mappa dei Regni a Tappe</div>
-              <div className="menu-card-subtitle">
-                20 livelli progressivi lungo 4 biomi con curve, stelle e sfide a tempo o zen
+              <div className="bento-cat-chip cat-chip-green">
+                <span className="cat-chip-dot" />
+                <span>Medio</span>
+              </div>
+              <div className="bento-cat-chip cat-chip-blue">
+                <span className="cat-chip-dot" />
+                <span>Complesso</span>
+              </div>
+              <div className="bento-cat-chip cat-chip-purple">
+                <span className="cat-chip-dot" />
+                <span>Insidioso</span>
               </div>
             </div>
-            <div className="menu-card-arrow">
-              <CustomSvg name="chevronRight" type="icon" size={22} />
-            </div>
           </div>
 
-          <div
-            className="menu-card-btn menu-card-large menu-card-binomi"
-            onClick={onOpenBinomi}
-            role="button"
-            tabIndex={0}
-          >
-            <div className="menu-card-icon-box box-purple">
-              <CustomSvg name="sparkle" type="emoji" size={32} />
-            </div>
-            <div className="menu-card-info">
-              <div className="menu-badge-row">
-                <span className="badge-minigame">Minigioco Rapido</span>
-                <span className="badge-pairs-count">10 Pacchetti</span>
-              </div>
-              <div className="menu-card-title">Binomi Iconici Italiani</div>
-              <div className="menu-card-subtitle">
-                Abbina le coppie inscindibili della nostra tradizione (Gatto & Volpe, Pane & Burro...)
-              </div>
-            </div>
-            <div className="menu-card-arrow">
-              <CustomSvg name="chevronRight" type="icon" size={22} />
-            </div>
-          </div>
-        </div>
-      </section>
+          <div className="bento-hero-actions">
+            <button className="bento-btn bento-btn-primary" onClick={onStartGame}>
+              <CustomSvg name="play" type="icon" size={18} />
+              <span>{isCurrentCompleted ? 'Rigioca Partita' : 'Gioca Partita'}</span>
+            </button>
 
-      <section className="menu-section-block">
-        <div className="section-heading">
-          <span>Opzioni e Risorse</span>
-        </div>
-        <div className="menu-utilities-grid">
-          <div
-            className="menu-card-btn menu-card-util"
-            onClick={onOpenPuzzles}
-            role="button"
-            tabIndex={0}
-          >
-            <div className="menu-card-icon-box box-blue">
-              <CustomSvg name="book" type="emoji" size={24} />
-            </div>
-            <div className="menu-card-info">
-              <div className="menu-card-title">Archivio Partite</div>
-              <div className="menu-card-subtitle">
-                {playedGamesCount} {playedGamesCount === 1 ? 'partita giocata' : 'partite giocate'}
-              </div>
-            </div>
-            <div className="menu-card-arrow">
-              <CustomSvg name="chevronRight" type="icon" size={18} />
-            </div>
+            <button
+              className="bento-btn bento-btn-secondary"
+              onClick={async () => {
+                const newP = await onGenerateApi();
+                if (newP) onStartGame();
+              }}
+              disabled={isGenerating}
+            >
+              <CustomSvg name="magic" type="icon" size={16} />
+              <span>{isGenerating ? 'Generando...' : 'Nuova Partita Casuale'}</span>
+            </button>
+
+            <button className="bento-btn bento-btn-outline" onClick={onOpenPuzzles}>
+              <CustomSvg name="book" type="icon" size={16} />
+              <span>Archivio ({playedGamesCount})</span>
+            </button>
+          </div>
+        </section>
+
+        <section
+          className="bento-card bento-card-interactive bento-card-saga"
+          onClick={onOpenSagaMap}
+          role="button"
+          tabIndex={0}
+        >
+          <div className="bento-card-topbar">
+            <span className="bento-pill bento-pill-amber">
+              <span className="bento-dot dot-amber" />
+              Avventura
+            </span>
+            <span className="bento-meta-id">{sagaTotalStars}/60 ★</span>
           </div>
 
-          <div
-            className="menu-card-btn menu-card-util"
-            onClick={onOpenStats}
-            role="button"
-            tabIndex={0}
-          >
-            <div className="menu-card-icon-box box-green">
-              <CustomSvg name="stats" type="icon" size={24} />
+          <div className="bento-mode-content">
+            <div className="bento-mode-icon icon-amber">
+              <CustomSvg name="compass" type="emoji" size={28} />
             </div>
-            <div className="menu-card-info">
-              <div className="menu-card-title">Statistiche e Record</div>
-              <div className="menu-card-subtitle" style={{ display: 'inline-flex', alignItems: 'center', gap: 4 }}>
-                {stats.won} vittorie • serie {stats.currentStreak} <CustomSvg name="fire" type="emoji" size={15} />
+            <div>
+              <div className="bento-card-heading">Mappa dei Regni</div>
+              <div className="bento-card-text">
+                20 tappe progressive lungo 4 biomi con sfide a tempo o zen
               </div>
             </div>
-            <div className="menu-card-arrow">
-              <CustomSvg name="chevronRight" type="icon" size={18} />
+          </div>
+
+          <div className="bento-card-arrow">
+            <CustomSvg name="chevronRight" type="icon" size={18} />
+          </div>
+        </section>
+
+        <section
+          className="bento-card bento-card-interactive bento-card-binomi"
+          onClick={onOpenBinomi}
+          role="button"
+          tabIndex={0}
+        >
+          <div className="bento-card-topbar">
+            <span className="bento-pill bento-pill-purple">
+              <span className="bento-dot dot-purple" />
+              Minigioco
+            </span>
+            <span className="bento-meta-id">10 Pacchetti</span>
+          </div>
+
+          <div className="bento-mode-content">
+            <div className="bento-mode-icon icon-purple">
+              <CustomSvg name="sparkle" type="emoji" size={28} />
+            </div>
+            <div>
+              <div className="bento-card-heading">Binomi Iconici</div>
+              <div className="bento-card-text">
+                Abbina le celebri coppie e modi di dire della tradizione italiana
+              </div>
             </div>
           </div>
 
-          <div
-            className="menu-card-btn menu-card-util"
-            onClick={onOpenSettings}
-            role="button"
-            tabIndex={0}
-          >
-            <div className="menu-card-icon-box box-amber">
-              <CustomSvg name="settings" type="icon" size={24} />
-            </div>
-            <div className="menu-card-info">
-              <div className="menu-card-title">Impostazioni</div>
-              <div className="menu-card-subtitle">Tema scuro, suoni, effetti</div>
-            </div>
-            <div className="menu-card-arrow">
-              <CustomSvg name="chevronRight" type="icon" size={18} />
-            </div>
+          <div className="bento-card-arrow">
+            <CustomSvg name="chevronRight" type="icon" size={18} />
           </div>
+        </section>
 
-          <div
-            className="menu-card-btn menu-card-util"
-            onClick={onOpenHelp}
-            role="button"
-            tabIndex={0}
-          >
-            <div className="menu-card-icon-box box-blue">
-              <CustomSvg name="help" type="icon" size={24} />
-            </div>
-            <div className="menu-card-info">
-              <div className="menu-card-title">Regole e Guida</div>
-              <div className="menu-card-subtitle">Come giocare e scorciatoie</div>
-            </div>
-            <div className="menu-card-arrow">
-              <CustomSvg name="chevronRight" type="icon" size={18} />
+        <section
+          className="bento-card bento-card-interactive bento-card-util"
+          onClick={onOpenPuzzles}
+          role="button"
+          tabIndex={0}
+        >
+          <div className="bento-util-icon icon-blue">
+            <CustomSvg name="book" type="emoji" size={22} />
+          </div>
+          <div className="bento-util-info">
+            <div className="bento-card-heading">Archivio Partite</div>
+            <div className="bento-card-text">
+              {playedGamesCount} {playedGamesCount === 1 ? 'partita' : 'partite'}
             </div>
           </div>
-        </div>
-      </section>
+          <div className="bento-card-arrow">
+            <CustomSvg name="chevronRight" type="icon" size={16} />
+          </div>
+        </section>
+
+        <section
+          className="bento-card bento-card-interactive bento-card-util"
+          onClick={onOpenStats}
+          role="button"
+          tabIndex={0}
+        >
+          <div className="bento-util-icon icon-green">
+            <CustomSvg name="stats" type="icon" size={22} />
+          </div>
+          <div className="bento-util-info">
+            <div className="bento-card-heading">Statistiche</div>
+            <div className="bento-card-text">
+              {stats.won} vittorie • serie {stats.currentStreak}
+            </div>
+          </div>
+          <div className="bento-card-arrow">
+            <CustomSvg name="chevronRight" type="icon" size={16} />
+          </div>
+        </section>
+
+        <section
+          className="bento-card bento-card-interactive bento-card-util"
+          onClick={onOpenSettings}
+          role="button"
+          tabIndex={0}
+        >
+          <div className="bento-util-icon icon-slate">
+            <CustomSvg name="settings" type="icon" size={22} />
+          </div>
+          <div className="bento-util-info">
+            <div className="bento-card-heading">Impostazioni</div>
+            <div className="bento-card-text">Tema notturno e audio</div>
+          </div>
+          <div className="bento-card-arrow">
+            <CustomSvg name="chevronRight" type="icon" size={16} />
+          </div>
+        </section>
+
+        <section
+          className="bento-card bento-card-interactive bento-card-util"
+          onClick={onOpenHelp}
+          role="button"
+          tabIndex={0}
+        >
+          <div className="bento-util-icon icon-sky">
+            <CustomSvg name="help" type="icon" size={22} />
+          </div>
+          <div className="bento-util-info">
+            <div className="bento-card-heading">Regole e Guida</div>
+            <div className="bento-card-text">Istruzioni e comandi</div>
+          </div>
+          <div className="bento-card-arrow">
+            <CustomSvg name="chevronRight" type="icon" size={16} />
+          </div>
+        </section>
+      </div>
     </div>
   );
 };
