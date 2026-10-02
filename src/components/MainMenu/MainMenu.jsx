@@ -12,6 +12,8 @@ export const MainMenu = ({
   onStartGame,
   onOpenSagaMap,
   onOpenBinomi,
+  onOpenIntruso,
+  onOpenAnagramma,
   onOpenPuzzles,
   onOpenStats,
   onOpenSettings,
@@ -49,10 +51,6 @@ export const MainMenu = ({
             </div>
             <div>
               <div className="bento-brand-title">Intrecci</div>
-              <div className="bento-brand-badge">
-                <span className="bento-dot dot-emerald" />
-                <span>Generatore Lessicale Dinamico</span>
-              </div>
             </div>
           </div>
           <p className="bento-header-desc">
@@ -244,6 +242,54 @@ export const MainMenu = ({
         </section>
 
         <section
+          className="bento-card bento-card-interactive bento-card-intruso"
+          onClick={onOpenIntruso}
+          role="button"
+          tabIndex={0}
+        >
+          <div className="bento-card-topbar">
+            <span className="bento-pill bento-pill-blue">
+              <span className="bento-dot dot-blue" />
+              Minigioco Rapido
+            </span>
+            <span className="bento-meta-id">Deduzione</span>
+          </div>
+
+          <div className="bento-mode-content">
+            <div className="bento-mode-icon icon-blue">
+              <CustomSvg name="target" type="emoji" size={32} />
+            </div>
+            <div className="bento-mode-text-wrap">
+              <div className="bento-card-heading">Caccia all'Intruso</div>
+              <div className="bento-card-text">
+                4 parole, 3 condividono un legame segreto. Trova l'estranea!
+              </div>
+            </div>
+          </div>
+
+          <div className="bento-pairs-preview">
+            <div className="bento-pair-chip chip-blue">
+              <span>Limone</span>
+            </div>
+            <div className="bento-pair-chip chip-blue">
+              <span>Arancia</span>
+            </div>
+            <div className="bento-pair-chip chip-intruder">
+              <span>Mela ✕</span>
+            </div>
+          </div>
+
+          <div className="bento-card-footer">
+            <span className="bento-progress-chip">
+              Sfida in 5 round veloci
+            </span>
+            <span className="bento-arrow-circle">
+              <CustomSvg name="chevronRight" type="icon" size={16} />
+            </span>
+          </div>
+        </section>
+
+        <section
           className="bento-card bento-card-interactive bento-card-binomi"
           onClick={onOpenBinomi}
           role="button"
@@ -252,7 +298,7 @@ export const MainMenu = ({
           <div className="bento-card-topbar">
             <span className="bento-pill bento-pill-purple">
               <span className="bento-dot dot-purple" />
-              Minigioco Rapido
+              Minigioco Coppie
             </span>
             <span className="bento-meta-id">10 Pacchetti</span>
           </div>
@@ -290,6 +336,52 @@ export const MainMenu = ({
           <div className="bento-card-footer">
             <span className="bento-progress-chip">
               Guadagna gettoni aiuto extra
+            </span>
+            <span className="bento-arrow-circle">
+              <CustomSvg name="chevronRight" type="icon" size={16} />
+            </span>
+          </div>
+        </section>
+
+        <section
+          className="bento-card bento-card-interactive bento-card-anagramma"
+          onClick={onOpenAnagramma}
+          role="button"
+          tabIndex={0}
+        >
+          <div className="bento-card-topbar">
+            <span className="bento-pill bento-pill-green">
+              <span className="bento-dot dot-emerald" />
+              Parole Intrecciate
+            </span>
+            <span className="bento-meta-id">Scramble</span>
+          </div>
+
+          <div className="bento-mode-content">
+            <div className="bento-mode-icon icon-green">
+              <CustomSvg name="magic" type="emoji" size={32} />
+            </div>
+            <div className="bento-mode-text-wrap">
+              <div className="bento-card-heading">Anagramma Espresso</div>
+              <div className="bento-card-text">
+                Ricomponi le lettere sparse per indovinare la parola dal tema
+              </div>
+            </div>
+          </div>
+
+          <div className="bento-pairs-preview">
+            <div className="bento-anagram-preview-chip">
+              <span className="letter-box">P</span>
+              <span className="letter-box">E</span>
+              <span className="letter-box">N</span>
+              <span className="letter-box">N</span>
+              <span className="letter-box">E</span>
+            </div>
+          </div>
+
+          <div className="bento-card-footer">
+            <span className="bento-progress-chip">
+              Risolvi 3 anagrammi e vinci aiuti
             </span>
             <span className="bento-arrow-circle">
               <CustomSvg name="chevronRight" type="icon" size={16} />

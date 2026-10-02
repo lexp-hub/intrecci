@@ -10,6 +10,8 @@ import Controls from './components/Controls/Controls';
 import Toast from './components/Toast/Toast';
 import SagaMap from './components/SagaMap/SagaMap';
 import BinomiGame from './components/Minigames/Binomi/BinomiGame';
+import IntrusoGame from './components/Minigames/Intruso/IntrusoGame';
+import AnagrammaGame from './components/Minigames/Anagramma/AnagrammaGame';
 import HintModal from './components/HintSystem/HintModal';
 import HelpModal from './components/Modals/HelpModal';
 import StatsModal from './components/Modals/StatsModal';
@@ -170,6 +172,8 @@ export function App() {
           onStartGame={() => setCurrentScreen('game')}
           onOpenSagaMap={() => setCurrentScreen('map')}
           onOpenBinomi={() => setCurrentScreen('binomi')}
+          onOpenIntruso={() => setCurrentScreen('intruso')}
+          onOpenAnagramma={() => setCurrentScreen('anagramma')}
           onOpenPuzzles={() => setIsPuzzlesOpen(true)}
           onOpenStats={() => setIsStatsOpen(true)}
           onOpenSettings={() => setIsSettingsOpen(true)}
@@ -200,6 +204,20 @@ export function App() {
 
       {currentScreen === 'binomi' && (
         <BinomiGame
+          onGoToMenu={() => setCurrentScreen('menu')}
+          onEarnHint={(count) => addHintTokens(count)}
+        />
+      )}
+
+      {currentScreen === 'intruso' && (
+        <IntrusoGame
+          onGoToMenu={() => setCurrentScreen('menu')}
+          onEarnHint={(count) => addHintTokens(count)}
+        />
+      )}
+
+      {currentScreen === 'anagramma' && (
+        <AnagrammaGame
           onGoToMenu={() => setCurrentScreen('menu')}
           onEarnHint={(count) => addHintTokens(count)}
         />
