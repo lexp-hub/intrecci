@@ -403,12 +403,12 @@ export const PUZZLES = [
 
 export const CATEGORY_COLORS = {
   yellow: {
-    name: "Giallo",
+    name: "Rosa",
     difficultyLabel: "Semplice",
     bg: "var(--color-cat-yellow-bg)",
     border: "var(--color-cat-yellow-border)",
     text: "var(--color-cat-yellow-text)",
-    emojiCode: "🟨"
+    emojiCode: "🩷"
   },
   green: {
     name: "Verde",

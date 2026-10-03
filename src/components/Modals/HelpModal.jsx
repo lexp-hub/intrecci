@@ -50,7 +50,7 @@ export const HelpModal = ({ isOpen, onClose }) => {
         <div className="category-difficulty-legend">
           <div className="legend-row">
             <div className="legend-color-dot" style={{ background: 'var(--color-cat-yellow-border)' }} />
-            <span><strong>Giallo:</strong> Categoria diretta e più immediata</span>
+            <span><strong>Rosa:</strong> Categoria diretta e più immediata</span>
           </div>
           <div className="legend-row">
             <div className="legend-color-dot" style={{ background: 'var(--color-cat-green-border)' }} />
