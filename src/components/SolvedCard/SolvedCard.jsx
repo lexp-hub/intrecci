@@ -15,15 +15,12 @@ export const SolvedCard = ({ group }) => {
       }}
     >
       <div className="solved-card-emoji-box">
-        <CustomSvg name={group.emoji || 'sparkle'} type="emoji" size={32} />
+        <CustomSvg name={group.emoji || 'sparkle'} type="emoji" size={26} />
       </div>
 
       <div className="solved-card-content">
         <div className="solved-card-title">{group.category}</div>
         <div className="solved-card-words">{group.words.join(', ')}</div>
-        {(group.description || group.hint) && (
-          <div className="solved-card-desc">{group.description || group.hint}</div>
-        )}
       </div>
     </div>
   );

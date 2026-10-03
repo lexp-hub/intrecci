@@ -258,25 +258,27 @@ export function App() {
             isGameOver={isGameOver}
           />
 
-          <AttemptsCounter
-            mistakesRemaining={mistakesRemaining}
-            maxMistakes={maxMistakes}
-            isGameOver={isGameOver}
-            gameMode={gameMode}
-            timeLeft={timeLeft}
-          />
+          <div className="game-control-deck">
+            <AttemptsCounter
+              mistakesRemaining={mistakesRemaining}
+              maxMistakes={maxMistakes}
+              isGameOver={isGameOver}
+              gameMode={gameMode}
+              timeLeft={timeLeft}
+            />
 
-          <Controls
-            onShuffle={shuffleWords}
-            onDeselectAll={deselectAll}
-            onSubmit={submitGuess}
-            onOpenHint={() => setIsHintOpen(true)}
-            hintTokens={hintTokens}
-            selectedCount={selectedWords.length}
-            isGameOver={isGameOver}
-            isWon={isWon}
-            onOpenResults={() => setIsResultsOpen(true)}
-          />
+            <Controls
+              onShuffle={shuffleWords}
+              onDeselectAll={deselectAll}
+              onSubmit={submitGuess}
+              onOpenHint={() => setIsHintOpen(true)}
+              hintTokens={hintTokens}
+              selectedCount={selectedWords.length}
+              isGameOver={isGameOver}
+              isWon={isWon}
+              onOpenResults={() => setIsResultsOpen(true)}
+            />
+          </div>
         </>
       )}
 
