@@ -32,7 +32,7 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .giochini-ambient-bg {
@@ -48,22 +48,28 @@ body {
   position: relative;
   z-index: 2; 
   transition: max-width 0.25s ease;
+  margin-left: 0;
+  margin-right: auto;
 }
 
 .container-menu {
   max-width: 1040px;
-  margin: 0 auto;
+  width: 100%;
+  margin-left: 0;
+  margin-right: auto;
   min-height: auto;
   justify-content: flex-start;
-  padding: 16px 20px 48px;
+  padding: 16px 24px 48px clamp(16px, 4vw, 56px);
 }
 
 .container-game {
   max-width: 520px;
-  margin: 0 auto;
+  width: 100%;
+  margin-left: 0;
+  margin-right: auto;
   min-height: auto;
   justify-content: flex-start;
-  padding: 16px 20px 60px;
+  padding: 16px 24px 60px clamp(16px, 4vw, 56px);
 }
 
 
