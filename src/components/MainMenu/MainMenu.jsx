@@ -118,7 +118,9 @@ export const MainMenu = ({
               <span className="status-dot" />
               {isCurrentCompleted ? 'COMPLETATA' : '★ PARTITA DEL GIORNO'}
             </span>
-            <span className="daily-id-tag">#{activePuzzle?.id || 1}</span>
+            <span className="daily-id-tag">
+              {typeof activePuzzle?.id === 'number' ? `#${activePuzzle.id}` : 'CASUALE'}
+            </span>
           </div>
           <h2 className="daily-title">
             {activePuzzle?.title || 'Partita Principale'}
@@ -325,6 +327,25 @@ export const MainMenu = ({
             <div className="game-card-footer">
               <span className="game-stat-info">10 Pacchetti • +1 Aiuto</span>
               <span className="game-action-link">GIOCA →</span>
+            </div>
+          </div>
+
+          <div className="game-card card-archive" onClick={onOpenPuzzles} role="button" tabIndex={0}>
+            <div className="game-card-top">
+              <div className="game-icon-box bg-rose">
+                <CustomSvg name="levels" type="icon" size={20} />
+              </div>
+              <span className="game-badge-tag tag-rose">Archivio</span>
+            </div>
+            <div className="game-card-body">
+              <h4 className="game-card-title">Tutti gli Enigmi</h4>
+              <p className="game-card-desc">
+                Sfoglia l'archivio completo delle partite e rigioca gli enigmi precedenti.
+              </p>
+            </div>
+            <div className="game-card-footer">
+              <span className="game-stat-info">{totalPuzzles} Enigmi • {playedGamesCount} Giocate</span>
+              <span className="game-action-link">SFOGLIA →</span>
             </div>
           </div>
         </div>

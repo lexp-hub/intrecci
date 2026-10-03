@@ -1076,6 +1076,70 @@ body {
   justify-content: center;
 }
 
+.hero-tiers-indicator {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  gap: 6px;
+}
+
+.tier-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  user-select: none;
+}
+
+.tier-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.tier-yellow {
+  background: var(--color-cat-yellow-bg);
+  color: var(--color-cat-yellow-text);
+  border: 1px solid var(--color-cat-yellow-border);
+}
+
+.tier-yellow .tier-dot {
+  background: var(--color-cat-yellow-border);
+}
+
+.tier-green {
+  background: var(--color-cat-green-bg);
+  color: var(--color-cat-green-text);
+  border: 1px solid var(--color-cat-green-border);
+}
+
+.tier-green .tier-dot {
+  background: var(--color-cat-green-border);
+}
+
+.tier-blue {
+  background: var(--color-cat-blue-bg);
+  color: var(--color-cat-blue-text);
+  border: 1px solid var(--color-cat-blue-border);
+}
+
+.tier-blue .tier-dot {
+  background: var(--color-cat-blue-border);
+}
+
+.tier-purple {
+  background: var(--color-cat-purple-bg);
+  color: var(--color-cat-purple-text);
+  border: 1px solid var(--color-cat-purple-border);
+}
+
+.tier-purple .tier-dot {
+  background: var(--color-cat-purple-border);
+}
+
 .daily-card-right {
   display: flex;
   align-items: center;
@@ -1432,6 +1496,16 @@ body {
 [data-theme="dark"] .card-ghigliottina {
   background: #1A162B;
   border-color: #382A5C;
+}
+
+.card-archive {
+  background: #FFF8F9;
+  border-color: #FCE7F3;
+}
+
+[data-theme="dark"] .card-archive {
+  background: #24131F;
+  border-color: #4C213B;
 }
 
 @media (max-width: 960px) {
