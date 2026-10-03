@@ -226,13 +226,6 @@ export const MainMenu = ({
         </div>
       </header>
 
-      <section className="hero-section">
-        <div className="hero-badge">SWISS LESSICALE // EDIZIONE QUOTIDIANA</div>
-        <h1 className="hero-title-xxl">INTRECCI</h1>
-        <p className="hero-claim">
-          Architettura semantica e deduzione logica. Trova i 4 collegamenti invisibili tra 16 parole.
-        </p>
-      </section>
 
       <section id="sec-enigma" className="swiss-section">
         <div className="swiss-section-header">
