@@ -151,23 +151,23 @@ body {
 }
 
 .magic-btn {
-  color: #D97706;
+  color: #D946EF;
 }
 
 .magic-btn:hover {
-  background: #FEF3C7;
-  color: #B45309;
-  border-color: #FDE68A;
+  background: #FCE7F3;
+  color: #BE185D;
+  border-color: #F472B6;
 }
 
 [data-theme="dark"] .magic-btn {
-  color: #FBBF24;
+  color: #F472B6;
 }
 
 [data-theme="dark"] .magic-btn:hover {
-  background: #362814;
-  color: #FDE68A;
-  border-color: #78350F;
+  background: #3B1227;
+  color: #FCE7F3;
+  border-color: #9D174D;
 }
 
 
@@ -752,8 +752,8 @@ body {
 
 
 .api-hero-card {
-  background: #FEF3C7;
-  border: 1.5px solid #F59E0B;
+  background: #FDF2F8;
+  border: 1.5px solid #F472B6;
   border-radius: var(--radius-md);
   padding: 14px 16px;
   margin-bottom: 18px;
@@ -767,26 +767,26 @@ body {
 .api-hero-title {
   font-weight: 800;
   font-size: 0.92rem;
-  color: #78350F;
+  color: #831843;
 }
 
 .api-hero-desc {
   font-size: 0.78rem;
-  color: #92400E;
+  color: #9D174D;
   margin-top: 2px;
 }
 
 [data-theme="dark"] .api-hero-card {
-  background: #2D2314;
-  border-color: #92400E;
+  background: #2D1424;
+  border-color: #9D174D;
 }
 
 [data-theme="dark"] .api-hero-title {
-  color: #FDE68A;
+  color: #FCE7F3;
 }
 
 [data-theme="dark"] .api-hero-desc {
-  color: #D4A373;
+  color: #F472B6;
 }
 
 .archive-empty-state {
@@ -1229,13 +1229,13 @@ body {
 }
 
 .mode-saga {
-  background: #FFFDF5;
-  border-color: #FDE68A;
+  background: #FFF1F6;
+  border-color: #FBCFE8;
 }
 
 [data-theme="dark"] .mode-saga {
-  background: #231C16;
-  border-color: #543E19;
+  background: #2D1424;
+  border-color: #702450;
 }
 
 .mode-intruso {
@@ -1283,14 +1283,16 @@ body {
   justify-content: center;
 }
 
+.bg-rose,
 .bg-amber {
-  background: #FEF3C7;
-  border: 1px solid #FDE68A;
+  background: #FCE7F3;
+  border: 1px solid #FBCFE8;
 }
 
+[data-theme="dark"] .bg-rose,
 [data-theme="dark"] .bg-amber {
-  background: #451A03;
-  border-color: #78350F;
+  background: #3B1227;
+  border-color: #831843;
 }
 
 .bg-blue {
@@ -1332,16 +1334,18 @@ body {
   border-radius: var(--radius-full);
 }
 
+.tag-rose,
 .tag-amber {
-  background: #FFFBEB;
-  color: #92400E;
-  border: 1px solid #FDE68A;
+  background: #FDF2F8;
+  color: #9D174D;
+  border: 1px solid #FBCFE8;
 }
 
+[data-theme="dark"] .tag-rose,
 [data-theme="dark"] .tag-amber {
-  background: #451A03;
-  color: #FCD34D;
-  border-color: #78350F;
+  background: #3B1227;
+  color: #FBCFE8;
+  border-color: #831843;
 }
 
 .tag-blue {
@@ -1650,8 +1654,8 @@ body {
   display: flex;
   align-items: center;
   gap: 8px;
-  background: #FEF3C7;
-  border: 1.5px solid #F59E0B;
+  background: #F3E8FF;
+  border: 1.5px solid #C084FC;
   border-radius: var(--radius-full);
   padding: 6px 14px;
   font-size: 0.84rem;
@@ -1661,9 +1665,9 @@ body {
 }
 
 [data-theme="dark"] .hint-pill {
-  background: #451A03;
-  border-color: #F59E0B;
-  color: #FEF3C7;
+  background: #3B154D;
+  border-color: #A855F7;
+  color: #F3E8FF;
 }
 
 
@@ -1671,9 +1675,9 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  background: #FEF3C7;
-  border: 1.5px solid #F59E0B;
-  color: #78350F;
+  background: #F3E8FF;
+  border: 1.5px solid #C084FC;
+  color: #6B21A8;
   font-weight: 700;
   border-radius: var(--radius-full);
   padding: 8px 14px;
@@ -1683,15 +1687,15 @@ body {
 }
 
 .action-btn-hint:hover {
-  background: #FDE68A;
+  background: #E9D5FF;
   transform: translateY(-2px);
   box-shadow: none;
 }
 
 [data-theme="dark"] .action-btn-hint {
-  background: #3D2905;
-  border-color: #D97706;
-  color: #FDE68A;
+  background: #3B154D;
+  border-color: #A855F7;
+  color: #F3E8FF;
 }
 
 .hint-btn-symbol {
@@ -1920,23 +1924,23 @@ body {
 }
 
 .menu-card-saga {
-  border: 1.5px solid #FCD34D;
-  background: #FFFBEB;
+  border: 1.5px solid #FBCFE8;
+  background: #FFF1F6;
 }
 
 .menu-card-saga:hover {
-  background: #FEF3C7;
-  border-color: #F59E0B;
+  background: #FCE7F3;
+  border-color: #F472B6;
 }
 
 [data-theme="dark"] .menu-card-saga {
-  background: #1C1306;
-  border-color: #78350F;
+  background: #2D1424;
+  border-color: #702450;
 }
 
 [data-theme="dark"] .menu-card-saga:hover {
-  background: #2D1E08;
-  border-color: #B45309;
+  background: #3E1B31;
+  border-color: #9D174D;
 }
 
 .menu-card-binomi {

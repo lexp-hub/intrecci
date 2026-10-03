@@ -179,10 +179,10 @@ export const MainMenu = ({
             tabIndex={0}
           >
             <div className="mode-card-top">
-              <div className="mode-icon-circle bg-amber">
+              <div className="mode-icon-circle bg-rose">
                 <CustomSvg name="compass" type="emoji" size={28} />
               </div>
-              <span className="mode-badge-tag tag-amber">Avventura</span>
+              <span className="mode-badge-tag tag-rose">Avventura</span>
             </div>
 
             <div className="mode-card-text">
