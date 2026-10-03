@@ -7,6 +7,10 @@ export const MainMenu = ({
   onOpenBinomi,
   onOpenIntruso,
   onOpenAnagramma,
+  onOpenGhigliottina,
+  onOpenCatena,
+  onOpenScala,
+  onOpenSillabe,
   onOpenPuzzles,
   onOpenStats,
   onOpenSettings,
@@ -166,8 +170,8 @@ export const MainMenu = ({
       <section className="modes-shelf-section">
         <div className="shelf-header-row">
           <div className="shelf-title-wrap">
-            <h3 className="shelf-section-title">Altre Modalità & Sfide</h3>
-            <span className="shelf-count-pill">4 Modalità</span>
+            <h3 className="shelf-section-title">Altre Modalità & Minigiochi</h3>
+            <span className="shelf-count-pill">8 Modalità</span>
           </div>
         </div>
 
@@ -203,6 +207,36 @@ export const MainMenu = ({
           </div>
 
           <div
+            className="mode-shelf-card mode-ghigliottina"
+            onClick={onOpenGhigliottina}
+            role="button"
+            tabIndex={0}
+          >
+            <div className="mode-card-top">
+              <div className="mode-icon-circle bg-purple">
+                <CustomSvg name="key" type="emoji" size={28} />
+              </div>
+              <span className="mode-badge-tag tag-purple">Filo Conduttore</span>
+            </div>
+
+            <div className="mode-card-text">
+              <h4 className="mode-card-title">Il Filo Conduttore</h4>
+              <p className="mode-card-desc">
+                5 indizi apparentemente distanti: indovina la parola segreta che li unisce.
+              </p>
+            </div>
+
+            <div className="mode-card-foot">
+              <span className="mode-stat-tag">
+                5 Round • +1 Aiuto
+              </span>
+              <span className="mode-action-arrow">
+                <CustomSvg name="chevronRight" type="icon" size={15} />
+              </span>
+            </div>
+          </div>
+
+          <div
             className="mode-shelf-card mode-intruso"
             onClick={onOpenIntruso}
             role="button"
@@ -218,13 +252,103 @@ export const MainMenu = ({
             <div className="mode-card-text">
               <h4 className="mode-card-title">Caccia all'Intruso</h4>
               <p className="mode-card-desc">
-                3 parole hanno un legame segreto, 1 è l'estranea. Scovale in 5 round veloci!
+                3 parole hanno un legame segreto, 1 è l'estranea. Scovale in round veloci!
               </p>
             </div>
 
             <div className="mode-card-foot">
               <span className="mode-stat-tag">
                 5 Round • +1 Aiuto
+              </span>
+              <span className="mode-action-arrow">
+                <CustomSvg name="chevronRight" type="icon" size={15} />
+              </span>
+            </div>
+          </div>
+
+          <div
+            className="mode-shelf-card mode-catena"
+            onClick={onOpenCatena}
+            role="button"
+            tabIndex={0}
+          >
+            <div className="mode-card-top">
+              <div className="mode-icon-circle bg-green">
+                <span style={{ fontSize: 26 }}>🔗</span>
+              </div>
+              <span className="mode-badge-tag tag-green">Reazione</span>
+            </div>
+
+            <div className="mode-card-text">
+              <h4 className="mode-card-title">Catena di Parole</h4>
+              <p className="mode-card-desc">
+                Collega anello dopo anello la sequenza lessicale scegliendo il tassello giusto.
+              </p>
+            </div>
+
+            <div className="mode-card-foot">
+              <span className="mode-stat-tag">
+                10 Catene • +1 Aiuto
+              </span>
+              <span className="mode-action-arrow">
+                <CustomSvg name="chevronRight" type="icon" size={15} />
+              </span>
+            </div>
+          </div>
+
+          <div
+            className="mode-shelf-card mode-scala"
+            onClick={onOpenScala}
+            role="button"
+            tabIndex={0}
+          >
+            <div className="mode-card-top">
+              <div className="mode-icon-circle bg-rose">
+                <span style={{ fontSize: 26 }}>🪜</span>
+              </div>
+              <span className="mode-badge-tag tag-rose">Word Ladder</span>
+            </div>
+
+            <div className="mode-card-text">
+              <h4 className="mode-card-title">Scala di Parole</h4>
+              <p className="mode-card-desc">
+                Cambia una sola lettera a ogni gradino per trasformare la parola iniziale.
+              </p>
+            </div>
+
+            <div className="mode-card-foot">
+              <span className="mode-stat-tag">
+                8 Scale • +1 Aiuto
+              </span>
+              <span className="mode-action-arrow">
+                <CustomSvg name="chevronRight" type="icon" size={15} />
+              </span>
+            </div>
+          </div>
+
+          <div
+            className="mode-shelf-card mode-sillabe"
+            onClick={onOpenSillabe}
+            role="button"
+            tabIndex={0}
+          >
+            <div className="mode-card-top">
+              <div className="mode-icon-circle bg-purple">
+                <span style={{ fontSize: 26 }}>🧩</span>
+              </div>
+              <span className="mode-badge-tag tag-purple">Sillabario</span>
+            </div>
+
+            <div className="mode-card-text">
+              <h4 className="mode-card-title">Sillabario Magico</h4>
+              <p className="mode-card-desc">
+                Incastra le tessere di sillabe per ricostruire le 4 parole richieste dagli indizi.
+              </p>
+            </div>
+
+            <div className="mode-card-foot">
+              <span className="mode-stat-tag">
+                5 Schemi • +1 Aiuto
               </span>
               <span className="mode-action-arrow">
                 <CustomSvg name="chevronRight" type="icon" size={15} />
@@ -269,10 +393,10 @@ export const MainMenu = ({
             tabIndex={0}
           >
             <div className="mode-card-top">
-              <div className="mode-icon-circle bg-purple">
+              <div className="mode-icon-circle bg-blue">
                 <CustomSvg name="sparkle" type="emoji" size={28} />
               </div>
-              <span className="mode-badge-tag tag-purple">Coppie</span>
+              <span className="mode-badge-tag tag-blue">Coppie</span>
             </div>
 
             <div className="mode-card-text">

@@ -12,6 +12,10 @@ import SagaMap from './components/SagaMap/SagaMap';
 import BinomiGame from './components/Minigames/Binomi/BinomiGame';
 import IntrusoGame from './components/Minigames/Intruso/IntrusoGame';
 import AnagrammaGame from './components/Minigames/Anagramma/AnagrammaGame';
+import GhigliottinaGame from './components/Minigames/Ghigliottina/GhigliottinaGame';
+import CatenaGame from './components/Minigames/Catena/CatenaGame';
+import ScalaGame from './components/Minigames/Scala/ScalaGame';
+import SillabeGame from './components/Minigames/Sillabe/SillabeGame';
 import HintModal from './components/HintSystem/HintModal';
 import HelpModal from './components/Modals/HelpModal';
 import StatsModal from './components/Modals/StatsModal';
@@ -174,6 +178,10 @@ export function App() {
           onOpenBinomi={() => setCurrentScreen('binomi')}
           onOpenIntruso={() => setCurrentScreen('intruso')}
           onOpenAnagramma={() => setCurrentScreen('anagramma')}
+          onOpenGhigliottina={() => setCurrentScreen('ghigliottina')}
+          onOpenCatena={() => setCurrentScreen('catena')}
+          onOpenScala={() => setCurrentScreen('scala')}
+          onOpenSillabe={() => setCurrentScreen('sillabe')}
           onOpenPuzzles={() => setIsPuzzlesOpen(true)}
           onOpenStats={() => setIsStatsOpen(true)}
           onOpenSettings={() => setIsSettingsOpen(true)}
@@ -218,6 +226,34 @@ export function App() {
 
       {currentScreen === 'anagramma' && (
         <AnagrammaGame
+          onGoToMenu={() => setCurrentScreen('menu')}
+          onEarnHint={(count) => addHintTokens(count)}
+        />
+      )}
+
+      {currentScreen === 'ghigliottina' && (
+        <GhigliottinaGame
+          onGoToMenu={() => setCurrentScreen('menu')}
+          onEarnHint={(count) => addHintTokens(count)}
+        />
+      )}
+
+      {currentScreen === 'catena' && (
+        <CatenaGame
+          onGoToMenu={() => setCurrentScreen('menu')}
+          onEarnHint={(count) => addHintTokens(count)}
+        />
+      )}
+
+      {currentScreen === 'scala' && (
+        <ScalaGame
+          onGoToMenu={() => setCurrentScreen('menu')}
+          onEarnHint={(count) => addHintTokens(count)}
+        />
+      )}
+
+      {currentScreen === 'sillabe' && (
+        <SillabeGame
           onGoToMenu={() => setCurrentScreen('menu')}
           onEarnHint={(count) => addHintTokens(count)}
         />
