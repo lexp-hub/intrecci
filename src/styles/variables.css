@@ -6,9 +6,9 @@
   --bg-app: #FAF5FB;
   --bg-surface: #FFFFFF;
   --bg-card: #FFFFFF;
-  --bg-card-hover: #F6EDF8;
+  --bg-card-hover: #F8F1FA;
   --bg-tile: #F2E6F4;
-  --bg-tile-hover: #E9D7EC;
+  --bg-tile-hover: #EAD9EC;
   --bg-tile-selected: #431E4D;
   --text-selected: #FAF5FB;
   --border-subtle: #E8D5EC;
@@ -34,9 +34,9 @@
   --color-cat-purple-border: #C084FC;
   --color-cat-purple-text: #581C87;
 
-  --color-accent: #E11D74;
-  --color-accent-hover: #BE1260;
-  --color-danger: #E11D74;
+  --color-accent: #D97762;
+  --color-accent-hover: #C5634E;
+  --color-danger: #D97762;
   --color-success: #10B981;
 
   --radius-xs: 6px;
@@ -84,8 +84,8 @@
   --color-cat-purple-border: #9333EA;
   --color-cat-purple-text: #F3E8FF;
 
-  --color-accent: #F43F8E;
-  --color-accent-hover: #E11D74;
+  --color-accent: #E88B77;
+  --color-accent-hover: #D97762;
 
   --shadow-subtle: none;
   --shadow-card: none;
