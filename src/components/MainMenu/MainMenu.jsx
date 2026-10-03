@@ -116,10 +116,12 @@ export const MainMenu = ({
           <div className="daily-badge-row">
             <span className={`daily-status-tag ${isCurrentCompleted ? 'completed' : 'active'}`}>
               <span className="status-dot" />
-              {isCurrentCompleted ? 'COMPLETATA' : '★ PARTITA DEL GIORNO'}
+              {isCurrentCompleted
+                ? 'COMPLETATA'
+                : (typeof activePuzzle?.id === 'number' ? '★ PARTITA DEL GIORNO' : '★ PARTITA CASUALE')}
             </span>
             <span className="daily-id-tag">
-              {typeof activePuzzle?.id === 'number' ? `#${activePuzzle.id}` : 'CASUALE'}
+              {typeof activePuzzle?.id === 'number' ? `#${activePuzzle.id}` : 'LIVE'}
             </span>
           </div>
           <h2 className="daily-title">
@@ -165,7 +167,7 @@ export const MainMenu = ({
             disabled={isGenerating}
             title="Genera nuova partita casuale"
           >
-            <CustomSvg name="magic" type="icon" size={15} />
+            <CustomSvg name="refresh" type="icon" size={14} />
             <span>{isGenerating ? '...' : 'Nuova'}</span>
           </button>
         </div>
@@ -174,7 +176,7 @@ export const MainMenu = ({
       <section className="minigames-section">
         <div className="section-header-row">
           <h3 className="section-header-title">MODALITÀ & MINIGIOCHI</h3>
-          <span className="section-count-tag">8 Modalità</span>
+          <span className="section-count-tag">9 Modalità</span>
         </div>
 
         <div className="minigames-grid">

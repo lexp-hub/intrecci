@@ -51,11 +51,11 @@ body {
 }
 
 .container-menu {
-  max-width: 1080px;
+  max-width: 1040px;
   margin: 0 auto;
   min-height: auto;
   justify-content: flex-start;
-  padding: 24px 28px 60px;
+  padding: 16px 20px 48px;
 }
 
 .container-game {
@@ -804,7 +804,7 @@ body {
   display: flex;
   flex-direction: column;
   width: 100%;
-  gap: 28px;
+  gap: 20px;
 }
 
 .main-navbar {
@@ -938,21 +938,21 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 8px 0 4px;
+  margin: 2px 0 0;
 }
 
 .hero-badge {
   display: inline-block;
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  padding: 4px 14px;
+  padding: 3px 12px;
   border-radius: 999px;
   background: #FDE8E4;
   color: #D97762;
   border: 1px solid #FCD5CE;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
 }
 
 [data-theme="dark"] .hero-badge {
@@ -963,28 +963,28 @@ body {
 
 .hero-title-xxl {
   font-family: var(--font-sans);
-  font-size: 3.4rem;
+  font-size: 2.7rem;
   font-weight: 900;
-  letter-spacing: -0.04em;
+  letter-spacing: -0.035em;
   color: var(--text-primary);
   line-height: 1;
-  margin: 0 0 10px;
+  margin: 0 0 6px;
 }
 
 .hero-claim {
-  font-size: 1.05rem;
+  font-size: 0.95rem;
   color: var(--text-secondary);
   max-width: 580px;
   margin: 0 auto;
-  line-height: 1.45;
+  line-height: 1.35;
 }
 
 .hero-daily-card {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 24px;
-  padding: 22px 28px;
+  gap: 20px;
+  padding: 16px 24px;
   border-radius: 16px;
   background: var(--bg-surface);
   border: 1.5px solid var(--border-subtle);
@@ -1056,7 +1056,7 @@ body {
 }
 
 .daily-title {
-  font-size: 1.35rem;
+  font-size: 1.22rem;
   font-weight: 800;
   letter-spacing: -0.01em;
   color: var(--text-primary);
@@ -1077,9 +1077,11 @@ body {
 }
 
 .hero-tiers-indicator {
-  display: grid;
-  grid-template-columns: repeat(2, auto);
-  gap: 6px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .tier-pill {
@@ -1239,8 +1241,8 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 175px;
-  padding: 20px;
+  min-height: 155px;
+  padding: 16px 18px;
   border-radius: 14px;
   background: var(--bg-surface);
   border: 1.5px solid var(--border-subtle);
@@ -1285,12 +1287,12 @@ body {
   display: flex;
   flex-direction: column;
   gap: 4px;
-  margin: 12px 0;
+  margin: 8px 0;
   flex: 1;
 }
 
 .game-card-title {
-  font-size: 1.05rem;
+  font-size: 0.98rem;
   font-weight: 800;
   color: var(--text-primary);
   margin: 0;
